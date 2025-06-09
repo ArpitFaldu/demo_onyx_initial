@@ -71,14 +71,14 @@ export default function TestPrepAdvantage() {
     };
 
     return (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-slate-800 text-white">
             <div className="container mx-auto px-4 max-w-6xl">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                         The Coherence Learning Test Prep Advantage
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    <p className="text-lg max-w-4xl mx-auto leading-relaxed">
                         We take the dark mystery out of standardized testing.
                         Our small class sizes, exceptional instructors, and
                         flexible learning approaches ensure that each student
@@ -136,12 +136,12 @@ export default function TestPrepAdvantage() {
 
                             <div className="flex-grow">
                                 {/* Title */}
-                                <h3 className="text-xl font-bold text-gray-800 mb-3 text-center md:text-left group-hover:text-gray-900 transition-colors duration-200">
+                                <h3 className="text-xl font-bold text-white mb-3 text-center md:text-left group-hover:text-gray-900 transition-colors duration-200">
                                     {program.title}
                                 </h3>
 
                                 {/* Description */}
-                                <p className="text-gray-600 text-sm leading-relaxed mb-6 text-center md:text-left">
+                                <p className="text-white text-sm leading-relaxed mb-6 text-center md:text-left">
                                     {program.description}
                                 </p>
 
@@ -174,7 +174,7 @@ export default function TestPrepAdvantage() {
                         <div className="text-gray-700 font-semibold mb-1">
                             Success Rate
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-gray-800">
                             Year-long students admitted to elite academies
                         </div>
                     </div>
@@ -185,7 +185,7 @@ export default function TestPrepAdvantage() {
                         <div className="text-gray-700 font-semibold mb-1">
                             Class Size Ratio
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-gray-800">
                             Maximum students per class for personalized
                             attention
                         </div>
@@ -197,7 +197,7 @@ export default function TestPrepAdvantage() {
                         <div className="text-gray-700 font-semibold mb-1">
                             Years Experience
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-gray-800">
                             Proven track record in test preparation excellence
                         </div>
                     </div>

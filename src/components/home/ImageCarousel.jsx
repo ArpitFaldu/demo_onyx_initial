@@ -38,7 +38,7 @@ const slides = [
         scrollIndicator: true,
     },
     {
-        src: "/images/coherence-learning-best-tutoring2.jpg",
+        src: "/img/coherence-learning-best-tutoring2.jpg",
         title: "In-person",
         subtitle: "Interactive Classes",
         animations: {
@@ -48,7 +48,7 @@ const slides = [
         },
     },
     {
-        src: "/images/coherence-learning-best-tutoring3.jpg",
+        src: "/img/coherence-learning-best-tutoring3.jpg",
         title: "Small Group Size",
         subtitle: "Flexible Hybrid Classes",
         animations: {
@@ -58,7 +58,7 @@ const slides = [
         },
     },
     {
-        src: "/images/coherence-learning-best-tutoring.jpg",
+        src: "/img/coherence-learning-best-tutoring.jpg",
         title: "Get organized and start",
         subtitle: " learning from home",
         animations: {
@@ -149,7 +149,7 @@ const ScrollIndicator = ({ targetId }) => {
             aria-label="Scroll to next section"
         >
             {/* Capsule background */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/10 to-white/20" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-black" />
 
             {/* Scrolling ball */}
             <motion.div
@@ -213,7 +213,7 @@ export default function ImageCarousel() {
                             alt={slide.title}
                             fill
                             style={{ objectFit: "cover" }}
-                            className="brightness-75"
+                            className="brightness-50"
                             priority
                         />
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
@@ -316,25 +316,19 @@ export default function ImageCarousel() {
                                                 </Link>
                                             )}
                                         </motion.div>
-                                        {slide.scrollIndicator ? (
-                                            <motion.div
-                                                key={`scroll-indicator-${index}`}
-                                                className="mt-8 flex justify-center"
-                                                {...getAnimationVariants(
+                                        <motion.div
+                                            key={`scroll-indicator-${index}`}
+                                            className="mt-8 flex justify-center"
+                                            {...getAnimationVariants("bottom")}
+                                            transition={{
+                                                ...getAnimationVariants(
                                                     "bottom"
-                                                )}
-                                                transition={{
-                                                    ...getAnimationVariants(
-                                                        "bottom"
-                                                    ).transition,
-                                                    delay: 0.2,
-                                                }}
-                                            >
-                                                <ScrollIndicator targetId="features" />
-                                            </motion.div>
-                                        ) : (
-                                            <></>
-                                        )}
+                                                ).transition,
+                                                delay: 0.2,
+                                            }}
+                                        >
+                                            <ScrollIndicator targetId="features" />
+                                        </motion.div>
                                     </>
                                 )}
                             </AnimatePresence>
