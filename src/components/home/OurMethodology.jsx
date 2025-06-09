@@ -17,25 +17,25 @@ const methodologyItems = [
         title: "Elementary School",
         description:
             "Development of inquisitive and independent thought beyond lower level Bloom’s Taxonomy thinking.",
-        image: "/images/methodology-1.png",
+        image: "/img/methodology-1.png",
     },
     {
         title: "Middle School",
         description:
             "Application of critical thinking skills through advanced literature and vocabulary.",
-        image: "/images/methodology-2.png",
+        image: "/img/methodology-2.png",
     },
     {
         title: "Early High School",
         description:
             "Mastery of grammar and comprehension skills through the introduction of SAT level questions and strategies.",
-        image: "/images/methodology-3.png",
+        image: "/img/methodology-3.png",
     },
     {
         title: "High School & College Prep",
         description:
             "Time Management is the key here. Bridging the comprehensive knowledge gained from a variety of advanced subjects.",
-        image: "/images/methodology-4.jpg",
+        image: "/img/methodology-4.jpg",
     },
 ];
 

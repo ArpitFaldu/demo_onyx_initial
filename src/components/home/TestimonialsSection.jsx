@@ -90,7 +90,7 @@ export default function TestimonialsSection() {
                 color: "white",
                 py: { xs: 6, md: 10 },
                 backgroundImage:
-                    "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/classroom-background.jpg')",
+                    "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/img/classroom-background.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
@@ -179,7 +179,7 @@ export default function TestimonialsSection() {
                                                     }}
                                                 >
                                                     <img
-                                                        src={`/images/${testimonial.platform}.webp`}
+                                                        src={`/img/${testimonial.platform}.webp`}
                                                         alt={
                                                             testimonial.platform
                                                         }
@@ -262,7 +262,7 @@ export default function TestimonialsSection() {
                 >
                     <Box
                         component="img"
-                        src="/images/help-center.webp"
+                        src="/img/help-center.webp"
                         alt="Help Icon"
                         sx={{
                             width: 60,

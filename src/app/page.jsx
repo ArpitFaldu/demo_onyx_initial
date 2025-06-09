@@ -1,8 +1,8 @@
 import ImageCarousel from "@/components/home/ImageCarousel";
 import ProgramsShowcase from "@/components/home/ProgramsShowcase";
-// import WhyChooseUs from "@/components/home/WhyChooseUs";
-// import SubjectTutoring from "@/components/home/SubjectTutoring";
-// import TestimonialsSection from "@/components/home/TestimonialsSection";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
+import SubjectTutoring from "@/components/home/SubjectTutoring";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 
 export default function HomePage() {
     return (
@@ -12,9 +12,9 @@ export default function HomePage() {
                 <ImageCarousel />
             </section>
             <ProgramsShowcase />
-            {/* // <WhyChooseUs />
-            // <SubjectTutoring />
-            // <TestimonialsSection /> */}
+            <WhyChooseUs />
+            <SubjectTutoring />
+            <TestimonialsSection />
         </div>
     );
 }

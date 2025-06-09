@@ -10,37 +10,37 @@ const features = [
     {
         title: "SAT/ACT/PSAT",
         desc: "The Standard test for College admittance, the higher the score the more options",
-        image: "/images/sat.jpg",
+        image: "/img/sat.jpg",
         href: "/test-prep-sat-act",
     },
     {
         title: "Academic Tutoring",
         desc: "For AP classes, weekly assignments, and everything in between, we have a variety of tutors to help out any night",
-        image: "/images/tutoring.jpg",
+        image: "/img/tutoring.jpg",
         href: "/academic-tutoring",
     },
     {
         title: "TJ & ACL Prep",
         desc: "Fostering creativity and a desire to learn is important to keeping children focused as they reach for harder skills",
-        image: "/images/prep.jpg",
+        image: "/img/prep.jpg",
         href: "/tj-aos-aet-prep",
     },
     {
         title: "Summer Courses",
         desc: "Driven students need to put their best foot forward; we cover every portion of the Northern Virginia magnet",
-        image: "/images/summer.jpg",
+        image: "/img/summer.jpg",
         href: "/summer-courses",
     },
     {
         title: "General Counselling",
         desc: "Whether it's academic stress, time management, or motivation, our counselors help students stay balanced and focused.",
-        image: "/images/counselling.jpg",
+        image: "/img/counselling.jpg",
         href: "/stem",
     },
     {
         title: "College Advising",
         desc: "From building the perfect college list to crafting standout essays, we guide students through every step of the admissions process.",
-        image: "/images/advising.jpg",
+        image: "/img/advising.jpg",
         href: "college-advising",
     },
 ];

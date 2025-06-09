@@ -1,57 +1,56 @@
 "use client";
 
 import Image from "next/image";
-import { Box, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
 const subjects = [
     {
         title: "Algebra I & II",
-        icon: "/images/icon-algebra.webp",
+        icon: "/img/icon-algebra.webp",
     },
     {
         title: "Geometry",
-        icon: "/images/icon-geometry.webp",
+        icon: "/img/icon-geometry.webp",
     },
     {
         title: "Pre-Calculus/Math Analysis",
-        icon: "/images/icon-pre-calculus.webp",
+        icon: "/img/icon-pre-calculus.webp",
     },
     {
         title: "AP Calculus",
-        icon: "/images/icon-calculus.webp",
+        icon: "/img/icon-calculus.webp",
     },
     {
         title: "AP Chemistry",
-        icon: "/images/icon-chemistry.webp",
+        icon: "/img/icon-chemistry.webp",
     },
     {
         title: "AP Physics",
-        icon: "/images/icon-physics.webp",
+        icon: "/img/icon-physics.webp",
     },
     {
         title: "AP Biology",
-        icon: "/images/icon-biology.webp",
+        icon: "/img/icon-biology.webp",
     },
     {
         title: "AP Economics",
-        icon: "/images/icon-economics.webp",
+        icon: "/img/icon-economics.webp",
     },
     {
         title: "AP World History",
-        icon: "/images/icon-history.webp",
+        icon: "/img/icon-history.webp",
     },
     {
         title: "AP US History",
-        icon: "/images/icon-us-history.webp",
+        icon: "/img/icon-us-history.webp",
     },
     {
         title: "Language Arts AP Language",
-        icon: "/images/icon-arts.webp",
+        icon: "/img/icon-arts.webp",
     },
     {
         title: "AP Government",
-        icon: "/images/icon-government.webp",
+        icon: "/img/icon-government.webp",
     },
 ];
 
@@ -75,7 +74,7 @@ const itemVariants = {
 
 export default function SubjectTutoring() {
     return (
-        <Box component="section" sx={{ py: 5, px: { xs: 5, md: 10, lg: 20 } }}>
+        <section className="py-20 px-5 md:px-10 lg:px-20 bg-slate-800 text-white">
             {/* Title */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -83,15 +82,9 @@ export default function SubjectTutoring() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
             >
-                <Typography
-                    variant="h4"
-                    textAlign="center"
-                    fontWeight={600}
-                    gutterBottom
-                    sx={{ mb: 4 }}
-                >
+                <h2 className="text-4xl text-center font-semibold mb-16">
                     Subject Tutoring
-                </Typography>
+                </h2>
             </motion.div>
 
             {/* Description */}
@@ -101,20 +94,13 @@ export default function SubjectTutoring() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
             >
-                <Typography
-                    variant="body1"
-                    textAlign="center"
-                    maxWidth="900px"
-                    mx="auto"
-                    color="text.secondary"
-                    sx={{ mb: 6, lineHeight: 1.6 }}
-                >
+                <p className="text-base text-center max-w-4xl mx-auto text-gray-400 mb-24 leading-relaxed">
                     GPA is the most weighted part of college admittance. While
                     strengthening our students on the Test Prep courses, we
                     offer specific curriculum-centered classes for high school
                     and middle schools students. The classes provide
                     student-centered instruction in all the following subjects.
-                </Typography>
+                </p>
             </motion.div>
 
             {/* Subjects Grid */}
@@ -124,43 +110,22 @@ export default function SubjectTutoring() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
             >
-                <Grid container spacing={1} justifyContent="center">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 justify-center">
                     {subjects.map((subject, index) => (
-                        <Grid size={{ xs: 6, sm: 4, md: 3 }} key={index}>
+                        <div key={index} className="col-span-1">
                             <motion.div
                                 variants={itemVariants}
                                 whileHover={{ scale: 1.05 }}
                                 style={{ cursor: "pointer" }}
                             >
-                                <Box
-                                    sx={{
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        alignItems: "center",
-                                        textAlign: "center",
-                                        pt: 2,
-                                        pb: 1,
-                                        borderRadius: 2,
-                                        transition: "all 0.3s ease",
-                                        "&:hover": {
-                                            boxShadow:
-                                                "0 8px 25px rgba(0,0,0,0.1)",
-                                            transform: "translateY(-2px)",
-                                        },
-                                    }}
-                                >
+                                <div className="flex flex-col items-center text-center pt-8 pb-4 rounded-lg transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-black/10 hover:-translate-y-0.5">
                                     {/* Icon Circle */}
-                                    <Box
-                                        sx={{
-                                            width: 40,
-                                            height: 40,
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                        }}
-                                    >
+                                    <div className="w-10 h-10 flex items-center justify-center">
                                         <Image
-                                            src={subject.icon}
+                                            src={
+                                                subject.icon ||
+                                                "/placeholder.svg"
+                                            }
                                             alt={subject.title}
                                             width={400}
                                             height={400}
@@ -170,28 +135,18 @@ export default function SubjectTutoring() {
                                                 objectFit: "cover",
                                             }}
                                         />
-                                    </Box>
+                                    </div>
 
                                     {/* Subject Title */}
-                                    <Typography
-                                        variant="subtitle1"
-                                        fontWeight={600}
-                                        color="text.primary"
-                                        sx={{
-                                            minHeight: "48px",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            textAlign: "center",
-                                        }}
-                                    >
+                                    <h3 className="text-lg font-semibold text-white min-h-12 flex items-center text-center">
                                         {subject.title}
-                                    </Typography>
-                                </Box>
+                                    </h3>
+                                </div>
                             </motion.div>
-                        </Grid>
+                        </div>
                     ))}
-                </Grid>
+                </div>
             </motion.div>
-        </Box>
+        </section>
     );
 }
