@@ -9,7 +9,7 @@ export default function ScrollToTopButton({
     bottom = 30,
     right = 30,
     size = 50,
-    backgroundColor = "#34495e",
+    backgroundColor = "#0f3963",
     iconColor = "white",
 }) {
     const [isVisible, setIsVisible] = useState(false);

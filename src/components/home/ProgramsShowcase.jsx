@@ -1,173 +1,291 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calculator, BookOpen, Users, GraduationCap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
-export default function TestPrepAdvantage() {
-    const programs = [
-        {
-            id: "digital-sat",
-            title: "Digital SAT",
-            description:
-                "Master the new adaptive format with integrated tools, more time per question, and focused strategies for the 2024 exam changes.",
-            icon: <Calculator size={24} />,
-            link: "/digital-sat",
-            color: "bg-blue-600",
-            hoverColor: "hover:bg-blue-700",
-        },
-        {
-            id: "digital-act",
-            title: "Digital ACT",
-            description:
-                "Prepare for Spring 2025's enhanced format with optional Science section and comprehensive strategies for maximum score potential.",
-            icon: <BookOpen size={24} />,
-            link: "/act",
-            color: "bg-slate-700",
-            hoverColor: "hover:bg-slate-600",
-        },
-        {
-            id: "sat-vs-act",
-            title: "SAT vs ACT Guidance",
-            description:
-                "Our diagnostic approach identifies your strengths to determine whether SAT's analytical focus or ACT's faster pace suits you better.",
-            icon: <Users size={24} />,
-            link: "/sat-vs-act",
-            color: "bg-slate-700",
-            hoverColor: "hover:bg-slate-600",
-        },
-        {
-            id: "tj-aos-prep",
-            title: "TJ & AOS/AET Prep",
-            description:
-                "Four-phase comprehensive preparation for elite academy admissions with over 50% success rate for year-long students.",
-            icon: <GraduationCap size={24} />,
-            link: "/tj-aos-aet-prep",
-            color: "bg-yellow-500",
-            hoverColor: "hover:bg-yellow-600",
-        },
-    ];
-
-    const containerVariants = {
-        hidden: {},
-        visible: {
-            transition: {
-                staggerChildren: 0.15,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.6, ease: "easeOut" },
-        },
-    };
-
-    return (
-        <section id="features" className="py-16 bg-slate-900 text-white">
-            <div className="container mx-auto px-4 max-w-6xl">
-                {/* Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        The Coherence Learning Test Prep Advantage
-                    </h2>
-                    <p className="text-lg max-w-4xl mx-auto leading-relaxed text-gray-300">
-                        We take the dark mystery out of standardized testing.
-                        Our small class sizes, exceptional instructors, and
-                        flexible learning approaches ensure that each student
-                        receives the individual attention and personalized
-                        teaching methods that are essential for mastery.
-                    </p>
+const features = [
+    {
+        icon: (
+            <div className="relative">
+                <svg
+                    className="w-10 h-10 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2c0-1.33 2.67-2 4-2s4 .67 4 2v2zm3-8h-2V9h2v3zm0-4h-2V6h2v2z" />
+                </svg>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
+                    <span className="text-xs font-bold text-gray-700">∑</span>
                 </div>
+            </div>
+        ),
+        title: "We have Digital SAT Expertise",
+        description:
+            "Our comprehensive Digital SAT program focuses on the new adaptive format, integrated calculator use, and shortened test duration. We provide targeted strategies, practice tests, and personalized guidance to help students master the digital interface and achieve top scores on this modernized assessment.",
+        link: "/digital-sat",
+    },
+    {
+        icon: (
+            <div className="relative">
+                <svg
+                    className="w-10 h-10 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
+                </svg>
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full flex items-center justify-center">
+                    <span className="text-xs font-bold text-gray-800">A</span>
+                </div>
+            </div>
+        ),
+        title: "We have ACT Preparation Excellence",
+        description:
+            "Our expert-led ACT courses prepare students for both traditional and digital formats. With the upcoming changes in 2025, including optional Science sections and enhanced digital features, we ensure students are ready for any version of the test with proven strategies and comprehensive practice materials.",
+        link: "/act",
+    },
+    {
+        icon: (
+            <div className="relative">
+                <svg
+                    className="w-10 h-10 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16c-.8 0-1.54.37-2.01.99L12 11.9l-2-2.91A2.99 2.99 0 0 0 7.54 8H5.46c-.8 0-1.49.59-1.42 1.37L6.5 16H9v6h2v-6h2v6h2z" />
+                </svg>
+                <div className="absolute -top-1 -left-1 w-4 h-4 bg-blue-400 rounded-full flex items-center justify-center">
+                    <span className="text-xs font-bold text-white">vs</span>
+                </div>
+            </div>
+        ),
+        title: "We have Personalized Test Selection",
+        description:
+            "Unsure whether to take the SAT or ACT? Our diagnostic approach analyzes each student's strengths, learning style, and college goals to determine the optimal test choice. We provide detailed comparisons and practice opportunities to ensure students select the test where they'll perform best.",
+        link: "/sat-vs-act",
+    },
+    {
+        icon: (
+            <div className="relative">
+                <svg
+                    className="w-10 h-10 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-purple-400 rounded-full flex items-center justify-center">
+                    <span className="text-xs font-bold text-white">TJ</span>
+                </div>
+            </div>
+        ),
+        title: "We have Specialized School Prep",
+        description:
+            "Our proven 4-phase preparation program for Thomas Jefferson High School and Academies of Loudoun entrance exams has achieved over 50% success rates. We build critical thinking, problem-solving, and analytical skills essential for these competitive admissions processes.",
+        link: "/tj-aos-aet-prep",
+    },
+];
 
-                {/* Programs Grid - Professional Design */}
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.1,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: {
+        opacity: 0,
+        y: 30,
+        scale: 0.9,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            type: "spring",
+            stiffness: 100,
+            damping: 12,
+            duration: 0.6,
+        },
+    },
+};
+
+const iconVariants = {
+    hover: {
+        scale: 1.1,
+        transition: {
+            type: "spring",
+            stiffness: 300,
+            damping: 10,
+        },
+    },
+};
+
+const buttonVariants = {
+    hover: {
+        scale: 1.05,
+        boxShadow: "0 10px 25px rgba(15, 57, 99, 0.3)",
+        transition: {
+            type: "spring",
+            stiffness: 300,
+            damping: 10,
+        },
+    },
+    tap: {
+        scale: 0.98,
+    },
+};
+
+export default function FeaturesSection() {
+    return (
+        <section
+            id="features"
+            className="py-16 md:py-24 bg-white overflow-hidden"
+        >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Section Header */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8"
+                    className="text-center mb-16"
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                    <motion.h2
+                        className="text-3xl md:text-4xl font-bold text-gray-900 mb-8"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        The Coherence Learning Test Prep Advantage
+                    </motion.h2>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                        <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-4">
+                            We take the guesswork out of test preparation. Our
+                            data-driven approach and small class sizes guarantee
+                            that each student receives the individual attention,
+                            personalized teaching approach, and flexible
+                            learning pace that are essential for mastery.
+                        </p>
+                    </motion.div>
+                </motion.div>
+
+                {/* Features Grid */}
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
+                    viewport={{ once: true, margin: "-100px" }}
                 >
-                    {programs.map((program) => (
+                    {features.map((feature, index) => (
                         <motion.div
-                            key={program.id}
-                            className="flex flex-col h-full bg-slate-800 rounded-lg border border-slate-700 overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:border-slate-600"
+                            key={index}
+                            className="text-center group"
                             variants={itemVariants}
+                            whileHover={{ y: -5 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 20,
+                            }}
                         >
-                            <div className="p-6 flex-grow">
-                                <div className="flex items-start mb-5">
-                                    <div
-                                        className={`flex-shrink-0 p-3 rounded-lg mr-4 ${program.color} text-white shadow-md`}
-                                    >
-                                        {program.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold text-white">
-                                        {program.title}
-                                    </h3>
-                                </div>
-
-                                <p className="text-gray-300 mb-6 text-base leading-relaxed">
-                                    {program.description}
-                                </p>
-                            </div>
-
-                            <div className="px-6 pb-6 mt-auto">
-                                <Link
-                                    href={program.link}
-                                    className={`inline-flex items-center justify-center w-full px-6 py-3 ${program.color} ${program.hoverColor} text-white text-sm font-medium rounded-md transition-colors duration-200`}
+                            {/* Icon */}
+                            <div className="flex justify-center mb-6">
+                                <motion.div
+                                    className="relative w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                                    variants={iconVariants}
+                                    whileHover="hover"
                                 >
-                                    LEARN MORE
-                                </Link>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
+                                    {feature.icon}
+                                </motion.div>
                             </div>
+
+                            {/* Title */}
+                            <motion.h3
+                                className="text-lg font-bold text-[#0f3963] mb-6 group-hover:text-[#1a4b7c] transition-colors duration-300"
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.3 + index * 0.1 }}
+                            >
+                                {feature.title}
+                            </motion.h3>
+
+                            {/* Description */}
+                            <motion.p
+                                className="text-gray-700 mb-8 leading-relaxed text-sm px-2"
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.4 + index * 0.1 }}
+                            >
+                                {feature.description}
+                            </motion.p>
+
+                            {/* Learn More Button */}
+                            <motion.div variants={buttonVariants}>
+                                <Button
+                                    asChild
+                                    variant="outline"
+                                    className="border-2 border-[#0f3963] text-[#0f3963] hover:bg-[#0f3963] hover:text-white px-8 py-2 font-semibold transition-all duration-300 rounded-md group-hover:border-[#1a4b7c]"
+                                >
+                                    <Link href={feature.link}>LEARN MORE</Link>
+                                </Button>
+                            </motion.div>
                         </motion.div>
                     ))}
                 </motion.div>
 
-                {/* Bottom Stats Section - More Professional */}
+                {/* Bottom CTA */}
                 <motion.div
-                    className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8"
-                    initial={{ opacity: 0, y: 20 }}
+                    className="text-center mt-16"
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                    <div className="p-6 rounded-lg bg-slate-800 border border-slate-700 text-center">
-                        <div className="text-4xl font-bold text-yellow-400 mb-2">
-                            90%+
-                        </div>
-                        <div className="text-white font-semibold mb-1">
-                            Success Rate
-                        </div>
-                        <div className="text-sm text-gray-300">
-                            Year-long students admitted to elite academies
-                        </div>
-                    </div>
-                    <div className="p-6 rounded-lg bg-slate-800 border border-slate-700 text-center">
-                        <div className="text-4xl font-bold text-yellow-400 mb-2">
-                            1:6
-                        </div>
-                        <div className="text-white font-semibold mb-1">
-                            Class Size Ratio
-                        </div>
-                        <div className="text-sm text-gray-300">
-                            Maximum students per class for personalized
-                            attention
-                        </div>
-                    </div>
-                    <div className="p-6 rounded-lg bg-slate-800 border border-slate-700 text-center">
-                        <div className="text-4xl font-bold text-yellow-400 mb-2">
-                            15+
-                        </div>
-                        <div className="text-white font-semibold mb-1">
-                            Years Experience
-                        </div>
-                        <div className="text-sm text-gray-300">
-                            Proven track record in test preparation excellence
-                        </div>
-                    </div>
+                    <motion.p
+                        className="text-gray-600 mb-6"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.8 }}
+                    >
+                        Ready to unlock your potential? Join thousands of
+                        students who have achieved their goals with Coherence
+                        Learning.
+                    </motion.p>
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                        }}
+                    >
+                        <Button
+                            asChild
+                            className="bg-gradient-to-r from-[#0f3963] to-[#1a4b7c] hover:from-[#1a4b7c] hover:to-[#0f3963] text-white p-8 text-lg font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl"
+                        >
+                            <Link href="/sign-up">Get Started Today</Link>
+                        </Button>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

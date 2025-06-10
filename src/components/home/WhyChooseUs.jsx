@@ -3,332 +3,217 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import {
-    ArrowRight,
-    Users,
-    Target,
-    BookOpen,
-    Trophy,
-    Clock,
-    Brain,
-} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ChevronRight, Users, Target, BookOpen, Award } from "lucide-react";
 
-const methodologyItems = [
-    {
-        title: "Elementary Foundation",
-        level: "Grades K-5",
-        description:
-            "Building curiosity and independent thinking beyond basic comprehension. We focus on developing critical thinking skills that will serve as the foundation for advanced learning.",
-        image: "/img/methodology-1.png",
-        icon: BookOpen,
-        color: "from-blue-500 to-cyan-500",
-        features: [
-            "Creative Problem Solving",
-            "Reading Comprehension",
-            "Mathematical Reasoning",
-        ],
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.3,
+            delayChildren: 0.2,
+        },
     },
-    {
-        title: "Middle School Mastery",
-        level: "Grades 6-8",
-        description:
-            "Applying critical thinking through advanced literature and expanding vocabulary. Students learn to analyze complex texts and express sophisticated ideas.",
-        image: "/img/methodology-2.png",
-        icon: Brain,
-        color: "from-purple-500 to-pink-500",
-        features: [
-            "Advanced Literature",
-            "Vocabulary Building",
-            "Analytical Writing",
-        ],
-    },
-    {
-        title: "High School Preparation",
-        level: "Grades 9-10",
-        description:
-            "Mastering grammar and comprehension through SAT-level questions and proven strategies. Students develop the skills needed for standardized test success.",
-        image: "/img/methodology-3.png",
-        icon: Target,
-        color: "from-green-500 to-emerald-500",
-        features: ["SAT Strategies", "Grammar Mastery", "Test-Taking Skills"],
-    },
-    {
-        title: "College Readiness",
-        level: "Grades 11-12",
-        description:
-            "Time management and comprehensive knowledge integration. Students learn to bridge concepts across subjects while preparing for college-level academics.",
-        image: "/img/methodology-4.jpg",
-        icon: Trophy,
-        color: "from-orange-500 to-red-500",
-        features: ["Time Management", "College Prep", "Advanced Integration"],
-    },
-];
+};
 
-const stats = [
-    {
-        number: "90%+",
-        label: "Students Qualify for Academy Programs",
-        icon: Trophy,
+const itemVariants = {
+    hidden: {
+        opacity: 0,
+        y: 30,
     },
-    { number: "15+", label: "Years of Teaching Experience", icon: Clock },
-    { number: "8:1", label: "Student to Teacher Ratio", icon: Users },
-    { number: "200+", label: "Average SAT Score Improvement", icon: Target },
-];
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            type: "spring",
+            stiffness: 100,
+            damping: 12,
+            duration: 0.8,
+        },
+    },
+};
 
-export default function WhyChooseUsSection() {
+const imageVariants = {
+    hidden: {
+        opacity: 0,
+        x: -50,
+        scale: 0.9,
+    },
+    visible: {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        transition: {
+            type: "spring",
+            stiffness: 80,
+            damping: 15,
+            duration: 1,
+        },
+    },
+};
+
+const iconVariants = {
+    hover: {
+        scale: 1.1,
+        rotate: 5,
+        transition: {
+            type: "spring",
+            stiffness: 300,
+            damping: 10,
+        },
+    },
+};
+
+export default function AboutSection() {
     return (
-        <section className="bg-slate-900 py-8 md:py-12 lg:py-16 relative overflow-hidden px-12">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-transparent"></div>
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,0,0.1),transparent_50%)]"></div>
-            </div>
-
-            <div className="container mx-auto px-4 relative z-10">
-                {/* Why Choose Us Section */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
-                    {/* Left Side - Content */}
+        <section className="overflow-hidden">
+            <div className="bg-gradient-to-br from-[#0f3963] via-[#1a4b7c] to-[#0f3963] py-12">
+                <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
                     <motion.div
-                        initial={{ x: -50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        viewport={{ once: true }}
-                        className="order-2 lg:order-1"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        className="space-y-20"
                     >
-                        <div className="space-y-6">
-                            <div>
-                                <span className="inline-block bg-yellow-400 text-slate-900 hover:bg-yellow-300 mb-4 font-semibold px-3 py-1 rounded-full text-sm">
-                                    Why Choose Coherence Learning
-                                </span>
-                                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-poppins leading-tight">
-                                    Personalized Learning That{" "}
-                                    <span className="text-yellow-400">
-                                        Actually Works
-                                    </span>
-                                </h2>
-                            </div>
-
-                            <div className="space-y-4 text-gray-300">
-                                <p className="text-lg leading-relaxed">
-                                    We're not your typical tutoring center. At
-                                    Coherence Learning, we believe every student
-                                    learns differently, and our approach
-                                    reflects that understanding.
-                                </p>
-                                <p className="text-lg leading-relaxed">
-                                    Inspired by educators who've seen the
-                                    limitations of "one-size-fits-all" teaching,
-                                    we focus on small group instruction and
-                                    multiple problem-solving strategies tailored
-                                    to each student's unique learning style.
-                                </p>
-                                <p className="text-lg leading-relaxed">
-                                    Our proven methodology has helped over 90%
-                                    of students qualify for Loudoun County's
-                                    prestigious Academy programs, with an
-                                    average SAT score improvement of 200+
-                                    points.
-                                </p>
-                            </div>
-
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                <Link
-                                    href="/about"
-                                    className="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-bold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-yellow-400/25"
-                                >
-                                    Learn More About Us
-                                    <ArrowRight className="h-4 w-4" />
-                                </Link>
-                                <Link
-                                    href="/schedule"
-                                    className="inline-flex items-center justify-center border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-slate-900 font-semibold px-8 py-3 rounded-lg transition-all duration-300"
-                                >
-                                    Schedule Consultation
-                                </Link>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Right Side - Image */}
-                    <motion.div
-                        initial={{ x: 50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        viewport={{ once: true }}
-                        className="order-1 lg:order-2"
-                    >
-                        <div className="relative">
-                            <div className="relative w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                                <Image
-                                    src="/img/why-choose-us.webp"
-                                    alt="Students learning at Coherence Learning"
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                            </div>
-
-                            {/* Floating Stats Card */}
+                        {/* Why Choose Us Section */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                            {/* Image Side */}
                             <motion.div
-                                initial={{ y: 20, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.6, delay: 0.4 }}
-                                viewport={{ once: true }}
-                                className="absolute -bottom-8 -left-8 bg-slate-800 rounded-xl p-6 shadow-xl border border-slate-700"
+                                variants={imageVariants}
+                                className="order-2 lg:order-1"
                             >
-                                <div className="flex items-center gap-3">
-                                    <div className="p-3 bg-yellow-400 rounded-lg">
-                                        <Trophy className="h-6 w-6 text-slate-900" />
-                                    </div>
-                                    <div>
-                                        <div className="text-2xl font-bold text-yellow-400">
-                                            90%+
+                                <div className="relative group">
+                                    <div className="absolute -inset-4 bg-gradient-to-r from-[#6a9bd1]/20 to-transparent rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                                    <div className="relative">
+                                        <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-tr-[60px] sm:rounded-tr-[80px] lg:rounded-tr-[100px] overflow-hidden shadow-2xl">
+                                            <Image
+                                                src="/images/why-choose-us.webp"
+                                                alt="Why Choose Coherence Learning"
+                                                fill
+                                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-[#0f3963]/20 to-transparent"></div>
                                         </div>
-                                        <div className="text-sm text-gray-300">
-                                            Success Rate
-                                        </div>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </div>
-                    </motion.div>
-                </div>
-
-                {/* Our Methodology Section */}
-                <div className="space-y-12">
-                    <motion.div
-                        initial={{ y: 30, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="text-center"
-                    >
-                        <span className="inline-block bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-4 font-semibold px-3 py-1 rounded-full text-sm">
-                            Our Proven Approach
-                        </span>
-                        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-poppins">
-                            Age-Appropriate Learning{" "}
-                            <span className="text-yellow-400">Methodology</span>
-                        </h3>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                            Building and maintaining a foundation of skills from
-                            traditional schooling to approach critical thinking,
-                            writing, and comprehension from a more advanced
-                            standpoint.
-                        </p>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {methodologyItems.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ y: 50, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                transition={{
-                                    duration: 0.6,
-                                    delay: 0.1 * index,
-                                }}
-                                viewport={{ once: true }}
-                                whileHover={{ y: -10 }}
-                                className="group cursor-pointer"
-                            >
-                                <div className="bg-slate-800 border border-slate-700 hover:border-yellow-400/50 transition-all duration-300 h-full overflow-hidden rounded-lg shadow-lg">
-                                    <div className="relative h-48 overflow-hidden">
-                                        <Image
-                                            src={
-                                                item.image || "/placeholder.svg"
-                                            }
-                                            alt={item.title}
-                                            fill
-                                            className="object-cover transition-transform duration-300 group-hover:scale-110"
-                                        />
-                                        <div
-                                            className={`absolute inset-0 bg-gradient-to-t ${item.color} opacity-20`}
-                                        ></div>
-                                        <div className="absolute top-4 left-4">
-                                            <span className="inline-block bg-white text-black border border-white/30 px-2 py-1 rounded text-xs font-medium">
-                                                {item.level}
-                                            </span>
-                                        </div>
-                                        <div className="absolute bottom-4 right-4">
-                                            <div className="p-3 bg-white/20 backdrop-blur-sm rounded-lg">
-                                                <item.icon className="h-6 w-6 text-white" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="p-6 space-y-4">
-                                        <h4 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">
-                                            {item.title}
-                                        </h4>
-                                        <p className="text-gray-300 text-sm leading-relaxed">
-                                            {item.description}
-                                        </p>
-
-                                        <div className="space-y-2">
-                                            <div className="text-sm font-semibold text-yellow-400 mb-2">
-                                                Key Focus Areas:
-                                            </div>
-                                            <ul className="space-y-1">
-                                                {item.features.map(
-                                                    (feature, featureIndex) => (
-                                                        <li
-                                                            key={featureIndex}
-                                                            className="text-xs text-gray-400 flex items-center gap-2"
-                                                        >
-                                                            <div className="w-1 h-1 bg-yellow-400 rounded-full"></div>
-                                                            {feature}
-                                                        </li>
-                                                    )
-                                                )}
-                                            </ul>
-                                        </div>
-
-                                        <Link
-                                            href="/our-methodology"
-                                            className="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 hover:bg-yellow-400/10 p-0 h-auto font-semibold group/btn transition-all duration-300"
+                                        {/* Floating Elements */}
+                                        <motion.div
+                                            className="absolute -top-6 -right-6 w-16 h-16 bg-[#6a9bd1] rounded-full flex items-center justify-center shadow-lg"
+                                            animate={{
+                                                y: [0, -10, 0],
+                                            }}
+                                            transition={{
+                                                duration: 3,
+                                                repeat: Number.POSITIVE_INFINITY,
+                                                ease: "easeInOut",
+                                            }}
                                         >
-                                            Learn More
-                                            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                                        </Link>
+                                            <Award className="w-8 h-8 text-white" />
+                                        </motion.div>
                                     </div>
                                 </div>
                             </motion.div>
-                        ))}
-                    </div>
-                </div>
 
-                {/* Call to Action */}
-                <motion.div
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                    className="text-center mt-16 p-8 bg-slate-800 rounded-2xl border border-slate-700"
-                >
-                    <h4 className="text-2xl font-bold text-white mb-4">
-                        Ready to Transform Your Learning Experience?
-                    </h4>
-                    <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                        Join hundreds of students who have achieved their
-                        academic goals with our personalized approach.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                            href="/sign-up"
-                            className="inline-flex items-center justify-center bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-bold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105"
+                            {/* Content Side */}
+                            <motion.div
+                                variants={itemVariants}
+                                className="order-1 lg:order-2 space-y-6"
+                            >
+                                <div className="space-y-4">
+                                    <motion.div
+                                        className="inline-flex items-center gap-2 px-4 py-2 bg-[#6a9bd1]/80 rounded-full text-black text-sm font-medium"
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 300,
+                                            damping: 20,
+                                        }}
+                                    >
+                                        <Users className="w-4 h-4" />
+                                        Personalized Learning
+                                    </motion.div>
+                                    <motion.h2
+                                        className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            delay: 0.3,
+                                            duration: 0.8,
+                                        }}
+                                    >
+                                        Why Choose{" "}
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6a9bd1] to-[#8ab5e1]">
+                                            Coherence Learning
+                                        </span>
+                                    </motion.h2>
+                                </div>
+
+                                <motion.div
+                                    className="space-y-4 text-gray-200"
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.5, duration: 0.8 }}
+                                >
+                                    <p className="text-lg leading-relaxed">
+                                        Coherence Learning prides itself on
+                                        being a different kind of help for
+                                        students. Inspired by teachers who have
+                                        seen the 'one size fits all' model of
+                                        teaching, we work to understand the
+                                        needs of each of our students, offering
+                                        only small class instruction and
+                                        multiple strategies for solving
+                                        problems.
+                                    </p>
+                                    <p className="text-lg leading-relaxed">
+                                        Our small-group sessions ensure students
+                                        receive the attention they deserve. We
+                                        keep class sizes low so instructors can
+                                        tailor their teaching to each student's
+                                        learning pace and style.
+                                    </p>
+                                </motion.div>
+
+                                <motion.div
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 300,
+                                        damping: 20,
+                                    }}
+                                >
+                                    <Button
+                                        asChild
+                                        className="bg-transparent border-2 border-[#6a9bd1] text-white hover:bg-[#6a9bd1] hover:text-[#0f3963] px-8 py-3 text-lg font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group"
+                                    >
+                                        <Link
+                                            href="/about"
+                                            className="flex items-center gap-2"
+                                        >
+                                            Read More
+                                            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                                        </Link>
+                                    </Button>
+                                </motion.div>
+                            </motion.div>
+                        </div>
+
+                        {/* Divider */}
+                        <motion.div
+                            className="flex items-center justify-center"
+                            initial={{ opacity: 0, scale: 0 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
                         >
-                            Start Your Journey
-                        </Link>
-                        <Link
-                            href="/contact-us"
-                            className="inline-flex items-center justify-center border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-slate-900 font-semibold px-8 py-3 rounded-lg"
-                        >
-                            Contact Us
-                        </Link>
-                    </div>
-                </motion.div>
+                            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#6a9bd1] to-transparent rounded-full"></div>
+                        </motion.div>
+                    </motion.div>
+                </div>
             </div>
         </section>
     );

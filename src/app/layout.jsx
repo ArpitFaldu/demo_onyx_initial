@@ -1,21 +1,28 @@
-import { Playfair_Display, Nunito_Sans, Lora } from "next/font/google";
+import {
+    Playfair_Display,
+    Nunito_Sans,
+    Lora,
+    Inter,
+    Glass_Antiqua,
+} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ScrollToTopButton from "@/components/scroll";
 
 // Configure your chosen fonts
-const headingFont = Playfair_Display({
+const headingFont = Nunito_Sans({
     subsets: ["latin"],
     variable: "--font-heading",
-    weight: ["400", "700"],
+    weight: ["400"],
 });
 
-const bodyFont = Lora({
+const bodyFont = Inter({
     subsets: ["latin"],
     variable: "--font-global", // CSS variable name
     weight: ["400", "600"], // Include needed weights
 });
+
 export const metadata = {
     title: "Coherence Learning",
     description: "Redefining Education",

@@ -7,26 +7,36 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import { Button } from "@mui/material";
+import { Button } from "@/components/ui/button";
 
 const slides = [
     {
         welcomeText: "Welcome to Coherence Learning",
-        src: "/img/coherence-learning-best-tutoring4.jpg",
+        src: "/images/coherence-learning-best-tutoring4.jpg",
         title: "Test Prep and Academic",
         subtitle: "Help Centre",
         buttons: (
-            <div className="w-fit flex items-center gap-4">
-                <Link href="/sign-up">
-                    <Button variant="contained" color="primary" size="large">
-                        SIGN UP TODAY <ChevronRight size={40} />
-                    </Button>
-                </Link>
-                <Link href="/contact-us">
-                    <Button variant="contained" color="success" size="large">
-                        Contact Us <ChevronRight size={40} />
-                    </Button>
-                </Link>
+            <div className="w-fit flex flex-col sm:flex-row items-center gap-4">
+                <Button
+                    asChild
+                    className="bg-[#0f3963] hover:bg-[#1a4b7c] text-white p-8 text-lg font-semibold rounded-md transition-all duration-300 hover:scale-105 transform shadow-lg"
+                >
+                    <Link href="/sign-up" className="flex items-center gap-2">
+                        GET STARTED <ChevronRight size={24} />
+                    </Link>
+                </Button>
+                <Button
+                    asChild
+                    variant="outline"
+                    className="border-2 border-white text-white hover:bg-white hover:text-gray-900 p-8 text-lg font-semibold rounded-md transition-all duration-300 hover:scale-105 transform shadow-lg"
+                >
+                    <Link
+                        href="/contact-us"
+                        className="flex items-center gap-2"
+                    >
+                        Contact Us <ChevronRight size={24} />
+                    </Link>
+                </Button>
             </div>
         ),
         animations: {
@@ -38,30 +48,36 @@ const slides = [
         scrollIndicator: true,
     },
     {
-        src: "/img/coherence-learning-best-tutoring2.jpg",
-        title: "In-person",
-        subtitle: "Interactive Classes",
+        welcomeText: "Experience Excellence",
+        src: "/images/coherence-learning-best-tutoring2.jpg",
+        title: "In-Person Interactive",
+        subtitle: "Learning Experience",
         animations: {
+            welcomeText: { direction: "top", delay: 0.1 },
             title: { direction: "top", delay: 0.2 },
             subtitle: { direction: "fade", delay: 0.4 },
             buttons: { direction: "scale", delay: 0.6 },
         },
     },
     {
-        src: "/img/coherence-learning-best-tutoring3.jpg",
-        title: "Small Group Size",
-        subtitle: "Flexible Hybrid Classes",
+        welcomeText: "Personalized Approach",
+        src: "/images/coherence-learning-best-tutoring3.jpg",
+        title: "Small Group Classes",
+        subtitle: "Maximum Impact",
         animations: {
+            welcomeText: { direction: "top", delay: 0.1 },
             title: { direction: "right", delay: 0.2 },
             subtitle: { direction: "left", delay: 0.4 },
             buttons: { direction: "top", delay: 0.6 },
         },
     },
     {
-        src: "/img/coherence-learning-best-tutoring.jpg",
-        title: "Get organized and start",
-        subtitle: " learning from home",
+        welcomeText: "Learn From Anywhere",
+        src: "/images/coherence-learning-best-tutoring.jpg",
+        title: "Flexible Online",
+        subtitle: "Learning Solutions",
         animations: {
+            welcomeText: { direction: "top", delay: 0.1 },
             title: { direction: "scale", delay: 0.2 },
             subtitle: { direction: "bottom", delay: 0.4 },
             buttons: { direction: "fade", delay: 0.6 },
@@ -149,7 +165,7 @@ const ScrollIndicator = ({ targetId }) => {
             aria-label="Scroll to next section"
         >
             {/* Capsule background */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-black" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/10 to-white/20" />
 
             {/* Scrolling ball */}
             <motion.div
@@ -192,7 +208,10 @@ export default function ImageCarousel() {
     };
 
     return (
-        <div className="relative w-full h-[80vh]">
+        <div
+            className="relative w-full h-screen min-h-screen"
+            style={{ height: "100vh", minHeight: "100vh" }}
+        >
             <Carousel
                 showThumbs={false}
                 infiniteLoop
@@ -207,7 +226,10 @@ export default function ImageCarousel() {
                 autoPlay={false}
             >
                 {slides.map((slide, index) => (
-                    <div key={index} className="relative h-[80vh] w-full">
+                    <div
+                        key={index}
+                        className="relative h-screen min-h-screen w-full"
+                    >
                         <Image
                             src={slide.src || "/placeholder.svg"}
                             alt={slide.title}
@@ -216,14 +238,15 @@ export default function ImageCarousel() {
                             className="brightness-50"
                             priority
                         />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+                        <div className="absolute inset-0 bg-black/30" />
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 pt-32 md:pt-40">
                             <AnimatePresence mode="wait">
                                 {index === activeIndex && !isChanging && (
                                     <>
                                         {slide.welcomeText ? (
                                             <motion.p
                                                 key={`welcome-${index}`}
-                                                className="text-lg md:text-xl font-medium mb-8 tracking-wide uppercase"
+                                                className="text-lg md:text-xl font-medium mb-8 tracking-wide uppercase text-amber-100"
                                                 {...getAnimationVariants(
                                                     slide.animations.welcomeText
                                                         .direction
@@ -247,7 +270,7 @@ export default function ImageCarousel() {
                                         )}
                                         <motion.h2
                                             key={`title-${index}`}
-                                            className="text-4xl md:text-6xl font-bold m-4"
+                                            className="text-4xl md:text-6xl lg:text-7xl font-bold m-4 leading-tight"
                                             {...getAnimationVariants(
                                                 slide.animations.title.direction
                                             )}
@@ -266,7 +289,7 @@ export default function ImageCarousel() {
 
                                         <motion.h2
                                             key={`subtitle-${index}`}
-                                            className="mt-1 text-4xl md:text-6xl font-bold m-4"
+                                            className="mt-1 text-4xl md:text-6xl lg:text-7xl font-bold m-4 leading-tight text-yellow-400"
                                             {...getAnimationVariants(
                                                 slide.animations.subtitle
                                                     .direction
@@ -286,7 +309,7 @@ export default function ImageCarousel() {
 
                                         <motion.div
                                             key={`buttons-${index}`}
-                                            className="mt-6"
+                                            className="mt-8"
                                             {...getAnimationVariants(
                                                 slide.animations.buttons
                                                     .direction
@@ -302,29 +325,31 @@ export default function ImageCarousel() {
                                             }}
                                         >
                                             {slide.buttons || (
-                                                <Link href="/sign-up">
-                                                    <Button
-                                                        variant="contained"
-                                                        color="primary"
-                                                        size="large"
+                                                <Button
+                                                    asChild
+                                                    className="bg-[#0f3963] hover:bg-[#1a4b7c] text-white p-8 text-lg font-semibold rounded-md transition-all duration-300 hover:scale-105 transform shadow-lg"
+                                                >
+                                                    <Link
+                                                        href="/sign-up"
+                                                        className="flex items-center gap-2"
                                                     >
-                                                        SIGN UP TODAY{" "}
+                                                        GET STARTED{" "}
                                                         <ChevronRight
-                                                            size={40}
+                                                            size={24}
                                                         />
-                                                    </Button>
-                                                </Link>
+                                                    </Link>
+                                                </Button>
                                             )}
                                         </motion.div>
                                         <motion.div
                                             key={`scroll-indicator-${index}`}
-                                            className="mt-8 flex justify-center"
+                                            className="mt-12 flex justify-center"
                                             {...getAnimationVariants("bottom")}
                                             transition={{
                                                 ...getAnimationVariants(
                                                     "bottom"
                                                 ).transition,
-                                                delay: 0.2,
+                                                delay: 0.8,
                                             }}
                                         >
                                             <ScrollIndicator targetId="features" />

@@ -2,7 +2,8 @@ import ImageCarousel from "@/components/home/ImageCarousel";
 import ProgramsShowcase from "@/components/home/ProgramsShowcase";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import SubjectTutoring from "@/components/home/SubjectTutoring";
-import TestimonialsSection from "@/components/home/TestimonialsSection";
+import NeedHelpSection from "@/components/home/NeedHelp";
+import CaseStudiesSection from "@/components/home/CaseStudy";
 
 export default function HomePage() {
     return (
@@ -14,7 +15,8 @@ export default function HomePage() {
             <ProgramsShowcase />
             <WhyChooseUs />
             <SubjectTutoring />
-            <TestimonialsSection />
+            <CaseStudiesSection />
+            <NeedHelpSection />
         </div>
     );
 }
