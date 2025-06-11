@@ -4,8 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Mail, Phone, Clock, Users, Award } from "lucide-react";
+import { MapPin, Mail, Phone, Clock } from "lucide-react";
 import Link from "next/link";
 
 export default function ContactUsPage() {
@@ -146,8 +145,8 @@ export default function ContactUsPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {/* Location */}
-                    <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-                        <CardContent className="p-6">
+                    <div className="text-center hover:shadow-xl rounded-lg bg-gray-200 transition-shadow duration-300">
+                        <div className="p-6">
                             <div className="flex justify-center mb-4">
                                 <div className="bg-blue-100 p-4 rounded-full">
                                     <MapPin className="h-8 w-8 text-blue-600" />
@@ -161,12 +160,12 @@ export default function ContactUsPage() {
                                 <br />
                                 Ashburn VA 20147
                             </p>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </div>
 
                     {/* Email */}
-                    <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-                        <CardContent className="p-6">
+                    <div className="text-center hover:shadow-xl rounded-lg bg-gray-200 transition-shadow duration-300">
+                        <div className="p-6">
                             <div className="flex justify-center mb-4">
                                 <div className="bg-yellow-100 p-4 rounded-full">
                                     <Mail className="h-8 w-8 text-yellow-600" />
@@ -190,12 +189,12 @@ export default function ContactUsPage() {
                                     support@coherencelearning.us
                                 </a>
                             </p>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </div>
 
                     {/* Phone */}
-                    <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-                        <CardContent className="p-6">
+                    <div className="text-center hover:shadow-xl rounded-lg bg-gray-200 transition-shadow duration-300">
+                        <div className="p-6">
                             <div className="flex justify-center mb-4">
                                 <div className="bg-green-100 p-4 rounded-full">
                                     <Phone className="h-8 w-8 text-green-600" />
@@ -219,8 +218,8 @@ export default function ContactUsPage() {
                                     Cell: +1 703 401 8779
                                 </a>
                             </p>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -229,127 +228,309 @@ export default function ContactUsPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         {/* Contact Form */}
-                        <div className="bg-white rounded-2xl p-8">
-                            <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                                Send Us a Message
-                            </h2>
-                            <p className="text-gray-600 mb-8">
-                                Fill out the form below and we'll get back to
-                                you within 24 hours to discuss how we can help
-                                your child succeed.
-                            </p>
+                        <div className="relative">
+                            <div className="relative bg-white rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:shadow-3xl">
+                                <div className="text-center mb-8">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-4 shadow-lg">
+                                        <Mail className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h2 className="text-3xl font-bold text-gray-800 mb-3">
+                                        Send Us a Message
+                                    </h2>
+                                    <p className="text-gray-600">
+                                        Fill out the form below and we'll get
+                                        back to you within 24 hours to discuss
+                                        how we can help your child succeed.
+                                    </p>
+                                </div>
 
-                            <Card>
-                                <CardContent className="p-6">
-                                    <form
-                                        onSubmit={handleSubmit}
-                                        className="space-y-6"
-                                    >
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                            <div>
-                                                <Input
-                                                    type="text"
-                                                    name="name"
-                                                    placeholder="Your Name *"
-                                                    value={formData.name}
-                                                    onChange={handleInputChange}
-                                                    className={`h-12 ${
-                                                        errors.name
-                                                            ? "border-red-500"
-                                                            : ""
-                                                    }`}
-                                                />
-                                                {errors.name && (
-                                                    <p className="text-red-500 text-sm mt-1">
-                                                        {errors.name}
-                                                    </p>
-                                                )}
+                                <form
+                                    onSubmit={handleSubmit}
+                                    className="space-y-6"
+                                >
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div className="relative group">
+                                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <svg
+                                                    className="h-5 w-5 text-gray-400 group-focus-within:text-blue-500 transition-colors"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        strokeWidth={2}
+                                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                                    />
+                                                </svg>
                                             </div>
-                                            <div>
-                                                <Input
-                                                    type="email"
-                                                    name="email"
-                                                    placeholder="Your Email *"
-                                                    value={formData.email}
-                                                    onChange={handleInputChange}
-                                                    className={`h-12 ${
-                                                        errors.email
-                                                            ? "border-red-500"
-                                                            : ""
-                                                    }`}
-                                                />
-                                                {errors.email && (
-                                                    <p className="text-red-500 text-sm mt-1">
-                                                        {errors.email}
-                                                    </p>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                            <div>
-                                                <Input
-                                                    type="tel"
-                                                    name="phone"
-                                                    placeholder="Your Phone *"
-                                                    value={formData.phone}
-                                                    onChange={handleInputChange}
-                                                    className={`h-12 ${
-                                                        errors.phone
-                                                            ? "border-red-500"
-                                                            : ""
-                                                    }`}
-                                                />
-                                                {errors.phone && (
-                                                    <p className="text-red-500 text-sm mt-1">
-                                                        {errors.phone}
-                                                    </p>
-                                                )}
-                                            </div>
-                                            <div>
-                                                <Input
-                                                    type="text"
-                                                    name="subject"
-                                                    placeholder="Subject *"
-                                                    value={formData.subject}
-                                                    onChange={handleInputChange}
-                                                    className={`h-12 ${
-                                                        errors.subject
-                                                            ? "border-red-500"
-                                                            : ""
-                                                    }`}
-                                                />
-                                                {errors.subject && (
-                                                    <p className="text-red-500 text-sm mt-1">
-                                                        {errors.subject}
-                                                    </p>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <Textarea
-                                                name="additionalInfo"
-                                                placeholder="Tell us about your child's academic goals and how we can help..."
-                                                value={formData.additionalInfo}
+                                            <Input
+                                                type="text"
+                                                name="name"
+                                                placeholder="Your Name *"
+                                                value={formData.name}
                                                 onChange={handleInputChange}
-                                                rows={6}
-                                                className="resize-none"
+                                                className={`h-14 pl-10 pr-4 rounded-xl shadow-sm transition-all duration-300 focus:shadow-lg focus:scale-105 ${
+                                                    errors.name
+                                                        ? "border-red-500 bg-red-50"
+                                                        : "border-gray-200 focus:border-blue-500"
+                                                }`}
                                             />
+                                            {errors.name && (
+                                                <p className="text-red-500 text-sm mt-2 flex items-center">
+                                                    <svg
+                                                        className="h-4 w-4 mr-1"
+                                                        fill="currentColor"
+                                                        viewBox="0 0 20 20"
+                                                    >
+                                                        <path
+                                                            fillRule="evenodd"
+                                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                            clipRule="evenodd"
+                                                        />
+                                                    </svg>
+                                                    {errors.name}
+                                                </p>
+                                            )}
                                         </div>
 
+                                        <div className="relative group">
+                                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
+                                            </div>
+                                            <Input
+                                                type="email"
+                                                name="email"
+                                                placeholder="Your Email *"
+                                                value={formData.email}
+                                                onChange={handleInputChange}
+                                                className={`h-14 pl-10 pr-4 rounded-xl shadow-sm transition-all duration-300 focus:shadow-lg focus:scale-105 ${
+                                                    errors.email
+                                                        ? "border-red-500 bg-red-50"
+                                                        : "border-gray-200 focus:border-blue-500"
+                                                }`}
+                                            />
+                                            {errors.email && (
+                                                <p className="text-red-500 text-sm mt-2 flex items-center">
+                                                    <svg
+                                                        className="h-4 w-4 mr-1"
+                                                        fill="currentColor"
+                                                        viewBox="0 0 20 20"
+                                                    >
+                                                        <path
+                                                            fillRule="evenodd"
+                                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                            clipRule="evenodd"
+                                                        />
+                                                    </svg>
+                                                    {errors.email}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div className="relative group">
+                                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <Phone className="h-5 w-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
+                                            </div>
+                                            <Input
+                                                type="tel"
+                                                name="phone"
+                                                placeholder="Your Phone *"
+                                                value={formData.phone}
+                                                onChange={handleInputChange}
+                                                className={`h-14 pl-10 pr-4 rounded-xl shadow-sm transition-all duration-300 focus:shadow-lg focus:scale-105 ${
+                                                    errors.phone
+                                                        ? "border-red-500 bg-red-50"
+                                                        : "border-gray-200 focus:border-blue-500"
+                                                }`}
+                                            />
+                                            {errors.phone && (
+                                                <p className="text-red-500 text-sm mt-2 flex items-center">
+                                                    <svg
+                                                        className="h-4 w-4 mr-1"
+                                                        fill="currentColor"
+                                                        viewBox="0 0 20 20"
+                                                    >
+                                                        <path
+                                                            fillRule="evenodd"
+                                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                            clipRule="evenodd"
+                                                        />
+                                                    </svg>
+                                                    {errors.phone}
+                                                </p>
+                                            )}
+                                        </div>
+
+                                        <div className="relative group">
+                                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <svg
+                                                    className="h-5 w-5 text-gray-400 group-focus-within:text-blue-500 transition-colors"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        strokeWidth={2}
+                                                        d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                                                    />
+                                                </svg>
+                                            </div>
+                                            <Input
+                                                type="text"
+                                                name="subject"
+                                                placeholder="Subject *"
+                                                value={formData.subject}
+                                                onChange={handleInputChange}
+                                                className={`h-14 pl-10 pr-4 rounded-xl shadow-sm transition-all duration-300 focus:shadow-lg focus:scale-105 ${
+                                                    errors.subject
+                                                        ? "border-red-500 bg-red-50"
+                                                        : "border-gray-200 focus:border-blue-500"
+                                                }`}
+                                            />
+                                            {errors.subject && (
+                                                <p className="text-red-500 text-sm mt-2 flex items-center">
+                                                    <svg
+                                                        className="h-4 w-4 mr-1"
+                                                        fill="currentColor"
+                                                        viewBox="0 0 20 20"
+                                                    >
+                                                        <path
+                                                            fillRule="evenodd"
+                                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                            clipRule="evenodd"
+                                                        />
+                                                    </svg>
+                                                    {errors.subject}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="relative group">
+                                        <div className="absolute top-4 left-0 pointer-events-none">
+                                            <svg
+                                                className="h-5 w-5 text-gray-400 group-focus-within:text-blue-500 transition-colors"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <Textarea
+                                            name="additionalInfo"
+                                            placeholder="Tell us about your child's academic goals and how we can help..."
+                                            value={formData.additionalInfo}
+                                            onChange={handleInputChange}
+                                            rows={6}
+                                            className="resize-none pl-10 pr-4 pt-4 rounded-xl shadow-sm transition-all duration-300 focus:shadow-lg focus:scale-105 border-gray-200 focus:border-blue-500"
+                                        />
+                                    </div>
+
+                                    <div className="pt-4">
                                         <Button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="bg-[#0f3963] hover:bg-[#0f3963]/95 text-white font-semibold px-8 py-3 w-full transform transition-all duration-300 hover:scale-105"
+                                            className="relative w-full h-14 bg-gradient-to-r from-[#0f3963] to-blue-700 hover:from-[#0f3963]/90 hover:to-blue-600 text-white font-semibold rounded-xl shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden group"
                                         >
-                                            {isSubmitting
-                                                ? "SENDING MESSAGE..."
-                                                : "SEND MESSAGE"}
+                                            <span className="relative z-10 flex items-center justify-center">
+                                                {isSubmitting ? (
+                                                    <>
+                                                        <svg
+                                                            className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                        >
+                                                            <circle
+                                                                className="opacity-25"
+                                                                cx="12"
+                                                                cy="12"
+                                                                r="10"
+                                                                stroke="currentColor"
+                                                                strokeWidth="4"
+                                                            ></circle>
+                                                            <path
+                                                                className="opacity-75"
+                                                                fill="currentColor"
+                                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                                            ></path>
+                                                        </svg>
+                                                        SENDING MESSAGE...
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <svg
+                                                            className="mr-2 h-5 w-5 rotate-45"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            viewBox="0 0 24 24"
+                                                        >
+                                                            <path
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth={2}
+                                                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                                                            />
+                                                        </svg>
+                                                        SEND MESSAGE
+                                                    </>
+                                                )}
+                                            </span>
+                                            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                         </Button>
-                                    </form>
-                                </CardContent>
-                            </Card>
+                                    </div>
+                                </form>
+
+                                {/* Trust indicators */}
+                                <div className="mt-8 pt-6 border-t border-gray-100">
+                                    <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
+                                        <div className="flex items-center">
+                                            <svg
+                                                className="h-4 w-4 mr-1 text-green-500"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path
+                                                    fillRule="evenodd"
+                                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                                    clipRule="evenodd"
+                                                />
+                                            </svg>
+                                            Secure & Private
+                                        </div>
+                                        <div className="flex items-center">
+                                            <Clock className="h-4 w-4 mr-1 text-blue-500" />
+                                            24hr Response
+                                        </div>
+                                        <div className="flex items-center">
+                                            <svg
+                                                className="h-4 w-4 mr-1 text-purple-500"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path
+                                                    fillRule="evenodd"
+                                                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                    clipRule="evenodd"
+                                                />
+                                            </svg>
+                                            Expert Team
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Map and Additional Info */}
@@ -372,26 +553,20 @@ export default function ContactUsPage() {
                                 </div>
                             </div>
 
-                            {/* Additional Information Cards */}
-                            <div className="space-y-4">
-                                <Card className="bg-gray-50">
-                                    <CardContent className="p-4">
-                                        <div className="flex items-center space-x-3">
-                                            <Clock className="h-6 w-6 text-blue-600" />
-                                            <div>
-                                                <h4 className="font-semibold text-gray-800">
-                                                    Office Hours
-                                                </h4>
-                                                <p className="text-sm text-gray-600">
-                                                    Mon-Fri: 9:00 AM - 7:00 PM
-                                                </p>
-                                                <p className="text-sm text-gray-600">
-                                                    Sat-Sun: 10:00 AM - 4:00 PM
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </CardContent>
-                                </Card>
+                            {/* Additional Information divs */}
+                            <div className="flex items-center space-x-3 bg-gray-50 p-4 rounded-lg shadow-2xl">
+                                <Clock className="h-6 w-6 text-blue-600" />
+                                <div>
+                                    <h4 className="font-semibold text-gray-800">
+                                        Office Hours
+                                    </h4>
+                                    <p className="text-sm text-gray-600">
+                                        Mon-Fri: 9:00 AM - 7:00 PM
+                                    </p>
+                                    <p className="text-sm text-gray-600">
+                                        Sat-Sun: 10:00 AM - 4:00 PM
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

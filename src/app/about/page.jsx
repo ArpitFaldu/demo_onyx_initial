@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import Link from "next/link";
 
@@ -391,8 +390,8 @@ export default function AboutUsPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Aman A. */}
-                        <Card className="text-center hover:shadow-lg transition-shadow duration-300 bg-gray-100/60">
-                            <CardContent className="p-6">
+                        <div className="text-center hover:shadow-2xl transition-shadow duration-300 bg-gray-100/60 rounded-lg">
+                            <div className="p-6">
                                 <div className="mb-6">
                                     <img
                                         src="/images/aman.webp"
@@ -413,12 +412,12 @@ export default function AboutUsPage() {
                                     that help students excel in everything they
                                     do.
                                 </p>
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </div>
 
                         {/* Brian N. */}
-                        <Card className="text-center hover:shadow-lg transition-shadow duration-300 bg-gray-100/60">
-                            <CardContent className="p-6">
+                        <div className="text-center hover:shadow-2xl transition-shadow duration-300 bg-gray-100/60 rounded-lg">
+                            <div className="p-6">
                                 <div className="mb-6">
                                     <img
                                         src="/images/profile-placeholder.webp"
@@ -438,12 +437,12 @@ export default function AboutUsPage() {
                                     2005. He focuses on details that students
                                     often miss when studying independently.
                                 </p>
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </div>
 
                         {/* Danny F. */}
-                        <Card className="text-center hover:shadow-lg transition-shadow duration-300 bg-gray-100/60">
-                            <CardContent className="p-6">
+                        <div className="text-center hover:shadow-2xl transition-shadow duration-300 bg-gray-100/60 rounded-lg">
+                            <div className="p-6">
                                 <div className="mb-6">
                                     <img
                                         src="/images/profile-placeholder.webp"
@@ -463,8 +462,8 @@ export default function AboutUsPage() {
                                     connects well with students and teaches
                                     advanced math and science techniques.
                                 </p>
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -485,11 +484,11 @@ export default function AboutUsPage() {
                     {/* Testimonials Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                         {testimonials.map((testimonial, index) => (
-                            <Card
+                            <div
                                 key={index}
-                                className="bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                                className="bg-white rounded-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
                             >
-                                <CardContent className="p-6">
+                                <div className="p-6">
                                     <div className="flex items-center mb-4">
                                         <img
                                             src={
@@ -524,8 +523,8 @@ export default function AboutUsPage() {
                                     <p className="font-semibold text-gray-800">
                                         {testimonial.name}
                                     </p>
-                                </CardContent>
-                            </Card>
+                                </div>
+                            </div>
                         ))}
                     </div>
 

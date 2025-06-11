@@ -1,484 +1,586 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import {
-    Calendar,
-    Clock,
-    CheckCircle,
-    Calculator,
+    TrendingUp,
     BookOpen,
+    Calculator,
+    Users,
+    CheckCircle,
+    Calendar,
+    Award,
+    Zap,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function DigitalSATPage() {
+    const [activeTab, setActiveTab] = useState("overview");
+
+    // Animation counter for statistics
+    const [pointGains, setPointGains] = useState(0);
+    const [successRate, setSuccessRate] = useState(0);
+
+    useEffect(() => {
+        const timer1 = setInterval(() => {
+            setPointGains((prev) => (prev < 250 ? prev + 5 : 250));
+        }, 20);
+
+        const timer2 = setInterval(() => {
+            setSuccessRate((prev) => (prev < 90 ? prev + 2 : 90));
+        }, 30);
+
+        return () => {
+            clearInterval(timer1);
+            clearInterval(timer2);
+        };
+    }, []);
+
     return (
-        <div className="min-h-screen bg-slate-900 text-white font-inter">
-            {/* Hero Section */}
-            <section className="relative h-[400px] md:h-[500px] flex items-center justify-start overflow-hidden">
-                {/* Background Image with Overlay */}
+        <div className="min-h-screen">
+            {/* Hero Section - Matching About Us Design */}
+            <section className="relative pb-4 h-[400px] flex items-center justify-start overflow-hidden">
+                {/* Background Image */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-in zoom-in-105 duration-300"
                     style={{
-                        backgroundImage: 'url("/1.jpg")',
-                        filter: "brightness(0.4) blur(2px)",
+                        backgroundImage: 'url("/images/methodology-3.png")',
+                        filter: "blur(2px)",
                     }}
                 />
 
-                {/* Animated Gradient Overlay */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1.5 }}
-                    className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-800/50"
-                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/80 animate-in fade-in duration-300" />
 
                 {/* Content */}
-                <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <span className="inline-block bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-4 font-semibold px-3 py-1 rounded-full text-sm">
-                            Now Available
-                        </span>
-                        <h1 className="text-4xl lg:text-6xl font-bold mb-6 font-poppins">
-                            Digital <span className="text-yellow-400">SAT</span>
-                        </h1>
-                        <p className="text-xl text-gray-300 max-w-2xl mb-8">
-                            Building critical thinking, writing, and
-                            comprehension skills for the next generation of
-                            standardized testing
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.3 }}
-                            >
-                                <Link
-                                    href="/sign-up"
-                                    className="inline-flex items-center justify-center bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-bold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
-                                >
-                                    Sign Up
-                                </Link>
-                            </motion.div>
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.5 }}
-                            >
-                                <Link
-                                    href="/contact-us"
-                                    className="inline-flex items-center justify-center border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-slate-900 font-semibold px-8 py-3 rounded-lg transition-all duration-300"
-                                >
-                                    Contact Us
-                                </Link>
-                            </motion.div>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Key Info Section */}
-            <section className="py-16 bg-slate-800">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="mb-12 text-center"
-                    >
-                        <h2 className="text-3xl font-bold mb-6 font-poppins">
-                            Digital SAT:{" "}
-                            <span className="text-yellow-400">
-                                Everything You Need to Know
-                            </span>
-                        </h2>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                            The College Board's adaptive online SAT is now the
-                            standard for college admissions testing
-                        </p>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                        {[
-                            {
-                                icon: Calendar,
-                                title: "Spring 2024",
-                                text: "Digital SAT fully replaced paper tests",
-                            },
-                            {
-                                icon: Clock,
-                                title: "134 Minutes",
-                                text: "Total test duration (2h 14m)",
-                            },
-                            {
-                                icon: CheckCircle,
-                                title: "Adaptive",
-                                text: "Test adjusts to your performance",
-                            },
-                            {
-                                icon: Calculator,
-                                title: "Calculator",
-                                text: "Allowed for all math questions",
-                            },
-                        ].map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.6,
-                                    delay: index * 0.1,
-                                }}
-                                viewport={{ once: true }}
-                                className="bg-slate-700 rounded-xl p-6 border border-slate-600 hover:border-yellow-400/50 transition-all duration-300"
-                            >
-                                <div className="flex justify-center mb-4">
-                                    <div className="p-3 bg-yellow-400/10 rounded-lg">
-                                        <item.icon className="h-6 w-6 text-yellow-400" />
-                                    </div>
-                                </div>
-                                <h3 className="text-xl font-bold text-center mb-2">
-                                    {item.title}
-                                </h3>
-                                <p className="text-gray-300 text-center text-sm">
-                                    {item.text}
-                                </p>
-                            </motion.div>
-                        ))}
+                <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-12 max-w-6xl mx-auto mt-22">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4 animate-in slide-in-from-top-8 duration-300 ">
+                        Digital SAT Preparation
+                    </h1>
+                    <p className="text-base sm:text-lg text-white mb-6 sm:mb-8 leading-relaxed max-w-4xl animate-in slide-in-from-top-8 duration-300 ">
+                        Master the new Digital SAT with our adaptive learning
+                        approach. We'll help you navigate the changes and
+                        achieve your target score with confidence.
+                    </p>
+                    <div className="flex flex-row gap-3 sm:gap-4 animate-in slide-in-from-bottom-8 duration-300 ">
+                        <Button
+                            asChild
+                            className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 sm:px-8 py-2 sm:py-3 w-auto transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                        >
+                            <Link href="/sign-up">GET STARTED</Link>
+                        </Button>
+                        <Button
+                            asChild
+                            variant="outline"
+                            className="text-white hover:bg-white hover:text-black px-6 sm:px-8 py-2 sm:py-3 w-auto transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                        >
+                            <Link href="/contact-us">Contact Us</Link>
+                        </Button>
                     </div>
                 </div>
             </section>
 
-            {/* Timeline & Structure Section */}
-            <section className="py-16 bg-slate-900">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        {/* When Will It Affect Me */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
-                            className="bg-slate-800 p-8 rounded-xl border border-slate-700"
-                        >
-                            <h3 className="text-2xl font-bold mb-6 text-yellow-400">
-                                When Will It Affect Me?
+            {/* Breadcrumb */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 mt-4">
+                <p className="text-sm text-gray-600 animate-in fade-in duration-300 ">
+                    Home &gt; Test Prep &gt; Digital SAT
+                </p>
+            </div>
+
+            {/* Our Approach Section */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div className="text-center mb-12 animate-in slide-in-from-bottom-4 duration-300 ">
+                    <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                        Our Digital SAT Approach
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                        The SAT has evolved, and so have we. Our proven
+                        methodology adapts to the new digital format while
+                        maintaining our track record of exceptional results.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    {/* 250+ Point Gains */}
+                    <div className="bg-gray-100 rounded-lg text-center hover:shadow-2xl transition-all transform hover:-translate-y-3 hover:scale-105 animate-in slide-in-from-left-8 duration-300 shadow-2xl">
+                        <div className="p-6">
+                            <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 hover:scale-110 hover:rotate-12">
+                                <TrendingUp className="h-8 w-8 text-yellow-600" />
+                            </div>
+                            <div className="text-3xl font-bold text-gray-800 mb-2 animate-pulse">
+                                {pointGains}+
+                            </div>
+                            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                                Point Gains
                             </h3>
+                            <p className="text-gray-600 text-sm">
+                                Average score improvement our students achieve
+                                through our comprehensive Digital SAT prep
+                                program.
+                            </p>
+                        </div>
+                    </div>
 
-                            <div className="space-y-6">
-                                <p className="text-gray-300">
-                                    As of <strong>spring 2024</strong>, the{" "}
-                                    <strong>Digital SAT</strong> has replaced
-                                    the traditional paper-based SAT. The last
-                                    paper SAT was administered in{" "}
-                                    <strong>December 2023</strong>.
-                                </p>
+                    {/* Adaptive Learning */}
+                    <div className="bg-gray-100 rounded-lg text-center hover:shadow-2xl transition-all  transform hover:-translate-y-3 hover:scale-105 animate-in slide-in-from-bottom-8 duration-300  shadow-2xl">
+                        <div className="p-6">
+                            <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 hover:scale-110 hover:rotate-12">
+                                <Zap className="h-8 w-8 text-blue-600" />
+                            </div>
+                            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                                Adaptive Practice
+                            </h3>
+                            <p className="text-gray-600 text-sm">
+                                Experience the real Digital SAT format with our
+                                adaptive practice tests that mirror the actual
+                                exam structure.
+                            </p>
+                        </div>
+                    </div>
 
-                                <div className="space-y-4">
-                                    <p className="text-gray-300 font-semibold">
-                                        This change affects:
+                    {/* Success Rate */}
+                    <div className="bg-gray-100 rounded-lg text-center hover:shadow-2xl transition-all  transform hover:-translate-y-3 hover:scale-105 animate-in slide-in-from-right-8 duration-300  shadow-2xl">
+                        <div className="p-6">
+                            <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 hover:scale-110 hover:rotate-12">
+                                <Award className="h-8 w-8 text-green-600" />
+                            </div>
+                            <div className="text-3xl font-bold text-gray-800 mb-2 animate-pulse">
+                                {successRate}%
+                            </div>
+                            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                                Success Rate
+                            </h3>
+                            <p className="text-gray-600 text-sm">
+                                Of our students reach their target scores and
+                                qualify for their dream colleges and programs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Digital SAT Overview Section - Full Yellow Background */}
+            <div className="bg-[#f1c338] py-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12 animate-in slide-in-from-top-8 duration-300 ">
+                        <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                            Digital SAT: Everything You Need to Know
+                        </h2>
+                        <p className="text-lg text-gray-700 max-w-4xl mx-auto">
+                            The Digital SAT is the newest version of the SAT
+                            being rolled out by the College Board. It is an
+                            adaptive version of the SAT that will be
+                            administered online. Changes are being made to the
+                            English and math sections, but the digital version
+                            will be comparable to the current SAT version.
+                        </p>
+                    </div>
+
+                    {/* When Will It Affect Me Section */}
+                    <div className="mb-16">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center animate-in slide-in-from-left-8 duration-300 ">
+                            When Will It Affect Me?
+                        </h3>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                            <div className="bg-white/90 rounded-lg shadow-2xl hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 animate-in slide-in-from-left-8 duration-300 ">
+                                <div className="p-6">
+                                    <div className="flex items-center mb-4">
+                                        <Calendar className="h-6 w-6 text-yellow-600 mr-3 animate-bounce" />
+                                        <h4 className="text-xl font-semibold text-gray-800">
+                                            Spring 2024 Implementation
+                                        </h4>
+                                    </div>
+                                    <p className="text-gray-700 mb-4">
+                                        As of <strong>spring 2024</strong>, the{" "}
+                                        <strong>Digital SAT</strong> has
+                                        replaced the traditional paper-based
+                                        SAT. The last paper SAT was administered
+                                        in <strong>December 2023</strong>,
+                                        making the{" "}
+                                        <strong>
+                                            Spring 2024 test dates the first
+                                            group required to take the Digital
+                                            SAT.
+                                        </strong>
                                     </p>
-                                    <ul className="space-y-3">
-                                        <li className="flex items-start gap-3">
-                                            <div className="min-w-10 h-10 flex items-center justify-center bg-yellow-400/10 rounded-full mt-1">
-                                                <CheckCircle className="h-5 w-5 text-yellow-400" />
-                                            </div>
-                                            <p className="text-gray-300">
+                                </div>
+                            </div>
+
+                            <div className="bg-white/90 rounded-lg shadow-2xl hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 animate-in slide-in-from-right-8 duration-300 ">
+                                <div className="p-6">
+                                    <div className="flex items-center mb-4">
+                                        <Users className="h-6 w-6 text-blue-600 mr-3 animate-bounce" />
+                                        <h4 className="text-xl font-semibold text-gray-800">
+                                            Who This Affects
+                                        </h4>
+                                    </div>
+                                    <div className="space-y-3">
+                                        <div className="flex items-start animate-in fade-in duration-300 ">
+                                            <CheckCircle className="h-5 w-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
+                                            <span className="text-gray-700">
                                                 <strong>
                                                     High school juniors in 2023
                                                 </strong>{" "}
                                                 taking the SAT during 2024—only
-                                                the Digital SAT is available
-                                            </p>
-                                        </li>
-                                        <li className="flex items-start gap-3">
-                                            <div className="min-w-10 h-10 flex items-center justify-center bg-yellow-400/10 rounded-full mt-1">
-                                                <CheckCircle className="h-5 w-5 text-yellow-400" />
-                                            </div>
-                                            <p className="text-gray-300">
+                                                the Digital SAT is available.
+                                            </span>
+                                        </div>
+                                        <div className="flex items-start animate-in fade-in duration-300 ">
+                                            <CheckCircle className="h-5 w-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
+                                            <span className="text-gray-700">
                                                 <strong>
                                                     Freshmen and sophomores in
                                                     2023
                                                 </strong>
                                                 —they will only take the Digital
-                                                SAT throughout high school
-                                            </p>
-                                        </li>
-                                    </ul>
+                                                SAT throughout their high school
+                                                years.
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
+                    </div>
 
-                        {/* How Is It Structured */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
-                            className="bg-slate-800 p-8 rounded-xl border border-slate-700"
-                        >
-                            <h3 className="text-2xl font-bold mb-6 text-yellow-400">
-                                How Is It Structured?
-                            </h3>
+                    {/* Structure Section */}
+                    <div className="mb-16">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center animate-in slide-in-from-right-8 duration-300 ">
+                            How Is It Structured?
+                        </h3>
 
-                            <div className="space-y-6">
-                                <p className="text-gray-300">
+                        <div className="mb-8 bg-white/90 rounded-lg shadow-2xl hover:shadow-2xl transition-all  animate-in zoom-in-95 duration-300 ">
+                            <div className="p-6">
+                                <p className="text-gray-700 mb-6 text-lg text-center">
                                     The Digital SAT is <strong>adaptive</strong>{" "}
-                                    and consists of two main sections:
+                                    and consists of two sections:
                                 </p>
 
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div className="bg-slate-700 p-5 rounded-lg border border-slate-600">
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <div className="p-2 bg-yellow-400/10 rounded-lg">
-                                                <BookOpen className="h-5 w-5 text-yellow-400" />
-                                            </div>
-                                            <h4 className="text-lg font-bold">
-                                                Reading & Writing
-                                            </h4>
-                                        </div>
-                                        <p className="text-gray-300 text-sm">
-                                            64 minutes total
-                                        </p>
-                                        <p className="text-gray-300 text-sm">
-                                            Shorter passages with greater
-                                            emphasis on vocabulary
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                    <div className="text-center p-4 bg-green-50 rounded-lg shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                                        <BookOpen className="h-8 w-8 text-green-600 mx-auto mb-2 animate-pulse" />
+                                        <h4 className="font-semibold text-gray-800 mb-2">
+                                            Reading and Writing
+                                        </h4>
+                                        <p className="text-sm text-gray-600">
+                                            Combined section testing
+                                            comprehension and language skills
                                         </p>
                                     </div>
-
-                                    <div className="bg-slate-700 p-5 rounded-lg border border-slate-600">
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <div className="p-2 bg-yellow-400/10 rounded-lg">
-                                                <Calculator className="h-5 w-5 text-yellow-400" />
-                                            </div>
-                                            <h4 className="text-lg font-bold">
-                                                Mathematics
-                                            </h4>
-                                        </div>
-                                        <p className="text-gray-300 text-sm">
-                                            70 minutes total
-                                        </p>
-                                        <p className="text-gray-300 text-sm">
-                                            Calculator allowed throughout, fewer
-                                            topics tested
+                                    <div className="text-center p-4 bg-blue-50 rounded-lg shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                                        <Calculator className="h-8 w-8 text-blue-600 mx-auto mb-2 animate-pulse" />
+                                        <h4 className="font-semibold text-gray-800 mb-2">
+                                            Mathematics
+                                        </h4>
+                                        <p className="text-sm text-gray-600">
+                                            Comprehensive math section with
+                                            calculator allowed throughout
                                         </p>
                                     </div>
                                 </div>
 
-                                <div className="bg-yellow-400/10 p-5 rounded-lg border border-yellow-400/20">
-                                    <h4 className="text-lg font-bold mb-2">
-                                        Scoring Based on Adaptation
-                                    </h4>
-                                    <ul className="space-y-2">
-                                        <li className="flex items-start gap-2">
-                                            <span className="text-yellow-400 mt-1">
-                                                •
-                                            </span>
-                                            <span className="text-gray-300">
-                                                If you don't reach the harder
-                                                second module:{" "}
-                                                <strong>800-1200 range</strong>
-                                            </span>
-                                        </li>
-                                        <li className="flex items-start gap-2">
-                                            <span className="text-yellow-400 mt-1">
-                                                •
-                                            </span>
-                                            <span className="text-gray-300">
-                                                If you do reach the harder
-                                                second module:{" "}
-                                                <strong>1200-1600 range</strong>
-                                            </span>
-                                        </li>
-                                    </ul>
+                                <div className="bg-yellow-100 p-4 rounded-lg shadow-inner">
+                                    <p className="text-gray-700 text-center">
+                                        Each section has{" "}
+                                        <strong>two modules</strong>. The
+                                        difficulty of the second module is
+                                        determined by the student's performance
+                                        in the first module. Students are
+                                        allowed to use the{" "}
+                                        <strong>adaptive nature</strong>
+                                        structure to get an accurate measure of
+                                        a student's aptitude.
+                                    </p>
                                 </div>
                             </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Changes Section */}
-            <section className="py-16 bg-slate-800">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="mb-12"
-                    >
-                        <h2 className="text-3xl font-bold mb-6 font-poppins">
-                            How Has the SAT{" "}
-                            <span className="text-yellow-400">Changed?</span>
-                        </h2>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* English Section Changes */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            viewport={{ once: true }}
-                            className="bg-slate-700 p-6 rounded-lg border border-slate-600"
-                        >
-                            <h3 className="text-xl font-bold mb-4 text-yellow-400">
-                                Changes in Reading & Writing
-                            </h3>
-                            <ul className="space-y-3">
-                                <li className="flex items-start gap-3">
-                                    <div className="min-w-8 h-8 flex items-center justify-center bg-yellow-400/10 rounded-full mt-1">
-                                        <CheckCircle className="h-4 w-4 text-yellow-400" />
-                                    </div>
-                                    <p className="text-gray-300">
-                                        Shorter passages focused on single
-                                        topics
-                                    </p>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <div className="min-w-8 h-8 flex items-center justify-center bg-yellow-400/10 rounded-full mt-1">
-                                        <CheckCircle className="h-4 w-4 text-yellow-400" />
-                                    </div>
-                                    <p className="text-gray-300">
-                                        Greater emphasis on vocabulary in
-                                        context
-                                    </p>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <div className="min-w-8 h-8 flex items-center justify-center bg-yellow-400/10 rounded-full mt-1">
-                                        <CheckCircle className="h-4 w-4 text-yellow-400" />
-                                    </div>
-                                    <p className="text-gray-300">
-                                        Tests connection with short paragraphs,
-                                        poems, or lists rather than long
-                                        passages
-                                    </p>
-                                </li>
-                            </ul>
-                        </motion.div>
-
-                        {/* Math Section Changes */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            viewport={{ once: true }}
-                            className="bg-slate-700 p-6 rounded-lg border border-slate-600"
-                        >
-                            <h3 className="text-xl font-bold mb-4 text-yellow-400">
-                                Changes in Mathematics
-                            </h3>
-                            <ul className="space-y-3">
-                                <li className="flex items-start gap-3">
-                                    <div className="min-w-8 h-8 flex items-center justify-center bg-yellow-400/10 rounded-full mt-1">
-                                        <CheckCircle className="h-4 w-4 text-yellow-400" />
-                                    </div>
-                                    <p className="text-gray-300">
-                                        Fewer topics tested with focus on
-                                        algebra and problem-solving
-                                    </p>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <div className="min-w-8 h-8 flex items-center justify-center bg-yellow-400/10 rounded-full mt-1">
-                                        <CheckCircle className="h-4 w-4 text-yellow-400" />
-                                    </div>
-                                    <p className="text-gray-300">
-                                        No imaginary or complex numbers
-                                    </p>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <div className="min-w-8 h-8 flex items-center justify-center bg-yellow-400/10 rounded-full mt-1">
-                                        <CheckCircle className="h-4 w-4 text-yellow-400" />
-                                    </div>
-                                    <p className="text-gray-300">
-                                        Simplified word problems for clarity
-                                    </p>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <div className="min-w-8 h-8 flex items-center justify-center bg-yellow-400/10 rounded-full mt-1">
-                                        <CheckCircle className="h-4 w-4 text-yellow-400" />
-                                    </div>
-                                    <p className="text-gray-300">
-                                        Calculator allowed throughout the entire
-                                        math section
-                                    </p>
-                                </li>
-                            </ul>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="py-16 bg-slate-900 border-t border-slate-700">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-3xl lg:text-4xl font-bold mb-6 font-poppins">
-                            Ready to{" "}
-                            <span className="text-yellow-400">Excel</span> on
-                            the Digital SAT?
-                        </h2>
-                        <p className="text-xl text-gray-300 mb-8">
-                            Our expert-led prep courses provide tailored
-                            strategies, digital practice tests, and personalized
-                            guidance to help you master the new format and
-                            achieve top scores.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link
-                                href="/sign-up"
-                                className="inline-flex items-center justify-center bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-bold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105"
-                            >
-                                Start Your Digital SAT Prep
-                            </Link>
-                            <Link
-                                href="/contact-us"
-                                className="inline-flex items-center justify-center border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-slate-900 font-semibold px-8 py-3 rounded-lg transition-all duration-300"
-                            >
-                                Schedule a Consultation
-                            </Link>
                         </div>
-                    </motion.div>
+                    </div>
+
+                    {/* Scoring Section */}
+                    <div className="mb-16">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center animate-in slide-in-from-bottom-8 duration-300 ">
+                            Scoring Based On Adaptation
+                        </h3>
+
+                        <div className="bg-white/90 rounded-lg shadow-2xl hover:shadow-2xl transition-all  animate-in zoom-in-95 duration-300 ">
+                            <div className="p-6">
+                                <p className="text-gray-700 mb-6 text-lg text-center">
+                                    The adaptive nature of the Digital SAT means
+                                    your score range depends on which modules
+                                    you access:
+                                </p>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="text-center p-6 bg-orange-50 rounded-lg shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-translate-y-2">
+                                        <div className="text-3xl font-bold text-orange-600 mb-2 animate-pulse">
+                                            800-1200
+                                        </div>
+                                        <h4 className="font-semibold text-gray-800 mb-3">
+                                            Standard Path
+                                        </h4>
+                                        <p className="text-sm text-gray-600">
+                                            If a student does{" "}
+                                            <strong>not</strong> reach the
+                                            harder version of the second module,
+                                            their score will be within{" "}
+                                            <strong>
+                                                800-1200 out of 1600.
+                                            </strong>
+                                        </p>
+                                    </div>
+                                    <div className="text-center p-6 bg-green-50 rounded-lg shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:-translate-y-2">
+                                        <div className="text-3xl font-bold text-green-600 mb-2 animate-pulse">
+                                            1200-1600
+                                        </div>
+                                        <h4 className="font-semibold text-gray-800 mb-3">
+                                            Advanced Path
+                                        </h4>
+                                        <p className="text-sm text-gray-600">
+                                            If a student <strong>does</strong>{" "}
+                                            reach the harder version, their
+                                            score range will be{" "}
+                                            <strong>
+                                                1200-1600 out of 1600
+                                            </strong>
+                                            .
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            {/* Why These Tests Matter Section - Moved to the bottom for better flow */}
-            <section className="py-16 bg-slate-800">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="mb-12 text-center"
-                    >
-                        <h2 className="text-3xl font-bold mb-6 font-poppins">
-                            Why These Tests{" "}
-                            <span className="text-yellow-400">Matter</span>
-                        </h2>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                            Standardized tests like the SAT and ACT are crucial
-                            for college admissions and scholarship
-                            opportunities.
-                        </p>
-                        <p className="text-gray-300">
-                            Our proven methodology has helped over 90% of
-                            students qualify for prestigious Academy programs,
-                            with an average SAT score improvement of 200+
-                            points.
-                        </p>
-                    </motion.div>
+            </div>
+
+            {/* Changes Section - Full Blue Background */}
+            <div className="bg-[#0f3963]/95 py-16">
+                <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-white mb-12 text-center animate-in slide-in-from-top-8 duration-300 ">
+                        How Has the SAT Changed?
+                    </h2>
+
+                    {/* Test Duration */}
+                    <div className="mb-16">
+                        <h3 className="text-2xl font-bold text-white mb-6 text-center animate-in slide-in-from-left-8 duration-300 ">
+                            Test Duration And Format Adjustments
+                        </h3>
+
+                        <div className="mb-8 bg-white/90 rounded-lg shadow-2xl hover:shadow-2xl transition-all animate-in zoom-in-95 duration-300 ">
+                            <div className="p-6">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                                    <div className="transform transition-all duration-300 hover:scale-110">
+                                        <div className="text-2xl font-bold text-yellow-600 mb-2 animate-bounce">
+                                            134 minutes
+                                        </div>
+                                        <p className="font-medium text-gray-800">
+                                            Total Test Time
+                                        </p>
+                                        <p className="text-sm text-gray-600">
+                                            (2 hours and 14 minutes)
+                                        </p>
+                                    </div>
+                                    <div className="transform transition-all duration-300 hover:scale-110">
+                                        <div className="text-2xl font-bold text-blue-600 mb-2 animate-bounce">
+                                            64 minutes
+                                        </div>
+                                        <p className="font-medium text-gray-800">
+                                            English Section
+                                        </p>
+                                        <p className="text-sm text-gray-600">
+                                            (Reading/Writing)
+                                        </p>
+                                    </div>
+                                    <div className="transform transition-all duration-300 hover:scale-110">
+                                        <div className="text-2xl font-bold text-green-600 mb-2 animate-bounce">
+                                            70 minutes
+                                        </div>
+                                        <p className="font-medium text-gray-800">
+                                            Math Section
+                                        </p>
+                                        <p className="text-sm text-gray-600">
+                                            (Mathematics)
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="mt-6 p-4 bg-blue-50 rounded-lg shadow-inner">
+                                    <p className="text-gray-700 text-center">
+                                        The total test time has been{" "}
+                                        <strong>significantly reduced</strong>{" "}
+                                        compared to the previous paper version,
+                                        making the test more efficient while
+                                        maintaining accuracy through adaptive
+                                        testing.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* English Changes */}
+                    <div className="mb-16">
+                        <h3 className="text-2xl font-bold text-white mb-6 text-center animate-in slide-in-from-right-8 duration-300 ">
+                            Changes In The English (Reading & Writing) Section
+                        </h3>
+
+                        <div className="hover:shadow-2xl transition-all bg-white/90 rounded-lg shadow-2xl animate-in slide-in-from-left-8 duration-300 ">
+                            <div className="p-6">
+                                <div className="flex items-center mb-6">
+                                    <BookOpen className="h-8 w-8 text-blue-600 mr-4 animate-pulse" />
+                                    <h4 className="text-xl font-semibold text-gray-800">
+                                        Key Improvements for Better Focus
+                                    </h4>
+                                </div>
+
+                                <div className="space-y-4">
+                                    <div className="flex items-start animate-in fade-in   transform transition-all duration-300 hover:translate-x-2">
+                                        <CheckCircle className="h-6 w-6 text-blue-500 mr-4 mt-0.5 flex-shrink-0" />
+                                        <div>
+                                            <p className="font-medium text-gray-800 mb-1">
+                                                Shorter passages
+                                            </p>
+                                            <p className="text-gray-600 text-sm">
+                                                Instead of long, overwhelming
+                                                texts, students now work with
+                                                more manageable passage lengths
+                                                that allow for better
+                                                comprehension and time
+                                                management.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start animate-in fade-in  transform transition-all duration-300 hover:translate-x-2">
+                                        <CheckCircle className="h-6 w-6 text-blue-500 mr-4 mt-0.5 flex-shrink-0" />
+                                        <div>
+                                            <p className="font-medium text-gray-800 mb-1">
+                                                Greater emphasis on vocabulary
+                                            </p>
+                                            <p className="text-gray-600 text-sm">
+                                                Vocabulary questions are more
+                                                prominent and focus on words in
+                                                context, testing practical
+                                                understanding rather than
+                                                memorization.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start animate-in fade-in   transform transition-all duration-300 hover:translate-x-2">
+                                        <CheckCircle className="h-6 w-6 text-blue-500 mr-4 mt-0.5 flex-shrink-0" />
+                                        <div>
+                                            <p className="font-medium text-gray-800 mb-1">
+                                                Focus on short paragraphs,
+                                                poems, and lists
+                                            </p>
+                                            <p className="text-gray-600 text-sm">
+                                                Students will be tested on their
+                                                ability to connect with{" "}
+                                                <strong>
+                                                    short paragraph, poem, or
+                                                    list
+                                                </strong>
+                                                rather than long passages,
+                                                making the test more accessible
+                                                and less intimidating.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Math Changes */}
+                    <div className="mb-16">
+                        <h3 className="text-2xl font-bold text-white mb-6 text-center animate-in slide-in-from-bottom-8 duration-300 ">
+                            Changes In The Math Section
+                        </h3>
+
+                        <div className="hover:shadow-2xl transition-all bg-white/90 rounded-lg shadow-2xl animate-in slide-in-from-right-8 duration-300 ">
+                            <div className="p-6">
+                                <div className="flex items-center mb-6">
+                                    <Calculator className="h-8 w-8 text-green-600 mr-4 animate-pulse" />
+                                    <h4 className="text-xl font-semibold text-gray-800">
+                                        Streamlined and More Accessible
+                                    </h4>
+                                </div>
+
+                                <div className="space-y-4">
+                                    <div className="flex items-start animate-in fade-in  transform transition-all duration-300 hover:translate-x-2">
+                                        <CheckCircle className="h-6 w-6 text-green-500 mr-4 mt-0.5 flex-shrink-0" />
+                                        <div>
+                                            <p className="font-medium text-gray-800 mb-1">
+                                                Fewer topics tested
+                                            </p>
+                                            <p className="text-gray-600 text-sm">
+                                                The math section now focuses on
+                                                core mathematical concepts,
+                                                eliminating some of the more
+                                                obscure topics that rarely
+                                                appear in real-world
+                                                applications.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start animate-in fade-in  transform transition-all duration-300 hover:translate-x-2">
+                                        <CheckCircle className="h-6 w-6 text-green-500 mr-4 mt-0.5 flex-shrink-0" />
+                                        <div>
+                                            <p className="font-medium text-gray-800 mb-1">
+                                                No imaginary and complex numbers
+                                            </p>
+                                            <p className="text-gray-600 text-sm">
+                                                Complex mathematical concepts
+                                                that were often stumbling blocks
+                                                for students have been removed,
+                                                allowing focus on fundamental
+                                                skills.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start animate-in fade-in   transform transition-all duration-300 hover:translate-x-2">
+                                        <CheckCircle className="h-6 w-6 text-green-500 mr-4 mt-0.5 flex-shrink-0" />
+                                        <div>
+                                            <p className="font-medium text-gray-800 mb-1">
+                                                Simplified word problems
+                                            </p>
+                                            <p className="text-gray-600 text-sm">
+                                                Word problems have been
+                                                simplified for clarity, reducing
+                                                confusion and allowing students
+                                                to focus on mathematical
+                                                reasoning rather than
+                                                deciphering complex language.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start animate-in fade-in   transform transition-all duration-300 hover:translate-x-2">
+                                        <CheckCircle className="h-6 w-6 text-green-500 mr-4 mt-0.5 flex-shrink-0" />
+                                        <div>
+                                            <p className="font-medium text-gray-800 mb-1">
+                                                Calculator allowed throughout
+                                            </p>
+                                            <p className="text-gray-600 text-sm">
+                                                Calculator use is now allowed
+                                                throughout the entire math
+                                                section (integrated into the
+                                                testing platform), eliminating
+                                                the stress of mental
+                                                calculations and allowing focus
+                                                on problem-solving strategies.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
         </div>
     );
 }

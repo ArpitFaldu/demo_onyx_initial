@@ -48,80 +48,68 @@ export default function Header() {
                 },
             ],
         },
-        {
-            name: "PROGRAMS",
-            isOpen: isProgramsOpen,
-            setOpen: setIsProgramsOpen,
-            links: [
-                {
-                    name: "SAT ACT Year Long",
-                    href: "/test-prep-sat-act",
-                },
-                {
-                    name: "Digital SAT Crash Course",
-                    href: "/digital-sat-crash-course",
-                },
-                {
-                    name: "Academic Tutoring",
-                    href: "/academic-tutoring",
-                },
-                {
-                    name: "College Admissions & Advising",
-                    href: "/college-advising",
-                },
-                {
-                    name: "Summer Courses 2025",
-                    href: "/summer-courses",
-                },
-            ],
-        },
-        {
-            name: "ABOUT US",
-            href: "/about",
-            isOpen: isAboutOpen,
-            setOpen: setIsAboutOpen,
-            links: [
-                {
-                    name: "Our Methodology",
-                    href: "/our-methodology",
-                },
-            ],
-        },
-        {
-            name: "MORE",
-            isOpen: isMoreOpen,
-            setOpen: setIsMoreOpen,
-            links: [
-                {
-                    name: "Schedule",
-                    href: "/schedule",
-                },
-                {
-                    name: "Pricing",
-                    href: "/pricing",
-                },
-                {
-                    name: "Gallery",
-                    href: "/gallery",
-                },
-                {
-                    name: "Join our Team",
-                    href: "/join-our-team",
-                },
-                {
-                    name: "Reviews",
-                    href: "https://www.google.com/search?q=coherencelearning&rlz=1C1VDKB_enIN1054IN1054&oq=coherencelearning&aqs=chrome..69i57j69i60l4.5238j0j1&sourceid=chrome&ie=UTF-8#lrd=0x89b66643d2fe7561:0x20f3f4b8ef8bf186,1,,,,",
-                },
-                {
-                    name: "Write A Review",
-                    href: "https://www.google.com/search?q=coherencelearning&rlz=1C1VDKB_enIN1054IN1054&oq=coherencelearning&aqs=chrome..69i57j69i60l4.5238j0j1&sourceid=chrome&ie=UTF-8#lrd=0x89b66643d2fe7561:0x20f3f4b8ef8bf186,3,,,,",
-                },
-                {
-                    name: "Contact Us",
-                    href: "/contact-us",
-                },
-            ],
-        },
+        // {
+        //     name: "PROGRAMS",
+        //     isOpen: isProgramsOpen,
+        //     setOpen: setIsProgramsOpen,
+        //     links: [
+        //         {
+        //             name: "SAT ACT Year Long",
+        //             href: "/test-prep-sat-act",
+        //         },
+        //         {
+        //             name: "Digital SAT Crash Course",
+        //             href: "/digital-sat-crash-course",
+        //         },
+        //         {
+        //             name: "Academic Tutoring",
+        //             href: "/academic-tutoring",
+        //         },
+        //         {
+        //             name: "College Admissions & Advising",
+        //             href: "/college-advising",
+        //         },
+        //         {
+        //             name: "Summer Courses 2025",
+        //             href: "/summer-courses",
+        //         },
+        //     ],
+        // },
+        // {
+        //     name: "MORE",
+        //     isOpen: isMoreOpen,
+        //     setOpen: setIsMoreOpen,
+        //     links: [
+        //         {
+        //             name: "Schedule",
+        //             href: "/schedule",
+        //         },
+        //         {
+        //             name: "Pricing",
+        //             href: "/pricing",
+        //         },
+        //         {
+        //             name: "Gallery",
+        //             href: "/gallery",
+        //         },
+        //         {
+        //             name: "Join our Team",
+        //             href: "/join-our-team",
+        //         },
+        //         {
+        //             name: "Reviews",
+        //             href: "https://www.google.com/search?q=coherencelearning&rlz=1C1VDKB_enIN1054IN1054&oq=coherencelearning&aqs=chrome..69i57j69i60l4.5238j0j1&sourceid=chrome&ie=UTF-8#lrd=0x89b66643d2fe7561:0x20f3f4b8ef8bf186,1,,,,",
+        //         },
+        //         {
+        //             name: "Write A Review",
+        //             href: "https://www.google.com/search?q=coherencelearning&rlz=1C1VDKB_enIN1054IN1054&oq=coherencelearning&aqs=chrome..69i57j69i60l4.5238j0j1&sourceid=chrome&ie=UTF-8#lrd=0x89b66643d2fe7561:0x20f3f4b8ef8bf186,3,,,,",
+        //         },
+        //         {
+        //             name: "Contact Us",
+        //             href: "/contact-us",
+        //         },
+        //     ],
+        // },
     ];
 
     return (
@@ -252,20 +240,36 @@ export default function Header() {
                             ))}
 
                             <Link
+                                href="/about"
+                                className="relative text-white hover:text-[#6a9bd1] px-3 py-2 text-sm font-medium transition-all duration-300 hover:scale-110 transform group"
+                            >
+                                ABOUT US
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0f3963] transition-all duration-300 group-hover:w-full"></span>
+                            </Link>
+
+                            <Link
+                                href="/contact-us"
+                                className="relative text-white hover:text-[#6a9bd1] px-3 py-2 text-sm font-medium transition-all duration-300 hover:scale-110 transform group"
+                            >
+                                CONTACT US
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0f3963] transition-all duration-300 group-hover:w-full"></span>
+                            </Link>
+
+                            {/* <Link
                                 href="/sign-up"
                                 className="relative text-white hover:text-[#6a9bd1] px-3 py-2 text-sm font-medium flex items-center transition-all duration-300 hover:scale-110 transform group"
                             >
                                 SIGN UP
                                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0f3963] transition-all duration-300 group-hover:w-full"></span>
-                            </Link>
+                            </Link> */}
 
                             {/* Get Started Button */}
-                            <Button
+                            {/* <Button
                                 asChild
                                 className="bg-[#0f3963] hover:bg-[#1a4b7c] text-white px-6 py-2 rounded-md font-medium transition-all duration-300 hover:scale-105 transform shadow-lg"
                             >
                                 <Link href="/sign-up">Get Started</Link>
-                            </Button>
+                            </Button> */}
                         </nav>
 
                         {/* Mobile menu button */}

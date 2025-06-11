@@ -239,7 +239,7 @@ export default function ImageCarousel() {
                             priority
                         />
                         <div className="absolute inset-0 bg-black/30" />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 pt-32 md:pt-40">
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 md:pt-32">
                             <AnimatePresence mode="wait">
                                 {index === activeIndex && !isChanging && (
                                     <>
@@ -270,7 +270,7 @@ export default function ImageCarousel() {
                                         )}
                                         <motion.h2
                                             key={`title-${index}`}
-                                            className="text-4xl md:text-6xl lg:text-7xl font-bold m-4 leading-tight"
+                                            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
                                             {...getAnimationVariants(
                                                 slide.animations.title.direction
                                             )}
@@ -289,7 +289,7 @@ export default function ImageCarousel() {
 
                                         <motion.h2
                                             key={`subtitle-${index}`}
-                                            className="mt-1 text-4xl md:text-6xl lg:text-7xl font-bold m-4 leading-tight text-yellow-400"
+                                            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-yellow-400"
                                             {...getAnimationVariants(
                                                 slide.animations.subtitle
                                                     .direction
