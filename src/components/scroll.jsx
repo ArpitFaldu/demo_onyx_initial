@@ -9,7 +9,6 @@ export default function ScrollToTopButton({
     bottom = 30,
     right = 30,
     size = 50,
-    backgroundColor = "#0f3963",
     iconColor = "white",
 }) {
     const [isVisible, setIsVisible] = useState(false);
@@ -44,13 +43,12 @@ export default function ScrollToTopButton({
         <AnimatePresence>
             {isVisible && (
                 <motion.button
-                    className="fixed z-50 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    className="fixed z-50 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 bg-amber-400"
                     style={{
                         bottom: bottom,
                         right: right,
                         width: size,
                         height: size,
-                        backgroundColor: backgroundColor,
                         borderRadius: 4,
                         display: "flex",
                         justifyContent: "center",

@@ -52,7 +52,7 @@ export default function CaseStudiesSection() {
                     {/* Right Side - Case Study Card */}
                     <motion.div
                         className="order-1 lg:order-2 flex col-span-3 items-stretch"
-                        initial={{ opacity: 0, x: 50 }}
+                        initial={{ opacity: 0, x: 0 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.4 }}
@@ -60,7 +60,7 @@ export default function CaseStudiesSection() {
                         <div className="bg-white rounded-lg p-8 md:p-10 shadow-xl w-full">
                             {/* Lightbulb Icons */}
                             <div className="flex gap-2 mb-8">
-                                {[...Array(10)].map((_, i) => (
+                                {[...Array(8)].map((_, i) => (
                                     <motion.div
                                         key={i}
                                         initial={{ opacity: 0, y: -10 }}
