@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ComingSoonFeature } from "@/components/ui/coming-soon-feature";
 
 const slides = [
     {
@@ -22,7 +23,9 @@ const slides = [
                     className="bg-[#0f3963] hover:bg-[#1a4b7c] text-white p-8 text-lg font-semibold rounded-md transition-all duration-300 hover:scale-105 transform shadow-lg"
                 >
                     <Link href="/sign-up" className="flex items-center gap-2">
-                        GET STARTED <ChevronRight size={24} />
+                        <ComingSoonFeature>
+                            GET STARTED <ChevronRight size={24} />
+                        </ComingSoonFeature>
                     </Link>
                 </Button>
                 <Button
@@ -333,10 +336,12 @@ export default function ImageCarousel() {
                                                         href="/sign-up"
                                                         className="flex items-center gap-2"
                                                     >
-                                                        GET STARTED{" "}
-                                                        <ChevronRight
-                                                            size={24}
-                                                        />
+                                                        <ComingSoonFeature>
+                                                            GET STARTED{" "}
+                                                            <ChevronRight
+                                                                size={24}
+                                                            />
+                                                        </ComingSoonFeature>
                                                     </Link>
                                                 </Button>
                                             )}

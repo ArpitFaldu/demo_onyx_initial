@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Mail, Phone, Clock } from "lucide-react";
 import Link from "next/link";
+import { ComingSoonFeature } from "@/components/ui/coming-soon-feature";
 
 export default function ContactUsPage() {
     const [formData, setFormData] = useState({
@@ -113,14 +114,18 @@ export default function ContactUsPage() {
                             asChild
                             className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 sm:px-8 py-2 sm:py-3 w-auto transform transition-all duration-300 hover:scale-105"
                         >
-                            <Link href="/sign-up">GET STARTED</Link>
+                            <Link href="/sign-up">
+                                <ComingSoonFeature>
+                                    GET STARTED
+                                </ComingSoonFeature>
+                            </Link>
                         </Button>
                         <Button
                             asChild
                             variant="outline"
                             className="border-white text-white hover:bg-white hover:text-black px-6 sm:px-8 py-2 sm:py-3 w-auto transform transition-all duration-300 hover:scale-105"
                         >
-                            <Link href="/about-us">Learn More</Link>
+                            <Link href="/about">Learn More</Link>
                         </Button>
                     </div>
                 </div>
@@ -145,7 +150,7 @@ export default function ContactUsPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {/* Location */}
-                    <div className="text-center hover:shadow-xl rounded-lg bg-gray-200 transition-shadow duration-300">
+                    <div className="text-center hover:shadow-2xl shadow-xl rounded-xl transition-shadow duration-300">
                         <div className="p-6">
                             <div className="flex justify-center mb-4">
                                 <div className="bg-blue-100 p-4 rounded-full">
@@ -164,7 +169,7 @@ export default function ContactUsPage() {
                     </div>
 
                     {/* Email */}
-                    <div className="text-center hover:shadow-xl rounded-lg bg-gray-200 transition-shadow duration-300">
+                    <div className="text-center hover:shadow-2xl shadow-xl rounded-xl transition-shadow duration-300">
                         <div className="p-6">
                             <div className="flex justify-center mb-4">
                                 <div className="bg-yellow-100 p-4 rounded-full">
@@ -193,7 +198,7 @@ export default function ContactUsPage() {
                     </div>
 
                     {/* Phone */}
-                    <div className="text-center hover:shadow-xl rounded-lg bg-gray-200 transition-shadow duration-300">
+                    <div className="text-center hover:shadow-2xl shadow-xl rounded-xl transition-shadow duration-300">
                         <div className="p-6">
                             <div className="flex justify-center mb-4">
                                 <div className="bg-green-100 p-4 rounded-full">

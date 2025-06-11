@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Star, Quote } from "lucide-react";
 import Link from "next/link";
+import { ComingSoonFeature } from "@/components/ui/coming-soon-feature";
 
 // Testimonial data
 const testimonials = [
@@ -68,7 +69,11 @@ export default function AboutUsPage() {
                             asChild
                             className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 sm:px-8 py-2 sm:py-3 w-auto transform transition-all duration-300 hover:scale-105"
                         >
-                            <Link href="/sign-up">GET STARTED</Link>
+                            <Link href="/sign-up">
+                                <ComingSoonFeature>
+                                    GET STARTED
+                                </ComingSoonFeature>
+                            </Link>
                         </Button>
                         <Button
                             asChild
@@ -534,14 +539,18 @@ export default function AboutUsPage() {
                             asChild
                             className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 transform transition-all duration-300 hover:scale-105"
                         >
-                            <Link href="/reviews">View All Reviews</Link>
+                            <Link href="https://www.google.com/search?q=coherencelearning&rlz=1C1VDKB_enIN1054IN1054&oq=coherencelearning&aqs=chrome..69i57j69i60l4.5238j0j1&sourceid=chrome&ie=UTF-8#lrd=0x89b66643d2fe7561:0x20f3f4b8ef8bf186,1,,,,">
+                                View All Reviews
+                            </Link>
                         </Button>
                         <Button
                             asChild
                             variant="outline"
                             className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 transform transition-all duration-300 hover:scale-105"
                         >
-                            <Link href="/write-review">Write a Review</Link>
+                            <Link href="https://www.google.com/search?q=coherencelearning&rlz=1C1VDKB_enIN1054IN1054&oq=coherencelearning&aqs=chrome..69i57j69i60l4.5238j0j1&sourceid=chrome&ie=UTF-8#lrd=0x89b66643d2fe7561:0x20f3f4b8ef8bf186,3,,,,">
+                                Write a Review
+                            </Link>
                         </Button>
                     </div>
                 </div>

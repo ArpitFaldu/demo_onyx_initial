@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { ComingSoonFeature } from "@/components/ui/coming-soon-feature";
 
 const features = [
     {
@@ -283,7 +284,11 @@ export default function FeaturesSection() {
                             asChild
                             className="bg-gradient-to-r from-[#0f3963] to-[#1a4b7c] hover:from-[#1a4b7c] hover:to-[#0f3963] text-white p-8 text-lg font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl"
                         >
-                            <Link href="/sign-up">Get Started Today</Link>
+                            <Link href="/sign-up">
+                                <ComingSoonFeature>
+                                    Get Started Today
+                                </ComingSoonFeature>
+                            </Link>
                         </Button>
                     </motion.div>
                 </motion.div>

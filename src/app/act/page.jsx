@@ -15,6 +15,7 @@ import {
     Target,
 } from "lucide-react";
 import Link from "next/link";
+import { ComingSoonFeature } from "@/components/ui/coming-soon-feature";
 
 export default function DigitalACTPage() {
     const [activeTab, setActiveTab] = useState("overview");
@@ -69,7 +70,11 @@ export default function DigitalACTPage() {
                             asChild
                             className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 sm:px-8 py-2 sm:py-3 w-auto transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                         >
-                            <Link href="/sign-up">GET STARTED</Link>
+                            <Link href="/sign-up">
+                                <ComingSoonFeature>
+                                    GET STARTED
+                                </ComingSoonFeature>
+                            </Link>
                         </Button>
                         <Button
                             asChild
@@ -594,7 +599,9 @@ export default function DigitalACTPage() {
                                 className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                             >
                                 <Link href="/sign-up">
-                                    Schedule Free Consultation
+                                    <ComingSoonFeature>
+                                        Schedule Free Consultation
+                                    </ComingSoonFeature>
                                 </Link>
                             </Button>
                             <Button
