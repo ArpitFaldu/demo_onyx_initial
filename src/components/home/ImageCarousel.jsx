@@ -213,7 +213,11 @@ export default function ImageCarousel() {
     return (
         <div
             className="relative w-full h-screen min-h-screen"
-            style={{ height: "100vh", minHeight: "100vh" }}
+            style={{
+                height: "100vh",
+                minHeight: "100vh",
+                touchAction: "pan-y",
+            }}
         >
             <Carousel
                 showThumbs={false}
@@ -224,8 +228,7 @@ export default function ImageCarousel() {
                 selectedItem={activeIndex}
                 onChange={handleSlideChange}
                 transitionTime={1500}
-                swipeable
-                emulateTouch
+                swipeable={false}
                 autoPlay={false}
             >
                 {slides.map((slide, index) => (
