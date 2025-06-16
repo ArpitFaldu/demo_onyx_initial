@@ -38,9 +38,6 @@ export default function TestPrepPage() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <span className="inline-block bg-yellow-500/20 text-yellow-400 shadow-md mb-4 font-semibold px-3 py-1 rounded-full text-sm">
-              Elite Academy Preparation
-            </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
               TJ & Academy <span className="text-yellow-400">Prep</span>
             </h1>
