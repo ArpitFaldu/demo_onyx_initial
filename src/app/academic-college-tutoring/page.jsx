@@ -538,7 +538,7 @@ export default function AcademicCollegeComplete() {
                 alt="College admissions holistic process illustration"
                 width={500}
                 height={400}
-                className="rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-black"
+                className="rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               />
             </motion.div>
           </div>
@@ -555,7 +555,7 @@ export default function AcademicCollegeComplete() {
                 alt="College guidance process illustration"
                 width={500}
                 height={400}
-                className="rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-black"
+                className="rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               />
             </motion.div>
 
