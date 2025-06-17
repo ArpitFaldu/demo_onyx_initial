@@ -54,13 +54,13 @@ export default function Header() {
             setOpen: setIsProgramsOpen,
             links: [
                 {
-                    name: "SAT ACT Year Long",
-                    href: "/test-prep-sat-act",
+                    name: "SAT-ACT Prep Digital SAT crash course",
+                    href: "/sat-vs-act-digital-sat-crash-course",
                 },
-                {
-                    name: "Digital SAT Crash Course",
-                    href: "/digital-sat-crash-course",
-                },
+                // {
+                //     name: "Digital SAT Crash Course",
+                //     href: "/digital-sat-crash-course",
+                // },
                 {
                     name: "Academic Tutoring",
                     href: "/academic-college-tutoring",
