@@ -46,33 +46,33 @@ export default function Header() {
                 },
             ],
         },
-        // {
-        //     name: "PROGRAMS",
-        //     isOpen: isProgramsOpen,
-        //     setOpen: setIsProgramsOpen,
-        //     links: [
-        //         {
-        //             name: "SAT ACT Year Long",
-        //             href: "/test-prep-sat-act",
-        //         },
-        //         {
-        //             name: "Digital SAT Crash Course",
-        //             href: "/digital-sat-crash-course",
-        //         },
-        //         {
-        //             name: "Academic Tutoring",
-        //             href: "/academic-tutoring",
-        //         },
-        //         {
-        //             name: "College Admissions & Advising",
-        //             href: "/college-advising",
-        //         },
-        //         {
-        //             name: "Summer Courses 2025",
-        //             href: "/summer-courses",
-        //         },
-        //     ],
-        // },
+        {
+            name: "PROGRAMS",
+            isOpen: isProgramsOpen,
+            setOpen: setIsProgramsOpen,
+            links: [
+                {
+                    name: "SAT ACT Year Long",
+                    href: "/test-prep-sat-act",
+                },
+                {
+                    name: "Digital SAT Crash Course",
+                    href: "/digital-sat-crash-course",
+                },
+                {
+                    name: "Academic Tutoring",
+                    href: "/academic-college-tutoring",
+                },
+                // {
+                //     name: "College Admissions & Advising",
+                //     href: "/college-advising",
+                // },
+                {
+                    name: "Summer Courses 2025",
+                    href: "/summer-courses",
+                },
+            ],
+        },
     ];
 
     return (
