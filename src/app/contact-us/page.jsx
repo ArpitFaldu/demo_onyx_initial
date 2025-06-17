@@ -418,7 +418,7 @@ export default function ContactUsPage() {
                                     </div>
 
                                     <div className="relative group">
-                                        <div className="absolute top-4 left-0 pointer-events-none">
+                                        <div className="absolute inset-y-0 pt-4 left-0 pl-3 flex items-start pointer-events-none">
                                             <svg
                                                 className="h-5 w-5 text-gray-400 group-focus-within:text-blue-500 transition-colors"
                                                 fill="none"
@@ -439,7 +439,7 @@ export default function ContactUsPage() {
                                             value={formData.additionalInfo}
                                             onChange={handleInputChange}
                                             rows={6}
-                                            className="resize-none pl-10 pr-4 pt-4 rounded-xl shadow-sm transition-all duration-300 focus:shadow-lg focus:scale-105 border-gray-200 focus:border-blue-500"
+                                            className="resize-none pl-12 pr-4 pt-4 rounded-xl shadow-sm transition-all duration-300 focus:shadow-lg focus:scale-105 border-gray-200 focus:border-blue-500"
                                         />
                                     </div>
 
@@ -501,7 +501,7 @@ export default function ContactUsPage() {
                                 {/* Trust indicators */}
                                 <div className="mt-8 pt-6 border-t border-gray-100">
                                     <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
-                                        <div className="flex items-center">
+                                        <div className="flex flex-col items-center text-center">
                                             <svg
                                                 className="h-4 w-4 mr-1 text-green-500"
                                                 fill="currentColor"
@@ -515,11 +515,11 @@ export default function ContactUsPage() {
                                             </svg>
                                             Secure & Private
                                         </div>
-                                        <div className="flex items-center">
+                                        <div className="flex flex-col items-center text-center">
                                             <Clock className="h-4 w-4 mr-1 text-blue-500" />
                                             24hr Response
                                         </div>
-                                        <div className="flex items-center">
+                                        <div className="flex flex-col items-center text-center">
                                             <svg
                                                 className="h-4 w-4 mr-1 text-purple-500"
                                                 fill="currentColor"
