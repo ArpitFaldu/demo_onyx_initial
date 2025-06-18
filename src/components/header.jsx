@@ -16,8 +16,6 @@ import { Button } from "@/components/ui/button";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isAboutOpen, setIsAboutOpen] = useState(false);
-    const [isMoreOpen, setIsMoreOpen] = useState(false);
     const [isTestPrepOpen, setIsTestPrepOpen] = useState(false);
     const [isProgramsOpen, setIsProgramsOpen] = useState(false);
 
@@ -53,10 +51,16 @@ export default function Header() {
             isOpen: isProgramsOpen,
             setOpen: setIsProgramsOpen,
             links: [
+
                 {
                     name: "SAT-ACT Prep Digital SAT crash course",
                     href: "/sat-vs-act-digital-sat-crash-course",
                 },
+                // {
+                //     name: "SAT ACT Year Long",
+                //     href: "/test-prep-sat-act",
+                // },
+
                 // {
                 //     name: "Digital SAT Crash Course",
                 //     href: "/digital-sat-crash-course",
@@ -75,41 +79,6 @@ export default function Header() {
                 },
             ],
         },
-        // {
-        //     name: "MORE",
-        //     isOpen: isMoreOpen,
-        //     setOpen: setIsMoreOpen,
-        //     links: [
-        //         {
-        //             name: "Schedule",
-        //             href: "/schedule",
-        //         },
-        //         {
-        //             name: "Pricing",
-        //             href: "/pricing",
-        //         },
-        //         {
-        //             name: "Gallery",
-        //             href: "/gallery",
-        //         },
-        //         {
-        //             name: "Join our Team",
-        //             href: "/join-our-team",
-        //         },
-        //         {
-        //             name: "Reviews",
-        //             href: "https://www.google.com/search?q=coherencelearning&rlz=1C1VDKB_enIN1054IN1054&oq=coherencelearning&aqs=chrome..69i57j69i60l4.5238j0j1&sourceid=chrome&ie=UTF-8#lrd=0x89b66643d2fe7561:0x20f3f4b8ef8bf186,1,,,,",
-        //         },
-        //         {
-        //             name: "Write A Review",
-        //             href: "https://www.google.com/search?q=coherencelearning&rlz=1C1VDKB_enIN1054IN1054&oq=coherencelearning&aqs=chrome..69i57j69i60l4.5238j0j1&sourceid=chrome&ie=UTF-8#lrd=0x89b66643d2fe7561:0x20f3f4b8ef8bf186,3,,,,",
-        //         },
-        //         {
-        //             name: "Contact Us",
-        //             href: "/contact-us",
-        //         },
-        //     ],
-        // },
     ];
 
     return (
@@ -252,6 +221,13 @@ export default function Header() {
                                 className="relative text-white hover:text-[#6a9bd1] px-3 py-2 text-sm font-medium transition-all duration-300 hover:scale-110 transform group"
                             >
                                 CONTACT US
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0f3963] transition-all duration-300 group-hover:w-full"></span>
+                            </Link>
+                            <Link
+                                href="/more"
+                                className="relative text-white hover:text-[#6a9bd1] px-3 py-2 text-sm font-medium transition-all duration-300 hover:scale-110 transform group"
+                            >
+                                MORE
                                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0f3963] transition-all duration-300 group-hover:w-full"></span>
                             </Link>
 
