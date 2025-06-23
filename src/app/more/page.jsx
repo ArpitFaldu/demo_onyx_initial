@@ -575,225 +575,143 @@ export default function MorePage() {
                     {/* Pricing Cards */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {/* Elementary School Classes */}
-                        <Card className="border-2 border-gray-200 hover:border-[#f1c338] hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 animate-in slide-in-from-left-8 duration-300 group">
-                            <CardHeader className="text-center pb-4 bg-gradient-to-br from-[#f1c338]/10 to-[#f1c338]/5 group-hover:from-[#f1c338]/20 group-hover:to-[#f1c338]/10 transition-all duration-300">
-                                <div className="bg-[#f1c338] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
-                                    <BookOpen className="h-8 w-8 text-gray-800" />
-                                </div>
-                                <CardTitle className="text-xl sm:text-2xl font-bold text-gray-800">
-                                    Elementary School Classes
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-6 text-center p-6">
-                                <div className="space-y-4">
-                                    <div className="bg-gray-50 rounded-lg p-4 hover:bg-[#f1c338]/10 transition-colors duration-300">
-                                        <div className="text-2xl font-bold text-[#0f3963] mb-1">
-                                            $275
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            per month
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2">
-                                            1 class per week (4 classes/6hrs Per
-                                            Month)
-                                        </div>
-                                    </div>
-                                    <div className="bg-gray-50 rounded-lg p-4 hover:bg-[#f1c338]/10 transition-colors duration-300">
-                                        <div className="text-2xl font-bold text-[#0f3963] mb-1">
-                                            $550
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            per month
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2">
-                                            2 classes per week (8 classes/12hrs
-                                            Per Month)
-                                        </div>
-                                    </div>
-                                    <div className="bg-[#f1c338]/20 rounded-lg p-4 border-2 border-[#f1c338] relative overflow-hidden">
-                                        <div className="absolute top-2 right-2">
-                                            <Star className="h-5 w-5 text-[#f1c338] fill-current" />
-                                        </div>
-                                        <div className="text-2xl font-bold text-[#0f3963] mb-1">
-                                            $850
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            per month
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2 font-semibold">
-                                            3 classes per week (12
-                                            classes/Unlimited hours per month)
-                                        </div>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
+                        <Card className="border-2 border-gray-200 hover:border-teal-500 hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 animate-in slide-in-from-left-8 duration-300 group">
+        <CardHeader className="text-center pb-4 bg-gradient-to-br from-teal-50 to-teal-25 group-hover:from-teal-100 group-hover:to-teal-50 transition-all duration-300">
+          <div className="bg-teal-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+            <BookOpen className="h-8 w-8 text-white" />
+          </div>
+          <CardTitle className="text-xl sm:text-2xl font-bold text-gray-800">Elementary School Classes</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-center p-6">
+          <div className="space-y-4">
+            <div className="bg-gray-50 rounded-lg p-4 hover:bg-teal-50 transition-colors duration-300">
+              <div className="text-2xl font-bold text-teal-600 mb-1">$275</div>
+              <div className="text-sm text-gray-600">per month</div>
+              <div className="text-sm text-gray-700 mt-2">1 class per week (4 classes/6hrs Per Month)</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-4 hover:bg-teal-50 transition-colors duration-300">
+              <div className="text-2xl font-bold text-teal-600 mb-1">$550</div>
+              <div className="text-sm text-gray-600">per month</div>
+              <div className="text-sm text-gray-700 mt-2">2 classes per week (8 classes/12hrs Per Month)</div>
+            </div>
+            <div className="bg-teal-100 rounded-lg p-4 border-2 border-teal-500 relative overflow-hidden">
+              <div className="absolute top-2 right-2">
+                <Star className="h-5 w-5 text-teal-500 fill-current" />
+              </div>
+              <div className="text-2xl font-bold text-teal-600 mb-1">$850</div>
+              <div className="text-sm text-gray-600">per month</div>
+              <div className="text-sm text-gray-700 mt-2 font-semibold">
+                3 classes per week (12 classes/Unlimited hours per month)
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-                        {/* Year-Long Test Prep */}
-                        <Card className="border-2 border-gray-200 hover:border-[#0f3963] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 animate-in slide-in-from-right-8 group">
-                            <CardHeader className="text-center pb-4 bg-gradient-to-br from-[#0f3963]/10 to-[#0f3963]/5 group-hover:from-[#0f3963]/20 group-hover:to-[#0f3963]/10 transition-all duration-300">
-                                <div className="bg-[#0f3963] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
-                                    <Award className="h-8 w-8 text-white" />
-                                </div>
-                                <CardTitle className="text-xl sm:text-2xl font-bold text-gray-800">
-                                    Year-Long Test Prep
-                                    <br />
-                                    <span className="text-lg">
-                                        SAT and TJ/ACL (AOS/AET)
-                                    </span>
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-6 text-center p-6">
-                                <div className="space-y-4">
-                                    <div className="bg-gray-50 rounded-lg p-4 hover:bg-[#0f3963]/10 transition-colors duration-300">
-                                        <div className="text-2xl font-bold text-[#0f3963] mb-1">
-                                            $275
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            per month [School Year]
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2">
-                                            1 class per week (4 classes/8hrs PM)
-                                        </div>
-                                    </div>
-                                    <div className="bg-[#0f3963]/20 rounded-lg p-4 border-2 border-[#0f3963] relative overflow-hidden">
-                                        <div className="absolute top-2 right-2">
-                                            <Star className="h-5 w-5 text-[#0f3963] fill-current" />
-                                        </div>
-                                        <div className="text-2xl font-bold text-[#0f3963] mb-1">
-                                            $550
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            per month [Summer]
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2 font-semibold">
-                                            2 classes per week (8 classes/16hrs
-                                            PM)
-                                        </div>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
+      {/* Year-Long Test Prep */}
+      <Card className="border-2 border-gray-200 hover:border-indigo-600 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 animate-in slide-in-from-right-8 group">
+        <CardHeader className="text-center pb-4 bg-gradient-to-br from-indigo-50 to-indigo-25 group-hover:from-indigo-100 group-hover:to-indigo-50 transition-all duration-300">
+          <div className="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+            <Award className="h-8 w-8 text-white" />
+          </div>
+          <CardTitle className="text-xl sm:text-2xl font-bold text-gray-800">
+            Year-Long Test Prep
+            <br />
+            <span className="text-lg">SAT and TJ/ACL (AOS/AET)</span>
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-center p-6">
+          <div className="space-y-4">
+            <div className="bg-gray-50 rounded-lg p-4 hover:bg-indigo-50 transition-colors duration-300">
+              <div className="text-2xl font-bold text-indigo-600 mb-1">$275</div>
+              <div className="text-sm text-gray-600">per month [School Year]</div>
+              <div className="text-sm text-gray-700 mt-2">1 class per week (4 classes/8hrs PM)</div>
+            </div>
+            <div className="bg-indigo-100 rounded-lg p-4 border-2 border-indigo-600 relative overflow-hidden">
+              <div className="absolute top-2 right-2">
+                <Star className="h-5 w-5 text-indigo-600 fill-current" />
+              </div>
+              <div className="text-2xl font-bold text-indigo-600 mb-1">$550</div>
+              <div className="text-sm text-gray-600">per month [Summer]</div>
+              <div className="text-sm text-gray-700 mt-2 font-semibold">2 classes per week (8 classes/16hrs PM)</div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-                        {/* Academic & Subject Tutoring */}
-                        <Card className="border-2 border-gray-200 hover:border-green-500 hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 animate-in slide-in-from-left-8 duration-300 group">
-                            <CardHeader className="text-center pb-4 bg-gradient-to-br from-green-50 to-green-25 group-hover:from-green-100 group-hover:to-green-50 transition-all duration-300">
-                                <div className="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
-                                    <Calculator className="h-8 w-8 text-white" />
-                                </div>
-                                <CardTitle className="text-xl sm:text-2xl font-bold text-gray-800">
-                                    Academic & Subject Tutoring
-                                    <br />
-                                    <span className="text-lg">
-                                        High/Middle Schoolers
-                                    </span>
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-6 text-center p-6">
-                                <div className="space-y-4">
-                                    <div className="bg-gray-50 rounded-lg p-4 hover:bg-green-50 transition-colors duration-300">
-                                        <div className="text-2xl font-bold text-green-600 mb-1">
-                                            $275
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            per month
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2">
-                                            1 class/week (4 [90 min]
-                                            classes/6hrs/month)
-                                        </div>
-                                    </div>
-                                    <div className="bg-gray-50 rounded-lg p-4 hover:bg-green-50 transition-colors duration-300">
-                                        <div className="text-2xl font-bold text-green-600 mb-1">
-                                            $550
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            per month
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2">
-                                            2 classes/week (8 [90 min]
-                                            classes/12hrs/month)
-                                        </div>
-                                    </div>
-                                    <div className="bg-green-100 rounded-lg p-4 border-2 border-green-500 relative overflow-hidden">
-                                        <div className="absolute top-2 right-2">
-                                            <Star className="h-5 w-5 text-green-500 fill-current" />
-                                        </div>
-                                        <div className="text-2xl font-bold text-green-600 mb-1">
-                                            $875
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            per month
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2 font-semibold">
-                                            3 classes/week (Unlimited hrs/month)
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="pt-4 border-t border-gray-200">
-                                    <div className="text-lg font-semibold text-gray-800">
-                                        General Rate: $45/hour
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
+      {/* Academic & Subject Tutoring */}
+      <Card className="border-2 border-gray-200 hover:border-emerald-500 hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 animate-in slide-in-from-left-8 duration-300 group">
+        <CardHeader className="text-center pb-4 bg-gradient-to-br from-emerald-50 to-emerald-25 group-hover:from-emerald-100 group-hover:to-emerald-50 transition-all duration-300">
+          <div className="bg-emerald-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+            <Calculator className="h-8 w-8 text-white" />
+          </div>
+          <CardTitle className="text-xl sm:text-2xl font-bold text-gray-800">
+            Academic & Subject Tutoring
+            <br />
+            <span className="text-lg">High/Middle Schoolers</span>
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-center p-6">
+          <div className="space-y-4">
+            <div className="bg-gray-50 rounded-lg p-4 hover:bg-emerald-50 transition-colors duration-300">
+              <div className="text-2xl font-bold text-emerald-600 mb-1">$275</div>
+              <div className="text-sm text-gray-600">per month</div>
+              <div className="text-sm text-gray-700 mt-2">1 class/week (4 [90 min] classes/6hrs/month)</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-4 hover:bg-emerald-50 transition-colors duration-300">
+              <div className="text-2xl font-bold text-emerald-600 mb-1">$550</div>
+              <div className="text-sm text-gray-600">per month</div>
+              <div className="text-sm text-gray-700 mt-2">2 classes/week (8 [90 min] classes/12hrs/month)</div>
+            </div>
+            <div className="bg-emerald-100 rounded-lg p-4 border-2 border-emerald-500 relative overflow-hidden">
+              <div className="absolute top-2 right-2">
+                <Star className="h-5 w-5 text-emerald-500 fill-current" />
+              </div>
+              <div className="text-2xl font-bold text-emerald-600 mb-1">$875</div>
+              <div className="text-sm text-gray-600">per month</div>
+              <div className="text-sm text-gray-700 mt-2 font-semibold">3 classes/week (Unlimited hrs/month)</div>
+            </div>
+          </div>
+          <div className="pt-4 border-t border-gray-200">
+            <div className="text-lg font-semibold text-gray-800">General Rate: $45/hour</div>
+          </div>
+        </CardContent>
+      </Card>
 
-                        {/* SAT Prep Course */}
-                        <Card className="border-2 border-gray-200 hover:border-purple-500 hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 animate-in slide-in-from-right-8 duration-300 group">
-                            <CardHeader className="text-center pb-4 bg-gradient-to-br from-purple-50 to-purple-25 group-hover:from-purple-100 group-hover:to-purple-50 transition-all duration-300">
-                                <div className="bg-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
-                                    <GraduationCap className="h-8 w-8 text-white" />
-                                </div>
-                                <CardTitle className="text-xl sm:text-2xl font-bold text-gray-800">
-                                    SAT Prep Course
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-6 text-center p-6">
-                                <div className="space-y-4">
-                                    <div className="bg-purple-100 rounded-lg p-4 border-2 border-purple-500 relative overflow-hidden">
-                                        <div className="absolute top-2 right-2">
-                                            <Star className="h-5 w-5 text-purple-500 fill-current" />
-                                        </div>
-                                        <div className="text-2xl font-bold text-purple-600 mb-1">
-                                            $4,199
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            4 months—Summer [June to September]
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2 font-semibold">
-                                            Unlimited hours per month
-                                        </div>
-                                    </div>
-                                    <div className="bg-purple-100 rounded-lg p-4 border-2 border-purple-500 relative overflow-hidden">
-                                        <div className="absolute top-2 right-2">
-                                            <Star className="h-5 w-5 text-purple-500 fill-current" />
-                                        </div>
-                                        <div className="text-2xl font-bold text-purple-600 mb-1">
-                                            $4,499
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            6 months—Fall [September to
-                                            February]
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2 font-semibold">
-                                            Unlimited hours per month
-                                        </div>
-                                    </div>
-                                    <div className="bg-gray-50 rounded-lg p-4 hover:bg-purple-50 transition-colors duration-300">
-                                        <div className="text-2xl font-bold text-purple-600 mb-1">
-                                            $3,499
-                                        </div>
-                                        <div className="text-sm text-gray-600">
-                                            6 months—Fall [September to
-                                            February]
-                                        </div>
-                                        <div className="text-sm text-gray-700 mt-2">
-                                            Limited: 2 (2-hour) classes/week
-                                        </div>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
+      {/* SAT Prep Course */}
+      <Card className="border-2 border-gray-200 hover:border-violet-600 hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:scale-105 animate-in slide-in-from-right-8 duration-300 group">
+        <CardHeader className="text-center pb-4 bg-gradient-to-br from-violet-50 to-violet-25 group-hover:from-violet-100 group-hover:to-violet-50 transition-all duration-300">
+          <div className="bg-violet-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+            <GraduationCap className="h-8 w-8 text-white" />
+          </div>
+          <CardTitle className="text-xl sm:text-2xl font-bold text-gray-800">SAT Prep Course</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-center p-6">
+          <div className="space-y-4">
+            <div className="bg-violet-100 rounded-lg p-4 border-2 border-violet-600 relative overflow-hidden">
+              <div className="absolute top-2 right-2">
+                <Star className="h-5 w-5 text-violet-600 fill-current" />
+              </div>
+              <div className="text-2xl font-bold text-violet-600 mb-1">$4,199</div>
+              <div className="text-sm text-gray-600">4 months—Summer [June to September]</div>
+              <div className="text-sm text-gray-700 mt-2 font-semibold">Unlimited hours per month</div>
+            </div>
+            <div className="bg-violet-100 rounded-lg p-4 border-2 border-violet-600 relative overflow-hidden">
+              <div className="absolute top-2 right-2">
+                <Star className="h-5 w-5 text-violet-600 fill-current" />
+              </div>
+              <div className="text-2xl font-bold text-violet-600 mb-1">$4,499</div>
+              <div className="text-sm text-gray-600">6 months—Fall [September to February]</div>
+              <div className="text-sm text-gray-700 mt-2 font-semibold">Unlimited hours per month</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-4 hover:bg-violet-50 transition-colors duration-300">
+              <div className="text-2xl font-bold text-violet-600 mb-1">$3,499</div>
+              <div className="text-sm text-gray-600">6 months—Fall [September to February]</div>
+              <div className="text-sm text-gray-700 mt-2">Limited: 2 (2-hour) classes/week</div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
                     </div>
 
                     {/* Contact CTA */}

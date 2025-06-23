@@ -67,12 +67,12 @@ export default function Header() {
                 // },
                 {
                     name: "Academic Tutoring",
-                    href: "/academic-college-tutoring",
+                    href: "/academic-tutoring",
                 },
-                // {
-                //     name: "College Admissions & Advising",
-                //     href: "/college-advising",
-                // },
+                {
+                    name: "College Admissions & Advising",
+                    href: "/college-advising",
+                },
                 {
                     name: "Summer Courses 2025",
                     href: "/summer-courses",
