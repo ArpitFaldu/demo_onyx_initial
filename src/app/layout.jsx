@@ -25,7 +25,7 @@ const bodyFont = Inter({
 });
 
 export const metadata = {
-    title: "Coherence Learning",
+    title: "Onyx EduTech",
     description: "Redefining Education",
 };
 
@@ -35,6 +35,9 @@ export default function RootLayout({ children }) {
             lang="en"
             className={`${headingFont.variable} ${bodyFont.variable}`}
         >
+             <head>
+                <link rel="icon" href="/onyx_logo (1).png" />
+            </head>
             <body className={`${bodyFont.className} m-0 p-0`}>
                 <Header />
                 <main className="min-h-screen">
