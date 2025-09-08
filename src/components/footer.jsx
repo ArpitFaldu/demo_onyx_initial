@@ -3,7 +3,7 @@ import { Twitter, Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "luc
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0f3963] text-gray-300 font-inter">
+    <footer className="bg-[#0f3963] text-gray-300 font-inter bg-blue-800">
       {/* Top Section */}
       <div className="max-w-full mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
         {/* Logo + About */}
@@ -183,7 +183,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-[#1a4b7c] border-t border-[#0f3963]/30 py-6 px-6 text-sm text-gray-300">
+      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-orange-600 border-t border-[#0f3963]/30 py-6 px-6 text-sm text-gray-300">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-medium">
             © 2025 Onyx EduTech. All rights reserved. | Designed by{" "}

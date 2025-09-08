@@ -25,245 +25,252 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-// ==================== HERO SECTION COMPONENT ====================
-const HeroSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [isChanging, setIsChanging] = useState(false)
+  // ==================== HERO SECTION COMPONENT ====================
+  const HeroSection = () => {
+    const [activeIndex, setActiveIndex] = useState(0)
+    const [isChanging, setIsChanging] = useState(false)
 
-  const slides = [
-    {
-      welcomeText: "Welcome to Onyx EduTech",
-      src: "/students-learning-coding-programming.jpg",
-      title: "Wondering how to land your",
-      subtitle: "dream job?",
-      description: "Unsure if you have the right skills? Relax, Mi Amigo – you're in the right place!",
-      buttons: (
-        <div className="w-fit flex flex-col sm:flex-row items-center gap-4">
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-md transition-all duration-300 hover:scale-105 transform shadow-lg">
-            <Link href="#community" className="flex items-center gap-2">
-              Join Our Community 
-            </Link>
-          </Button>
-          <Button
-            variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg font-semibold rounded-md transition-all duration-300 hover:scale-105 transform shadow-lg bg-transparent"
-          >
-            <Link href="#contact" className="flex items-center gap-2">
-              Register as Student
-            </Link>
-          </Button>
-        </div>
-      ),
-    },
-    {
-      welcomeText: "Skills Over Marksheets",
-      src: "/tech-education-online-learning.jpg",
-      title: "Build Your Career on",
-      subtitle: "Skills, Not Just Degrees",
-      description: "At Onyx EduTech, we believe your career should be built on skills, not just marksheets.",
-    },
-    {
-      welcomeText: "Learning Community",
-      src: "/professional-team-member-.jpg",
-      title: "Join Our Learning",
-      subtitle: "Community",
-      description: "Where knowledge meets opportunities, and start your journey towards dream careers today.",
-    },
-  ]
-
-  const getAnimationVariants = (direction) => {
-    const baseTransition = { type: "spring", stiffness: 100, damping: 20 }
-
-    switch (direction) {
-      case "left":
-        return {
-          initial: { opacity: 0, x: -100 },
-          animate: { opacity: 1, x: 0 },
-          exit: { opacity: 0, x: -100 },
-          transition: baseTransition,
-        }
-      case "right":
-        return {
-          initial: { opacity: 0, x: 100 },
-          animate: { opacity: 1, x: 0 },
-          exit: { opacity: 0, x: 100 },
-          transition: baseTransition,
-        }
-      case "top":
-        return {
-          initial: { opacity: 0, y: -100 },
-          animate: { opacity: 1, y: 0 },
-          exit: { opacity: 0, y: -100 },
-          transition: baseTransition,
-        }
-      case "bottom":
-        return {
-          initial: { opacity: 0, y: 100 },
-          animate: { opacity: 1, y: 0 },
-          exit: { opacity: 0, y: 100 },
-          transition: baseTransition,
-        }
-      default:
-        return {
-          initial: { opacity: 0 },
-          animate: { opacity: 1 },
-          exit: { opacity: 0 },
-          transition: { duration: 0.6 },
-        }
-    }
-  }
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length)
-    }, 8000)
-    return () => clearInterval(timer)
-  }, [activeIndex])
-
-  const handleSlideChange = (index) => {
-    if (index !== activeIndex) {
-      setIsChanging(true)
-      setActiveIndex(index)
-      setTimeout(() => setIsChanging(false), 1500)
-    }
-  }
-
-  const goToPrevious = () => {
-    const newIndex = activeIndex === 0 ? slides.length - 1 : activeIndex - 1
-    handleSlideChange(newIndex)
-  }
-
-  const goToNext = () => {
-    const newIndex = (activeIndex + 1) % slides.length
-    handleSlideChange(newIndex)
-  }
-
-  return (
-    <section className="relative w-full h-screen min-h-screen overflow-hidden bg-blue-900">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-orange-600 z-10"></div>
-
-      <div className="relative w-full h-full z-20">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 w-full h-full transition-all duration-1500 ease-in-out ${
-              index === activeIndex
-                ? "opacity-100 translate-x-0"
-                : index < activeIndex
-                  ? "opacity-0 -translate-x-full"
-                  : "opacity-0 translate-x-full"
-            }`}
-          >
-            <div className="absolute inset-0 bg-blue-900/80 z-10" />
-            <Image
-              src={slide.src || "/placeholder.svg"}
-              alt={slide.title}
-              fill
-              style={{ objectFit: "cover" }}
-              className="brightness-50 z-0"
-              priority={index === 0}
-              onError={(e) => {
-                // Hide broken images to show gradient background
-                e.currentTarget.style.display = "none"
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-orange-500/50 z-20" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 z-30">
-              <AnimatePresence mode="wait">
-                {index === activeIndex && !isChanging && (
-                  <>
-                    <motion.p
-                      key={`welcome-${index}`}
-                      className="text-lg md:text-xl font-medium mb-8 tracking-wide uppercase text-orange-200"
-                      {...getAnimationVariants("top")}
-                      transition={{ delay: 0.1 }}
-                    >
-                      {slide.welcomeText}
-                    </motion.p>
-
-                    <motion.h1
-                      key={`title-${index}`}
-                      className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 text-white"
-                      {...getAnimationVariants("left")}
-                      transition={{ delay: 0.2 }}
-                    >
-                      {slide.title}
-                    </motion.h1>
-
-                    <motion.h2
-                      key={`subtitle-${index}`}
-                      className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-orange-400 mb-6"
-                      {...getAnimationVariants("right")}
-                      transition={{ delay: 0.4 }}
-                    >
-                      {slide.subtitle}
-                    </motion.h2>
-
-                    <motion.p
-                      key={`description-${index}`}
-                      className="text-xl md:text-2xl mb-8 max-w-4xl leading-relaxed text-white"
-                      {...getAnimationVariants("bottom")}
-                      transition={{ delay: 0.5 }}
-                    >
-                      {slide.description}
-                    </motion.p>
-
-                    <motion.div
-                      key={`buttons-${index}`}
-                      className="mt-8"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.6 }}
-                    >
-                      {slide.buttons || (
-                        <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-md">
-                          <Link href="#community">
-                            Join Our Community
-                          </Link>
-                        </Button>
-                      )}
-                    </motion.div>
-                  </>
-                )}
-              </AnimatePresence>
-            </div>
+    const slides = [
+      {
+        welcomeText: "Welcome to Onyx EduTech",
+        src: "/1.jpg",
+        title: "Wondering how to land your",
+        subtitle: "dream job?",
+        description: "Because the Right Role Deserves the Right Skill — For Every Student, Every Time.",
+        buttons: (
+          <div className="w-fit flex flex-col sm:flex-row items-center gap-4">
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-md transition-all duration-300 hover:scale-105 transform shadow-lg">
+              <Link href="#community" className="flex items-center gap-2">
+                Join Our Community 
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg font-semibold rounded-md transition-all duration-300 hover:scale-105 transform shadow-lg bg-transparent"
+            >
+              <Link href="#contact" className="flex items-center gap-2">
+                Register as Student
+              </Link>
+            </Button>
           </div>
-        ))}
-      </div>
+        ),
+      },
+      {
+        welcomeText: "Skills Over Marksheets",
+        src: "/2.jpg",
+        title: "Build Your Career on",
+        subtitle: "Skills, Not Just Degrees",
+        description: "Turning Potential into Placements, and Campuses into Career Launchpads.",
+      },
+      {
+        welcomeText: "Learning Community",
+        src: "/3.jpg",
+        title: "Join Our Learning",
+        subtitle: "Community",
+        description: "Empowering Institutions to Deliver What Recruiters Seek, and Students Aspire",
+      },
+      {
+        welcomeText: "Learning Community",
+        src: "/4.jpg",
+        title: "Join Our Learning",
+        subtitle: "Community",
+        description: " Not Just Jobs — Building Careers That Truly Fit.",
+      },
+    ]
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={goToPrevious}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 z-40"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="w-6 h-6 text-white" />
-      </button>
+    const getAnimationVariants = (direction) => {
+      const baseTransition = { type: "spring", stiffness: 100, damping: 20 }
 
-      <button
-        onClick={goToNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 z-40"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="w-6 h-6 text-white" />
-      </button>
+      switch (direction) {
+        case "left":
+          return {
+            initial: { opacity: 0, x: -100 },
+            animate: { opacity: 1, x: 0 },
+            exit: { opacity: 0, x: -100 },
+            transition: baseTransition,
+          }
+        case "right":
+          return {
+            initial: { opacity: 0, x: 100 },
+            animate: { opacity: 1, x: 0 },
+            exit: { opacity: 0, x: 100 },
+            transition: baseTransition,
+          }
+        case "top":
+          return {
+            initial: { opacity: 0, y: -100 },
+            animate: { opacity: 1, y: 0 },
+            exit: { opacity: 0, y: -100 },
+            transition: baseTransition,
+          }
+        case "bottom":
+          return {
+            initial: { opacity: 0, y: 100 },
+            animate: { opacity: 1, y: 0 },
+            exit: { opacity: 0, y: 100 },
+            transition: baseTransition,
+          }
+        default:
+          return {
+            initial: { opacity: 0 },
+            animate: { opacity: 1 },
+            exit: { opacity: 0 },
+            transition: { duration: 0.6 },
+          }
+      }
+    }
 
-      {/* Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-40">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleSlideChange(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === activeIndex ? "bg-orange-500 scale-125" : "bg-white/50 hover:bg-white/70"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-    </section>
-  )
-}
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length)
+      }, 8000)
+      return () => clearInterval(timer)
+    }, [activeIndex])
+
+    const handleSlideChange = (index) => {
+      if (index !== activeIndex) {
+        setIsChanging(true)
+        setActiveIndex(index)
+        setTimeout(() => setIsChanging(false), 1500)
+      }
+    }
+
+    const goToPrevious = () => {
+      const newIndex = activeIndex === 0 ? slides.length - 1 : activeIndex - 1
+      handleSlideChange(newIndex)
+    }
+
+    const goToNext = () => {
+      const newIndex = (activeIndex + 1) % slides.length
+      handleSlideChange(newIndex)
+    }
+
+    return (
+      <section className="relative w-full h-screen min-h-screen overflow-hidden bg-blue-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-orange-600 z-10"></div>
+
+        <div className="relative w-full h-full z-20">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 w-full h-full transition-all duration-1500 ease-in-out ${
+                index === activeIndex
+                  ? "opacity-100 translate-x-0"
+                  : index < activeIndex
+                    ? "opacity-0 -translate-x-full"
+                    : "opacity-0 translate-x-full"
+              }`}
+            >
+              <div className="absolute inset-0 bg-blue-900/50 z-5" />
+              <Image
+                src={slide.src || "/placeholder.svg"}
+                alt={slide.title}
+                fill
+                style={{ objectFit: "cover" }}
+                className="brightness-100 z-0"
+                priority={index === 0}
+                onError={(e) => {
+                  // Hide broken images to show gradient background
+                  e.currentTarget.style.display = "none"
+                }}
+              />
+              <div className="absolute inset-0 z-20" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 z-30">
+                <AnimatePresence mode="wait">
+                  {index === activeIndex && !isChanging && (
+                    <>
+                      <motion.p
+                        key={`welcome-${index}`}
+                        className="text-lg md:text-xl font-medium mb-8 tracking-wide uppercase text-orange-200"
+                        {...getAnimationVariants("top")}
+                        transition={{ delay: 0.1 }}
+                      >
+                        {slide.welcomeText}
+                      </motion.p>
+
+                      <motion.h1
+                        key={`title-${index}`}
+                        className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 text-white"
+                        {...getAnimationVariants("left")}
+                        transition={{ delay: 0.2 }}
+                      >
+                        {slide.title}
+                      </motion.h1>
+
+                      <motion.h2
+                        key={`subtitle-${index}`}
+                        className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-orange-400 mb-6"
+                        {...getAnimationVariants("right")}
+                        transition={{ delay: 0.4 }}
+                      >
+                        {slide.subtitle}
+                      </motion.h2>
+
+                      <motion.p
+                        key={`description-${index}`}
+                        className="text-xl md:text-2xl mb-8 max-w-4xl leading-relaxed text-white"
+                        {...getAnimationVariants("bottom")}
+                        transition={{ delay: 0.5 }}
+                      >
+                        {slide.description}
+                      </motion.p>
+
+                      <motion.div
+                        key={`buttons-${index}`}
+                        className="mt-8"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.6 }}
+                      >
+                        {slide.buttons || (
+                          <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-md">
+                            <Link href="#community">
+                              Join Our Community
+                            </Link>
+                          </Button>
+                        )}
+                      </motion.div>
+                    </>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={goToPrevious}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 z-40"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </button>
+
+        <button
+          onClick={goToNext}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 z-40"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-6 h-6 text-white" />
+        </button>
+
+        {/* Indicators */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-40">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleSlideChange(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === activeIndex ? "bg-orange-500 scale-125" : "bg-white/50 hover:bg-white/70"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
 
 // ==================== ABOUT SECTION COMPONENT ====================
 const AboutSection = () => {
@@ -831,7 +838,7 @@ const TestimonialsSection = () => {
 // ==================== COMMUNITY SECTION ====================
 const CommunitySection = () => {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-orange-500 to-orange-600">
+    <section className="py-16 md:py-24 bg-orange-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
