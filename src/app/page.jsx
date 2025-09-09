@@ -1119,22 +1119,22 @@ const BlogsSection = () => {
     {
       title: "Future of AI in Education",
       excerpt: "Discover how artificial intelligence is revolutionizing the way we learn and teach.",
-      image: "/ai-education-technology.jpg",
+      image: "/8.jpg",
       date: "Dec 15, 2024",
       category: "Technology",
     },
     {
       title: "Career Transition Guide",
       excerpt: "Essential tips for successfully transitioning to a tech career from any background.",
-      image: "/career-transition-professional.jpg",
+      image: "/11.jpg",
       date: "Dec 12, 2024",
       category: "Career",
     },
     {
       title: "Industry Skills Demand 2025",
       excerpt: "Top skills that will be in high demand in the coming year and how to acquire them.",
-      image: "/skills-demand-industry-trends.jpg",
-      date: "Dec 10, 2024",
+      image: "/13.jpg",
+      date: "Dec 10, 2024", 
       category: "Industry",
     },
   ]
