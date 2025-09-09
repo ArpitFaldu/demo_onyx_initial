@@ -173,7 +173,7 @@ import { Button } from "@/components/ui/button"
                     : "opacity-0 translate-x-full"
               }`}
             >
-              <div className="absolute inset-0 bg-blue-900/50 z-5" />
+              <div className="absolute inset-0 z-5" />
               <Image
                 src={slide.src || "/placeholder.svg"}
                 alt={slide.title}
