@@ -22,6 +22,18 @@ import {
   Phone,
   Mail,
   MapPin,
+  Cpu,
+  Coffee,
+  DollarSign,
+  BarChart3,
+  Bug,
+  Cloud,
+  Code,
+  Database,
+  Layers,
+  Smartphone,
+  Settings,
+  TrendingUp,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -465,14 +477,140 @@ const HowYoullLearnSection = () => {
 
 // ==================== COURSES SECTION ====================
 const CoursesSection = () => {
-  const courses = [
-    { icon: <Monitor className="w-12 h-12" />, title: "Technology", color: "from-blue-500 to-blue-600" },
-    { icon: <Target className="w-12 h-12" />, title: "Business", color: "from-green-500 to-green-600" },
-    { icon: <Brain className="w-12 h-12" />, title: "AI & ML", color: "from-purple-500 to-purple-600" },
-    { icon: <Shield className="w-12 h-12" />, title: "Cybersecurity", color: "from-red-500 to-red-600" },
-    { icon: <Zap className="w-12 h-12" />, title: "Marketing", color: "from-orange-500 to-orange-600" },
-    { icon: <Globe className="w-12 h-12" />, title: "Web Development", color: "from-teal-500 to-teal-600" },
+  const availableCourses = [
+    {
+      icon: <Brain className="w-12 h-12" />,
+      title: "Artificial Intelligence",
+      color: "from-purple-500 to-purple-600",
+      description: "Learn how machines can think, predict, and make decisions like humans.",
+      status: "Available Now",
+    },
+    {
+      icon: <Cpu className="w-12 h-12" />,
+      title: "Machine Learning",
+      color: "from-blue-500 to-blue-600",
+      description: "Master algorithms that enable systems to learn from data and improve over time.",
+      status: "Available Now",
+    },
+    {
+      icon: <Shield className="w-12 h-12" />,
+      title: "Cyber Security",
+      color: "from-red-500 to-red-600",
+      description: "Protect networks, systems, and data from modern digital threats.",
+      status: "Available Now",
+    },
+    {
+      icon: <Coffee className="w-12 h-12" />,
+      title: "Java",
+      color: "from-orange-500 to-orange-600",
+      description:
+        "Build robust, platform-independent applications with one of the most popular programming languages.",
+      status: "Available Now",
+    },
+    {
+      icon: <Cloud className="w-12 h-12" />,
+      title: "Salesforce",
+      color: "from-cyan-500 to-cyan-600",
+      description: "Get hands-on with the world's #1 CRM platform for business automation and customer success.",
+      status: "Available Now",
+    },
+    {
+      icon: <DollarSign className="w-12 h-12" />,
+      title: "Finance",
+      color: "from-green-500 to-green-600",
+      description: "Understand money, markets, and investment essentials for smart financial decision-making.",
+      status: "Available Now",
+    },
   ]
+
+  const comingSoonCourses = [
+    {
+      icon: <Globe className="w-12 h-12" />,
+      title: "Web Development",
+      color: "from-teal-500 to-teal-600",
+      description: "Design and build interactive, user-friendly websites and web apps.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <BarChart3 className="w-12 h-12" />,
+      title: "Data Science",
+      color: "from-indigo-500 to-indigo-600",
+      description: "Turn raw data into insights and business value with analytics and visualization.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <Bug className="w-12 h-12" />,
+      title: "Ethical Hacking",
+      color: "from-gray-500 to-gray-600",
+      description: "Learn to think like a hacker to defend systems and strengthen security.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <Cloud className="w-12 h-12" />,
+      title: "Cloud Computing",
+      color: "from-sky-500 to-sky-600",
+      description: "Explore scalable computing power, storage, and apps on the cloud.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <Code className="w-12 h-12" />,
+      title: "Python",
+      color: "from-yellow-500 to-yellow-600",
+      description: "Code smarter and faster with one of the most versatile programming languages.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <Database className="w-12 h-12" />,
+      title: "MySQL",
+      color: "from-blue-600 to-blue-700",
+      description: "Manage and organize data effectively with one of the most widely used databases.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <Layers className="w-12 h-12" />,
+      title: ".NET",
+      color: "from-purple-600 to-purple-700",
+      description: "Create powerful applications with Microsoft's trusted development framework.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <Settings className="w-12 h-12" />,
+      title: "DSA",
+      color: "from-red-600 to-red-700",
+      description: "Build the backbone of coding by mastering logic and efficiency.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <Smartphone className="w-12 h-12" />,
+      title: "Android Development",
+      color: "from-green-600 to-green-700",
+      description: "Build apps for the world's most widely used mobile OS.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <Users className="w-12 h-12" />,
+      title: "Human Resources",
+      color: "from-pink-500 to-pink-600",
+      description: "Gain the skills to manage people, talent, and organizational growth.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <Target className="w-12 h-12" />,
+      title: "Marketing",
+      color: "from-orange-600 to-orange-700",
+      description: "Understand consumer behavior and craft strategies to grow brands.",
+      status: "Coming Soon",
+    },
+    {
+      icon: <TrendingUp className="w-12 h-12" />,
+      title: "Digital Marketing",
+      color: "from-emerald-500 to-emerald-600",
+      description: "Master SEO, social media, ads, and analytics to dominate the digital space.",
+      status: "Coming Soon",
+    },
+  ]
+
+  const allCourses = [...availableCourses, ...comingSoonCourses]
 
   return (
     <section id="courses" className="py-16 md:py-24 bg-white overflow-hidden">
@@ -493,26 +631,62 @@ const CoursesSection = () => {
         <div className="relative">
           <motion.div
             className="flex gap-8"
-            animate={{ x: [0, -1600] }}
+            animate={{ x: [0, -2400] }}
             transition={{
-              duration: 20,
+              duration: 30,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
               repeatType: "loop",
             }}
           >
-            {[...courses, ...courses, ...courses].map((course, index) => (
+            {[...allCourses, ...allCourses, ...allCourses].map((course, index) => (
               <motion.div
                 key={index}
                 className="group cursor-pointer flex-shrink-0"
+                style={{ perspective: "1000px" }}
                 whileHover={{ scale: 1.1, y: -10 }}
                 transition={{ duration: 0.3 }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div
-                  className={`w-48 h-48 bg-gradient-to-br ${course.color} rounded-xl flex flex-col items-center justify-center text-white shadow-lg group-hover:shadow-2xl transition-all duration-300`}
+                  className="relative w-48 h-48 transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(180deg)]"
+                  style={{
+                    transformStyle: "preserve-3d",
+                  }}
                 >
-                  <div className="mb-4 group-hover:scale-110 transition-transform duration-300">{course.icon}</div>
-                  <h3 className="text-xl font-bold text-center">{course.title}</h3>
+                  {/* Front of card */}
+                  <div
+                    className={`absolute inset-0 w-48 h-48 bg-gradient-to-br ${course.color} rounded-xl flex flex-col items-center justify-center text-white shadow-lg group-hover:shadow-2xl transition-shadow duration-300`}
+                    style={{
+                      backfaceVisibility: "hidden",
+                      transform: "rotateY(0deg)",
+                    }}
+                  >
+                    <div className="mb-4 group-hover:scale-110 transition-transform duration-300">{course.icon}</div>
+                    <h3 className="text-xl font-bold text-center px-2">{course.title}</h3>
+                    <div
+                      className={`mt-2 px-2 py-1 rounded-full text-xs font-semibold ${
+                        course.status === "Available Now"
+                          ? "bg-green-500 bg-opacity-20 text-green-100"
+                          : "bg-yellow-500 bg-opacity-20 text-yellow-100"
+                      }`}
+                    >
+                      {course.status}
+                    </div>
+                  </div>
+
+                  {/* Back of card - Description only shows when flipped */}
+                  <div
+                    className={`absolute inset-0 w-48 h-48 bg-gradient-to-br ${course.color} rounded-xl flex flex-col items-center justify-center text-white shadow-lg group-hover:shadow-2xl transition-shadow duration-300 p-4`}
+                    style={{
+                      backfaceVisibility: "hidden",
+                      transform: "rotateY(180deg)",
+                    }}
+                  >
+                    <h3 className="text-lg font-bold text-center mb-3">{course.title}</h3>
+                    <p className="text-sm text-center leading-relaxed opacity-90">{course.description}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -522,6 +696,7 @@ const CoursesSection = () => {
     </section>
   )
 }
+
 
 // ==================== WHY US SECTION ====================
 const WhyUsSection = () => {
@@ -837,6 +1012,32 @@ const TestimonialsSection = () => {
 
 // ==================== COMMUNITY SECTION ====================
 const CommunitySection = () => {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const images = [
+    "/5.jpg",
+    "/6.jpg",
+    "/14.jpg",
+    "/15.jpg",
+    "/16.jpg",
+    "/17.jpg"
+  ]
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [images.length])
+
+  const goToPrevious = () => {
+    setActiveIndex(activeIndex === 0 ? images.length - 1 : activeIndex - 1)
+  }
+
+  const goToNext = () => {
+    setActiveIndex((activeIndex + 1) % images.length)
+  }
+
   return (
     <section className="py-16 md:py-24 bg-orange-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -851,21 +1052,60 @@ const CommunitySection = () => {
             Join thousands of learners, share knowledge, and grow together in our vibrant community
           </p>
 
-          {/* Video Placeholder */}
           <div className="relative w-full max-w-4xl mx-auto h-[400px] bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden mb-12">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center text-white">
-                <Play className="w-20 h-20 mx-auto mb-4 opacity-80" />
-                <h3 className="text-2xl font-bold mb-2">Community Highlights</h3>
-                <p className="text-lg">See our community in action</p>
+            {images.map((src, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out ${
+                  index === activeIndex
+                    ? "opacity-100 translate-x-0"
+                    : index < activeIndex
+                      ? "opacity-0 -translate-x-full"
+                      : "opacity-0 translate-x-full"
+                }`}
+              >
+                <Image
+                  src={src || "/12.jpg"}
+                  alt={`Community image ${index + 1}`}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  className="rounded-2xl"
+                />
               </div>
+            ))}
+
+            <button
+              onClick={goToPrevious}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 z-10"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </button>
+
+            <button
+              onClick={goToNext}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 z-10"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-6 h-6 text-white" />
+            </button>
+
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === activeIndex ? "bg-white scale-125" : "bg-white/50 hover:bg-white/70"
+                  }`}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
 
           <Button className="bg-white text-orange-600 hover:bg-gray-100 px-12 py-4 text-xl font-semibold rounded-full">
-            <Link href="/community">
-              Join the Onyx Community – Learn, Share, Grow
-            </Link>
+            <Link href="/community">Join the Onyx Community – Learn, Share, Grow</Link>
           </Button>
         </motion.div>
       </div>
