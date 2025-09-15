@@ -51,9 +51,9 @@ export default function Header() {
   }
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 transition-all duration-300 ">
+    <header className="w-full fixed top-0 left-0 z-50 transition-all duration-300">
       <div
-        className={`${isScrolled ? "bg-gradient-to-br from-blue-900 via-blue-800 to-orange-600" : "bg-slate-800/20"} backdrop-blur-sm text-white py-2 px-4 hidden md:block transition-all duration-300`}
+        className={`${isScrolled ? "bg-black" : "bg-slate-800/20"} backdrop-blur-sm text-white py-2 px-4 hidden md:block transition-all duration-300`}
       >
         <div className="w-full mx-auto flex flex-col md:flex-row items-center sm:justify-between lg:justify-center text-sm min-h-8 gap-x-8 gap-y-2">
           {/* Contact Info */}
@@ -107,20 +107,16 @@ export default function Header() {
 
       {/* Main Navigation - Transparent */}
       <div
-        className={`${isScrolled ? "bg-blue-800 shadow-lg text-white" : "bg-transparent"} backdrop-blur-sm transition-all duration-300 text-white`}
+        className={`${isScrolled ? " bg-black shadow-lg text-white" : "bg-transparent"} backdrop-blur-sm transition-all duration-300 text-white border-t border-white/50`}
       >
         <div className="w-full mx-auto px-2 sm:px-4 lg:px-6 text-white">
           <div className="flex justify-between lg:justify-center items-center h-20 lg:gap-x-8">
             <div className="flex">
               <Link href="/" className="flex items-center hover:scale-105 transform transition-transform duration-300">
                 <div
-                  className={`${isScrolled ? "bg-blue-900 p-2 rounded-lg shadow-md text-white" : ""} transition-all duration-300 text-white`}
+                  className={`${isScrolled ? "p-2 rounded-lg shadow-md text-white" : ""} transition-all duration-300 text-white`}
                 >
-                  <img
-                    src="/onyx_logo (1).png"
-                    alt="Onyx EduTech Logo"
-                    className="h-12 w-auto object-contain"
-                  />
+                  <img src="/onyx_logo (1).png" alt="Onyx EduTech Logo" className="h-12 w-auto object-contain" />
                 </div>
               </Link>
             </div>

@@ -45,7 +45,7 @@ import { Button } from "@/components/ui/button"
     const slides = [
       {
         welcomeText: "Welcome to Onyx EduTech",
-        src: "/1.jpg",
+        src: "/Gemini_Generated_Image_c36412c36412c364.png",
         title: "Wondering how to land your",
         subtitle: "dream job?",
         description: "Because the Right Role Deserves the Right Skill — For Every Student, Every Time.",
@@ -69,7 +69,7 @@ import { Button } from "@/components/ui/button"
       },
       {
         welcomeText: "Skills Over Marksheets",
-        src: "/2.jpg",
+        src: "/college-bg.webp",
         title: "Build Your Career on",
         subtitle: "Skills, Not Just Degrees",
         description: "Turning Potential into Placements, and Campuses into Career Launchpads.",
@@ -83,7 +83,7 @@ import { Button } from "@/components/ui/button"
       },
       {
         welcomeText: "Learning Community",
-        src: "/4.jpg",
+        src: "/Gemini_Generated_Image_887ug2887ug2887u.png",
         title: "Join Our Learning",
         subtitle: "Community",
         description: " Not Just Jobs — Building Careers That Truly Fit.",
@@ -179,7 +179,7 @@ import { Button } from "@/components/ui/button"
                 alt={slide.title}
                 fill
                 style={{ objectFit: "cover" }}
-                className="brightness-100 z-0"
+                className="brightness-40 z-0"
                 priority={index === 0}
                 onError={(e) => {
                   // Hide broken images to show gradient background
@@ -1039,7 +1039,7 @@ const CommunitySection = () => {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-orange-400">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-blue-900 via-blue-800 to-orange-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
