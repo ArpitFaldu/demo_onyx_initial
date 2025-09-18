@@ -96,17 +96,16 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 text-sm">
               {[
-                [
-                  ["Home", "#home"],
-                  ["About Us", "#about"],
-                  ["How You'll Learn", "#how-youll-learn"],
-                  ["Courses", "#courses"],
-                  ["Why Us", "#why-us"],
-                  ["Pricing", "#pricing"],
-                  ["Community", "#community"],
-                  ["Blogs", "#blogs"],
-                  ["Contact Us", "#contact"],
-                ],
+                ["Home", "#home"],
+                ["About Us", "#about"],
+                ["Team", "#People"],
+                ["How You'll Learn", "#how-youll-learn"],
+                ["Courses", "#courses"],
+                ["Why Us", "#why-us"],
+                ["Pricing", "#pricing"],
+                ["Community", "#community"],
+                ["Blogs", "#blogs"],
+                ["Contact Us", "#contact"],
               ].map((item, index) => (
                 <li key={index}>
                   <a
@@ -161,7 +160,7 @@ const Footer = () => {
                 CERTIFICATIONS
                 <span className="block w-10 h-0.5 bg-orange-400 mt-2 rounded-full"></span>
               </h4>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 <div className="bg-white/10 rounded-lg p-3 text-center hover:bg-white/20 transition-colors duration-300">
                   <div className="text-xs font-bold text-orange-400">DPIIT</div>
                   <div className="text-xs text-gray-300">Start-up India</div>
@@ -173,10 +172,6 @@ const Footer = () => {
                 <div className="bg-white/10 rounded-lg p-3 text-center hover:bg-white/20 transition-colors duration-300">
                   <div className="text-xs font-bold text-orange-400">NSDC</div>
                   <div className="text-xs text-gray-300">Certified</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center hover:bg-white/20 transition-colors duration-300">
-                  <div className="text-xs font-bold text-orange-400">IBM</div>
-                  <div className="text-xs text-gray-300">Partner</div>
                 </div>
               </div>
             </div>

@@ -310,7 +310,7 @@ const AboutSection = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <div className="relative w-full h-[250px] sm:h-[300px] lg:h-[400px] bg-gradient-to-br from-blue-900 to-orange-500 rounded-lg overflow-hidden shadow-2xl">
+      <div className="relative w-full h-[250px] sm:h-[300px] lg:h-[400px] bg-gradient-to-br from-blue-900 via-blue-800 to-orange-600 rounded-lg overflow-hidden shadow-2xl">
         <video className="absolute inset-0 w-full h-full object-cover" controls poster="/coo-message-thumbnail.jpg">
           <source src="/COO_Message.mp4" type="video/mp4"/>
           Your browser does not support the video tag.
@@ -393,7 +393,7 @@ const teamMembers = [
     id: 3,
     name: "Phani Kumar",
     position: "The Integrator  | CAO",
-    image: "/Phani_Kumar.jpg",
+    image: "/Phani_Kumar.jpeg",
     linkedin: "https://www.linkedin.com/in/phani-kumar-82b6b1286/",
   },
   {
@@ -414,7 +414,7 @@ const teamMembers = [
 
 const People=()=> {
   return (
-    <div className="min-h-200px bg-gradient-to-br from-slate-50 to-blue-50 py-16 px-4">
+    <div className="min-h-200px bg-gradient-to-br from-slate-50 to-blue-50 py-16 px-4" id="People">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center"
@@ -534,7 +534,7 @@ const HowYoullLearnSection = () => {
               whileHover={{ y: -10 }}
             >
               <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
-                <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-900 to-orange-500 rounded-full mb-4 sm:mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-800 via-blue-700 to-orange-500 rounded-full mb-4 sm:mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
                   <div className="text-white">{mode.icon}</div>
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-blue-900 mb-3 sm:mb-4 text-center">{mode.title}</h3>
@@ -801,7 +801,6 @@ const WhyUsSection = () => {
               { icon: <Award className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />, text: "DPIIT Recognized" },
               { icon: <CheckCircle className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />, text: "AICTE Approved" },
               { icon: <Star className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />, text: "NSDC Certified" },
-              { icon: <Users className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />, text: "IBM Partnership" },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -1118,9 +1117,9 @@ const TestimonialsSection = () => {
                   <div>
                     <h4 className="font-bold text-blue-900 text-base md:text-lg">{testimonials[currentIndex].name}</h4>
                     <p className="text-gray-600 text-sm md:text-base mb-1">{testimonials[currentIndex].role}</p>
-                    <Link href={testimonials[currentIndex].linkedin} className="text-blue-600 text-sm hover:underline">
+                    {/* <Link href={testimonials[currentIndex].linkedin} className="text-blue-600 text-sm hover:underline">
                       LinkedIn Profile
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </motion.div>
@@ -1442,7 +1441,7 @@ export default function HomePage() {
       <div id="about">
         <AboutSection />
       </div>
-      <div>
+      <div id="People">
         <People/>
       </div>
       <div id="how-youll-learn">
