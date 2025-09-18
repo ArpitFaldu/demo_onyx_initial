@@ -96,15 +96,17 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 text-sm">
               {[
-                ["Home", "#home"],
-                ["About Us", "#about"],
-                ["How You'll Learn", "#how-youll-learn"],
-                ["Courses", "#courses"],
-                ["Why Us", "#why-us"],
-                ["Pricing", "#pricing"],
-                ["Community", "#community"],
-                ["Blogs", "#blogs"],
-                ["Contact Us", "#contact"],
+                [
+                  ["Home", "#home"],
+                  ["About Us", "#about"],
+                  ["How You'll Learn", "#how-youll-learn"],
+                  ["Courses", "#courses"],
+                  ["Why Us", "#why-us"],
+                  ["Pricing", "#pricing"],
+                  ["Community", "#community"],
+                  ["Blogs", "#blogs"],
+                  ["Contact Us", "#contact"],
+                ],
               ].map((item, index) => (
                 <li key={index}>
                   <a
@@ -134,22 +136,22 @@ const Footer = () => {
                 <div className="p-2 rounded-lg bg-[#1a4b7c]">
                   <Phone size={14} />
                 </div>
-                <span className="font-medium">+91 98765 43210</span>
+                <span className="font-medium">+91 8977220902</span>
               </li>
               <li className="flex items-center gap-3 hover:text-orange-400 transition-colors duration-300">
                 <div className="p-2 rounded-lg bg-[#1a4b7c]">
                   <Mail size={14} />
                 </div>
-                <span className="font-medium">info@onyxedutech.com</span>
+                <span className="font-medium">support@onyxedutech.com</span>
               </li>
               <li className="flex items-start gap-3 hover:text-orange-400 transition-colors duration-300">
                 <div className="p-2 rounded-lg bg-[#1a4b7c] mt-0.5">
                   <MapPin size={14} />
                 </div>
                 <span className="font-medium leading-relaxed">
-                  Tech Hub, Innovation District,
+                  Ayyappa Society, Mega Hills,
                   <br />
-                  Bangalore, Karnataka 560001
+                  Madhapur, Hyderabad, Telangana 500081
                 </span>
               </li>
             </ul>

@@ -61,7 +61,7 @@ export default function Header() {
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4" />
               <span className="text-xs sm:text-sm">
-                <Link href="tel:+919876543210">Call us: +91 98765 43210</Link>
+                <Link href="tel:+918977220902">Call us: +91 8977220902</Link>
               </span>
             </div>
             <div className="hidden sm:flex items-center">
@@ -70,7 +70,7 @@ export default function Header() {
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4" />
               <span className="text-xs sm:text-sm">
-                <Link href="mailto:info@onyxedutech.com?Subject=Hello">Email: info@onyxedutech.com</Link>
+                <Link href="mailto:support@onyxedutech.com?Subject=Hello">Email: support@onyxedutech.com</Link>
               </span>
             </div>
           </div>

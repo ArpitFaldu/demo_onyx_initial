@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { ExternalLink } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   ChevronRight,
@@ -303,22 +304,27 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-20">
           <motion.div
-            className="relative order-2 lg:order-1"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="relative w-full h-[250px] sm:h-[300px] lg:h-[400px] bg-gradient-to-br from-blue-900 to-orange-500 rounded-lg overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-white px-4">
-                  <Play className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 mx-auto mb-2 sm:mb-4 opacity-80" />
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">COO's Message</h3>
-                  <p className="text-sm sm:text-base lg:text-lg">Mission, Vision & Journey</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+      className="relative order-2 lg:order-1"
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      <div className="relative w-full h-[250px] sm:h-[300px] lg:h-[400px] bg-gradient-to-br from-blue-900 to-orange-500 rounded-lg overflow-hidden shadow-2xl">
+        <video className="absolute inset-0 w-full h-full object-cover" controls poster="/coo-message-thumbnail.jpg">
+          <source src="/COO_Message.mp4" type="video/mp4"/>
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Overlay with title - shows when video is not playing */}
+        <div className="absolute inset-0 bg-black/30 flex items-center justify-center pointer-events-none">
+          <div className="text-center text-white px-4">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">COO's Message</h3>
+            <p className="text-sm sm:text-base lg:text-lg">Mission, Vision & Journey</p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
 
           <motion.div
             className="space-y-4 sm:space-y-6 order-1 lg:order-2"
@@ -363,7 +369,53 @@ const AboutSection = () => {
             </div>
           </motion.div>
         </div>
+      </div>
+    </section>
+  )
+}
 
+const teamMembers = [
+  {
+    id: 1,
+    name: "Pydimarry Jayasurya",
+    position: "The North Star | CEO",
+    image: "/Pydimarry_Jayasurya.jpg",
+    linkedin: "https://www.linkedin.com/in/pydimarry-jayasurya-ba5bb52b0/",
+  },
+  {
+    id: 2,
+    name: "Dheeraj Koyyada",
+    position: "The Hustle Architect | COO",
+    image: "/Dheeraj_Koyyada.jpeg",
+    linkedin: "https://www.linkedin.com/in/dheeraj-koyyada/",
+  },
+  {
+    id: 3,
+    name: "Phani Kumar",
+    position: "The Integrator  | CAO",
+    image: "/Phani_Kumar.jpg",
+    linkedin: "https://www.linkedin.com/in/phani-kumar-82b6b1286/",
+  },
+  {
+    id: 4,
+    name: "Khagendra Tiwari",
+    position: "The Rain Maker | Global Sales Head",
+    image: "/Khagendra_Tiwari.jpeg",
+    linkedin: "https://www.linkedin.com/in/khagendratiwari/",
+  },
+  {
+    id: 5,
+    name: "Debasrita Das",
+    position: "The Heartbeat | Human Resources Manager",
+    image: "/Debasrita_Das.jpeg",
+    linkedin: "https://www.linkedin.com/in/debasrita-das-164882191/",
+  },
+]
+
+const People=()=> {
+  return (
+    <div className="min-h-200px bg-gradient-to-br from-slate-50 to-blue-50 py-16 px-4">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -372,27 +424,48 @@ const AboutSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h3 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-8 sm:mb-12">Team @ Onyx</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {[1, 2, 3, 4].map((member) => (
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
+            {teamMembers.map((member, index) => (
               <motion.div
-                key={member}
+                key={member.id}
                 className="group cursor-pointer"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3 },
+                }}
+                onClick={() => window.open(member.linkedin, "_blank")}
               >
-                <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden bg-gradient-to-br from-blue-900 to-orange-500">
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                    <Users className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <img
+                    src={member.image || "/placeholder.svg"}
+                    alt={`${member.name} - ${member.position}`}
+                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+                    </div>
                   </div>
+                  <div className="absolute inset-0 ring-2 ring-transparent group-hover:ring-blue-400 rounded-full transition-all duration-300"></div>
                 </div>
-                <h4 className="font-semibold text-blue-900 text-sm sm:text-base">Team Member {member}</h4>
-                <p className="text-xs sm:text-sm text-gray-600">Position</p>
+                <div className="transform group-hover:-translate-y-1 transition-transform duration-300">
+                  <h4 className="font-semibold text-blue-900 text-sm sm:text-base group-hover:text-blue-700 transition-colors duration-300">
+                    {member.name}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                    {member.position}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   )
 }
 
@@ -1322,15 +1395,17 @@ const ContactSection = () => {
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center gap-3 sm:gap-4">
                   <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500" />
-                  <span className="text-white text-sm sm:text-base">+91 98765 43210</span>
+                  <span className="text-white text-sm sm:text-base">+91 8977220902</span>
                 </div>
                 <div className="flex items-center gap-3 sm:gap-4">
                   <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500" />
-                  <span className="text-white text-sm sm:text-base">info@onyxedutech.com</span>
+                  <span className="text-white text-sm sm:text-base">support@onyxedutech.com</span>
                 </div>
                 <div className="flex items-center gap-3 sm:gap-4">
                   <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500" />
-                  <span className="text-white text-sm sm:text-base">Bangalore, Karnataka, India</span>
+                  <span className="text-white text-sm sm:text-base">
+                    Ayyappa Society, Mega Hills, Madhapur, Hyderabad, Telangana 500081
+                  </span>
                 </div>
               </div>
             </div>
@@ -1349,19 +1424,13 @@ const ContactSection = () => {
                 ))}
               </div>
             </div>
-
-            <div className="w-full h-36 sm:h-40 lg:h-48 bg-white/10 rounded-lg flex items-center justify-center">
-              <div className="text-center text-white">
-                <MapPin className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 mx-auto mb-2 opacity-60" />
-                <p className="text-xs sm:text-sm opacity-80">Google Maps Integration</p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
     </section>
   )
 }
+
 
 // ==================== MAIN HOMEPAGE COMPONENT ====================
 export default function HomePage() {
@@ -1372,6 +1441,9 @@ export default function HomePage() {
       </div>
       <div id="about">
         <AboutSection />
+      </div>
+      <div>
+        <People/>
       </div>
       <div id="how-youll-learn">
         <HowYoullLearnSection />
