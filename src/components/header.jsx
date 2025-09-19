@@ -78,26 +78,16 @@ export default function Header() {
           {/* Social Media Icons */}
           <div className="flex items-center space-x-3">
             <Link
-              href="https://twitter.com/onyxedutech"
+              href="https://www.instagram.com/onyx_edutech"
               className="hover:text-orange-400 transition-colors duration-300 hover:scale-110 transform"
-            >
-              <Twitter className="h-4 w-4" />
-            </Link>
-            <Link
-              href="https://www.facebook.com/onyxedutech"
-              className="hover:text-orange-400 transition-colors duration-300 hover:scale-110 transform"
-            >
-              <Facebook className="h-4 w-4" />
-            </Link>
-            <Link
-              href="https://www.instagram.com/onyxedutech"
-              className="hover:text-orange-400 transition-colors duration-300 hover:scale-110 transform"
+              target="_blank"
             >
               <Instagram className="h-4 w-4" />
             </Link>
             <Link
-              href="https://www.linkedin.com/company/onyxedutech"
+              href="https://www.linkedin.com/company/onyxedutech/"
               className="hover:text-orange-400 transition-colors duration-300 hover:scale-110 transform"
+              target="_blank"
             >
               <Linkedin className="h-4 w-4" />
             </Link>
@@ -148,7 +138,7 @@ export default function Header() {
                   variant="outline"
                   className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-2 rounded-md font-medium transition-all duration-300 hover:scale-105 transform bg-transparent"
                 >
-                  <Link href="/register-student">Register as Student</Link>
+                  <Link href="/register-student">Login</Link>
                 </Button>
               </div>
             </nav>

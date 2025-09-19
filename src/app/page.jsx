@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { ExternalLink } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
@@ -284,6 +284,28 @@ const HeroSection = () => {
 
 // ==================== ABOUT SECTION COMPONENT ====================
 const AboutSection = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const handlePlay = () => setIsVideoPlaying(true)
+    const handlePause = () => setIsVideoPlaying(false)
+    const handleEnded = () => setIsVideoPlaying(false)
+
+    video.addEventListener("play", handlePlay)
+    video.addEventListener("pause", handlePause)
+    video.addEventListener("ended", handleEnded)
+
+    return () => {
+      video.removeEventListener("play", handlePlay)
+      video.removeEventListener("pause", handlePause)
+      video.removeEventListener("ended", handleEnded)
+    }
+  }, [])
+
   return (
     <section className="py-12 sm:py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -304,27 +326,33 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-20">
           <motion.div
-      className="relative order-2 lg:order-1"
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="relative w-full h-[250px] sm:h-[300px] lg:h-[400px] bg-gradient-to-br from-blue-900 via-blue-800 to-orange-600 rounded-lg overflow-hidden shadow-2xl">
-        <video className="absolute inset-0 w-full h-full object-cover" controls poster="/coo-message-thumbnail.jpg">
-          <source src="/COO_Message.mp4" type="video/mp4"/>
-          Your browser does not support the video tag.
-        </video>
+            className="relative order-2 lg:order-1"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="relative w-full h-[250px] sm:h-[300px] lg:h-[400px] bg-gradient-to-br from-blue-900 via-blue-800 to-orange-600 rounded-lg overflow-hidden shadow-2xl">
+              <video
+                ref={videoRef}
+                className="absolute inset-0 w-full h-full object-cover"
+                controls
+                poster="/thumb.jpg"
+              >
+                <source src="/COO_Message.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
 
-        {/* Overlay with title - shows when video is not playing */}
-        <div className="absolute inset-0 bg-black/30 flex items-center justify-center pointer-events-none">
-          <div className="text-center text-white px-4">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">COO's Message</h3>
-            <p className="text-sm sm:text-base lg:text-lg">Mission, Vision & Journey</p>
-          </div>
-        </div>
-      </div>
-    </motion.div>
+              {!isVideoPlaying && (
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center pointer-events-none transition-opacity duration-300">
+                  <div className="text-center text-white px-4">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">COO's Message</h3>
+                    <p className="text-sm sm:text-base lg:text-lg">Mission, Vision & Journey</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </motion.div>
 
           <motion.div
             className="space-y-4 sm:space-y-6 order-1 lg:order-2"
@@ -373,6 +401,7 @@ const AboutSection = () => {
     </section>
   )
 }
+
 
 const teamMembers = [
   {
@@ -557,21 +586,21 @@ const CoursesSection = () => {
       title: "Artificial Intelligence",
       color: "from-purple-500 to-purple-600",
       description: "Learn how machines can think, predict, and make decisions like humans.",
-      status: "Available Now",
+      // status: "Available Now",
     },
     {
       icon: <Cpu className="w-12 h-12" />,
       title: "Machine Learning",
       color: "from-blue-500 to-blue-600",
       description: "Master algorithms that enable systems to learn from data and improve over time.",
-      status: "Available Now",
+      // status: "Available Now",
     },
     {
       icon: <Shield className="w-12 h-12" />,
       title: "Cyber Security",
       color: "from-red-500 to-red-600",
       description: "Protect networks, systems, and data from modern digital threats.",
-      status: "Available Now",
+      // status: "Available Now",
     },
     {
       icon: <Coffee className="w-12 h-12" />,
@@ -579,21 +608,21 @@ const CoursesSection = () => {
       color: "from-orange-500 to-orange-600",
       description:
         "Build robust, platform-independent applications with one of the most popular programming languages.",
-      status: "Available Now",
+      // status: "Available Now",
     },
     {
       icon: <Cloud className="w-12 h-12" />,
       title: "Salesforce",
       color: "from-cyan-500 to-cyan-600",
       description: "Get hands-on with the world's #1 CRM platform for business automation and customer success.",
-      status: "Available Now",
+      // status: "Available Now",
     },
     {
       icon: <DollarSign className="w-12 h-12" />,
       title: "Finance",
       color: "from-green-500 to-green-600",
       description: "Understand money, markets, and investment essentials for smart financial decision-making.",
-      status: "Available Now",
+      // status: "Available Now",
     },
   ]
 
@@ -603,84 +632,84 @@ const CoursesSection = () => {
       title: "Web Development",
       color: "from-teal-500 to-teal-600",
       description: "Design and build interactive, user-friendly websites and web apps.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <BarChart3 className="w-12 h-12" />,
       title: "Data Science",
       color: "from-indigo-500 to-indigo-600",
       description: "Turn raw data into insights and business value with analytics and visualization.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <Bug className="w-12 h-12" />,
       title: "Ethical Hacking",
       color: "from-gray-500 to-gray-600",
       description: "Learn to think like a hacker to defend systems and strengthen security.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <Cloud className="w-12 h-12" />,
       title: "Cloud Computing",
       color: "from-sky-500 to-sky-600",
       description: "Explore scalable computing power, storage, and apps on the cloud.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <Code className="w-12 h-12" />,
       title: "Python",
       color: "from-yellow-500 to-yellow-600",
       description: "Code smarter and faster with one of the most versatile programming languages.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <Database className="w-12 h-12" />,
       title: "MySQL",
       color: "from-blue-600 to-blue-700",
       description: "Manage and organize data effectively with one of the most widely used databases.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <Layers className="w-12 h-12" />,
       title: ".NET",
       color: "from-purple-600 to-purple-700",
       description: "Create powerful applications with Microsoft's trusted development framework.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <Settings className="w-12 h-12" />,
       title: "DSA",
       color: "from-red-600 to-red-700",
       description: "Build the backbone of coding by mastering logic and efficiency.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <Smartphone className="w-12 h-12" />,
       title: "Android Development",
       color: "from-green-600 to-green-700",
       description: "Build apps for the world's most widely used mobile OS.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <Users className="w-12 h-12" />,
       title: "Human Resources",
       color: "from-pink-500 to-pink-600",
       description: "Gain the skills to manage people, talent, and organizational growth.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <Target className="w-12 h-12" />,
       title: "Marketing",
       color: "from-orange-600 to-orange-700",
       description: "Understand consumer behavior and craft strategies to grow brands.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
     {
       icon: <TrendingUp className="w-12 h-12" />,
       title: "Digital Marketing",
       color: "from-emerald-500 to-emerald-600",
       description: "Master SEO, social media, ads, and analytics to dominate the digital space.",
-      status: "Coming Soon",
+      // status: "Coming Soon",
     },
   ]
 
@@ -742,15 +771,6 @@ const CoursesSection = () => {
                       {course.icon}
                     </div>
                     <h3 className="text-base sm:text-xl font-bold text-center px-2">{course.title}</h3>
-                    <div
-                      className={`mt-2 px-2 py-1 rounded-full text-xs font-semibold ${
-                        course.status === "Available Now"
-                          ? "bg-green-500 bg-opacity-20 text-green-100"
-                          : "bg-yellow-500 bg-opacity-20 text-yellow-100"
-                      }`}
-                    >
-                      {course.status}
-                    </div>
                   </div>
 
                   <div
@@ -983,7 +1003,7 @@ const TestimonialsSection = () => {
       role: "UI/UX Designer at Kinichi",
       content:
         "Interning at Onyx Edutech was an enriching experience where I enhanced my UI/UX design skills through real-world projects. Collaborating with a supportive team and receiving constructive feedback improved my design thinking, user research, and prototyping abilities — boosting my confidence and marking a key milestone in my journey as a UI/UX designer.",
-      rating: 5,
+      // rating: 5,
       linkedin: "#",
     },
     {
@@ -991,7 +1011,7 @@ const TestimonialsSection = () => {
       role: "Backend Developer at Zelis",
       content:
         "Interning at Onyx Edutech was an enriching experience where I strengthened my backend development skills, especially in Node.js. Through real-world projects, a collaborative team, and constructive feedback, I gained practical expertise, improved problem-solving abilities, and boosted my confidence—making it a key milestone in my growth as a backend developer.",
-      rating: 5,
+      // rating: 5,
       linkedin: "#",
     },
     {
@@ -999,7 +1019,7 @@ const TestimonialsSection = () => {
       role: "Software Engineer at Deloitte",
       content:
         "Interning at Onyx Edutech was an enriching experience where I honed my backend skills. A supportive team and constructive feedback fueled my technical and professional growth, boosting my confidence and industry readiness. It was a pivotal step in my journey as a software engineer.",
-      rating: 5,
+      // rating: 5,
       linkedin: "#",
     },
     {
@@ -1007,7 +1027,7 @@ const TestimonialsSection = () => {
       role: "Full-stack Developer at TCS",
       content:
         "Interning at Onyx Edutech was a valuable experience that strengthened my full-stack development skills, with a strong focus on backend technologies. Collaborating on real-world projects alongside a supportive team and receiving constructive feedback significantly boosted my technical expertise, confidence, and industry readiness—marking a key milestone in my professional growth.",
-      rating: 5,
+      // rating: 5,
       linkedin: "#",
     },
     {
@@ -1015,7 +1035,7 @@ const TestimonialsSection = () => {
       role: "Salesforce Developer at KPMG",
       content:
         "Interning at Onyx Edutech was a valuable experience where I enhanced my backend development skills, especially in Salesforce. Working on real-world projects with a supportive team and receiving constructive feedback boosted my technical growth, confidence, and industry readiness. It was a key step in my professional development journey.",
-      rating: 5,
+      // rating: 5,
       linkedin: "#",
     },
     {
@@ -1023,7 +1043,7 @@ const TestimonialsSection = () => {
       role: "Backend Developer at Edwisely",
       content:
         "Interning at Onyx Edutech was a great experience. I enhanced my backend development skills, especially in Node.js, by working on real-world projects. The supportive team and constructive feedback helped me grow technically and professionally. It was a valuable learning opportunity that boosted my confidence and industry readiness.",
-      rating: 5,
+      // rating: 5,
       linkedin: "#",
     },
   ]
@@ -1073,7 +1093,7 @@ const TestimonialsSection = () => {
           {/* Navigation Arrows */}
           <button
             onClick={goToPrevious}
-            className="absolute -left-10 md:-left-12 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 rounded-full p-3 md:p-4 shadow-lg hover:shadow-xl transition-all duration-200 group z-10"
+            className="absolute -left-10 md:-left-12 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 rounded-full p-3 md:p-4 shadow-lg hover:shadow-xl transition-all duration-200 group z-10"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 text-blue-900 group-hover:text-blue-700" />
@@ -1081,7 +1101,7 @@ const TestimonialsSection = () => {
 
           <button
             onClick={goToNext}
-            className="absolute -right-10 md:-right-12 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 rounded-full p-3 md:p-4 shadow-lg hover:shadow-xl transition-all duration-200 group z-10"
+            className="absolute -right-10 md:-right-12 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 rounded-full p-3 md:p-4 shadow-lg hover:shadow-xl transition-all duration-200 group z-10"
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-6 h-6 md:w-7 md:h-7 text-blue-900 group-hover:text-blue-700" />
@@ -1099,11 +1119,6 @@ const TestimonialsSection = () => {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <div>
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
 
                   <p className="text-gray-700 mb-6 leading-relaxed text-sm md:text-base font-medium">
                     "{testimonials[currentIndex].content}"
@@ -1111,7 +1126,7 @@ const TestimonialsSection = () => {
                 </div>
 
                 <div className="flex items-center gap-3 md:gap-4">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-900 to-orange-500 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-900 to-orange-500 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-800 via-blue-700 to-orange-500">
                     <Users className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   </div>
                   <div>

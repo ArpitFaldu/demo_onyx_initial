@@ -33,33 +33,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="https://www.facebook.com/onyxedutech"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-orange-400 flex items-center gap-3 transition-all duration-300 hover:translate-x-1 group"
-                >
-                  <div className="p-2 rounded-lg bg-[#1a4b7c] group-hover:bg-orange-400 group-hover:text-[#0f3963] transition-all duration-300">
-                    <Facebook size={16} />
-                  </div>
-                  <span className="font-medium">Facebook</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://x.com/onyxedutech"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-orange-400 flex items-center gap-3 transition-all duration-300 hover:translate-x-1 group"
-                >
-                  <div className="p-2 rounded-lg bg-[#1a4b7c] group-hover:bg-orange-400 group-hover:text-[#0f3963] transition-all duration-300">
-                    <Twitter size={16} />
-                  </div>
-                  <span className="font-medium">Twitter</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/onyxedutech"
+                  href="https://www.instagram.com/onyx_edutech"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-orange-400 flex items-center gap-3 transition-all duration-300 hover:translate-x-1 group"
@@ -72,7 +46,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/company/onyxedutech"
+                  href="https://www.linkedin.com/company/onyxedutech/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-orange-400 flex items-center gap-3 transition-all duration-300 hover:translate-x-1 group"
