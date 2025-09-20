@@ -332,7 +332,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative w-full h-[250px] sm:h-[300px] lg:h-[400px] bg-gradient-to-br from-blue-900 via-blue-800 to-orange-600 rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[550px] bg-gradient-to-br from-blue-900 via-blue-800 to-orange-600 rounded-lg overflow-hidden shadow-2xl">
               <video
                 ref={videoRef}
                 className="absolute inset-0 w-full h-full object-cover"
@@ -381,11 +381,11 @@ const AboutSection = () => {
                 dreamers into entrepreneurs, innovators, and job-ready professionals.
               </p>
               <div className="flex flex-wrap items-center gap-2 sm:gap-4 pt-3 sm:pt-4">
-                <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-blue-900">
+                <div className="flex items-center w-full gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-blue-900">
                   <Award className="w-4 h-4 sm:w-5 sm:h-5" />
                   DPIIT Recognized
                 </div>
-                <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-blue-900">
+                <div className="flex items-center w-full gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-blue-900">
                   <Award className="w-4 h-4 sm:w-5 sm:h-5" />
                   AICTE Approved
                 </div>
@@ -838,7 +838,7 @@ const WhyUsSection = () => {
           </div>
 
           <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 text-base sm:text-lg lg:text-xl font-semibold rounded-full">
-            <Link href="/why-us">Learn More About Us</Link>
+            <Link href="#about">Learn More About Us</Link>
           </Button>
         </motion.div>
       </div>
@@ -1254,7 +1254,7 @@ const CommunitySection = () => {
           </div>
 
           <Button className="bg-white text-orange-600 hover:bg-gray-100 px-8 sm:px-10 lg:px-12 py-3 sm:py-4 text-base sm:text-lg lg:text-xl font-semibold rounded-full">
-            <Link href="/community">Join the Onyx Community – Learn, Share, Grow</Link>
+            <Link href="https://chat.whatsapp.com/EQalpEfMMeTIxGio8RsNrz?mode=ems_wa_t">Join the Onyx Community – Learn, Share, Grow</Link>
           </Button>
         </motion.div>
       </div>
