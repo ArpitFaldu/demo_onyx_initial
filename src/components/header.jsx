@@ -126,7 +126,7 @@ export default function Header() {
                 </a>
               ))}
 
-              <div className="flex items-center space-x-3 ml-4">
+              {/* <div className="flex items-center space-x-3 ml-4">
                 <Button
                   asChild
                   className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md font-medium transition-all duration-300 hover:scale-105 transform shadow-lg"
@@ -140,7 +140,7 @@ export default function Header() {
                 >
                   <Link href="/register-student">Login</Link>
                 </Button>
-              </div>
+              </div> */}
             </nav>
 
             {/* Mobile menu button */}
@@ -170,7 +170,7 @@ export default function Header() {
                   </a>
                 ))}
 
-                <div className="pt-4 space-y-2">
+                {/* <div className="pt-4 space-y-2">
                   <Button
                     asChild
                     onClick={toggleMenu}
@@ -186,7 +186,7 @@ export default function Header() {
                   >
                     <Link href="/register-student">Register as Student</Link>
                   </Button>
-                </div>
+                </div> */}
               </div>
             </div>
           )}

@@ -122,9 +122,7 @@ const Footer = () => {
                   <MapPin size={14} />
                 </div>
                 <span className="font-medium leading-relaxed">
-                  Ayyappa Society, Mega Hills,
-                  <br />
-                  Madhapur, Hyderabad, Telangana 500081
+                 Dwelling apartment, 1-98/9/25/p, Jai Hind Gandhi Rd, VIP Hills, Jaihind Enclave, Madhapur, Hyderabad, Telangana 500081
                 </span>
               </li>
             </ul>

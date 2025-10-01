@@ -58,14 +58,14 @@ const HeroSection = () => {
               Join Our Community
             </Link>
           </Button>
-          <Button
+          {/* <Button
             variant="outline"
             className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg font-semibold rounded-md transition-all duration-300 hover:scale-105 transform shadow-lg bg-transparent"
           >
             <Link href="#contact" className="flex items-center gap-2">
               Register as Student
             </Link>
-          </Button>
+          </Button> */}
         </div>
       ),
     },
@@ -1418,13 +1418,13 @@ const ContactSection = () => {
                 <div className="flex items-center gap-3 sm:gap-4">
                   <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500" />
                   <span className="text-white text-sm sm:text-base">
-                    Ayyappa Society, Mega Hills, Madhapur, Hyderabad, Telangana 500081
+                   Dwelling apartment, 1-98/9/25/p, Jai Hind Gandhi Rd, VIP Hills, Jaihind Enclave, Madhapur, Hyderabad, Telangana 500081
                   </span>
                 </div>
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <h4 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Quick Links</h4>
               <div className="grid grid-cols-2 gap-2">
                 {["FAQs", "Support", "Partnerships", "Careers"].map((link) => (
@@ -1437,7 +1437,7 @@ const ContactSection = () => {
                   </Link>
                 ))}
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
