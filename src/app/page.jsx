@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useEffect, useState, useRef } from "react"
 import { ExternalLink } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { cn } from "@/lib/utils";
 import {
   ChevronRight,
   ChevronLeft,
@@ -580,6 +581,17 @@ const HowYoullLearnSection = () => {
 // ==================== COURSES SECTION ====================
 const CoursesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null)
+ const [flippedIndex, setFlippedIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Detect mobile viewport to switch from hover-to-flip (desktop) to tap-to-flip (mobile)
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)")
+    const update = () => setIsMobile(mq.matches)
+    update()
+    mq.addEventListener?.("change", update)
+    return () => mq.removeEventListener?.("change", update)
+  }, [])
   const availableCourses = [
     {
       icon: <Brain className="w-12 h-12" />,
@@ -715,6 +727,9 @@ const CoursesSection = () => {
 
   const allCourses = [...availableCourses, ...comingSoonCourses]
 
+  // Slower marquee for readability; even slower on mobile
+  const marqueeDuration = isMobile ? 80 : 50
+
   return (
     <section id="courses" className="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -725,10 +740,10 @@ const CoursesSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900 mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900 mb-4 sm:mb-6 text-balance">
             Our Courses
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
             Industry-aligned curriculum designed to make you job-ready
           </p>
         </motion.div>
@@ -738,54 +753,86 @@ const CoursesSection = () => {
             className="flex gap-4 sm:gap-6 lg:gap-8"
             animate={{ x: [0, -2400] }}
             transition={{
-              duration: 30,
+              duration: marqueeDuration,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
               repeatType: "loop",
             }}
           >
-            {[...allCourses, ...allCourses, ...allCourses].map((course, index) => (
-              <motion.div
-                key={index}
-                className="group cursor-pointer flex-shrink-0"
-                style={{ perspective: "1000px" }}
-                whileHover={{ scale: 1.1, y: -10 }}
-                transition={{ duration: 0.3 }}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <div
-                  className="relative w-40 h-40 sm:w-48 sm:h-48 transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(180deg)]"
-                  style={{
-                    transformStyle: "preserve-3d",
+            {[...allCourses, ...allCourses, ...allCourses].map((course, index) => {
+              const isFlipped = isMobile && flippedIndex === index
+              return (
+                <motion.div
+                  key={index}
+                  className={cn("group flex-shrink-0 select-none", isMobile ? "cursor-default" : "cursor-pointer")}
+                  style={{ perspective: "1000px" }}
+                  whileHover={isMobile ? {} : { scale: 1.1, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  onMouseEnter={() => !isMobile && setHoveredIndex(index)}
+                  onMouseLeave={() => !isMobile && setHoveredIndex(null)}
+                  onClick={() => {
+                    if (!isMobile) return
+                    setFlippedIndex((prev) => (prev === index ? null : index))
+                  }}
+                  role={isMobile ? "button" : undefined}
+                  aria-pressed={isMobile ? (isFlipped ? "true" : "false") : undefined}
+                  tabIndex={isMobile ? 0 : -1}
+                  onKeyDown={(e) => {
+                    if (!isMobile) return
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault()
+                      setFlippedIndex((prev) => (prev === index ? null : index))
+                    }
                   }}
                 >
                   <div
-                    className={`absolute inset-0 w-40 h-40 sm:w-48 sm:h-48 bg-gradient-to-br ${course.color} rounded-xl flex flex-col items-center justify-center text-white shadow-lg group-hover:shadow-2xl transition-shadow duration-300`}
+                    className={cn(
+                      "relative w-40 h-40 sm:w-48 sm:h-48 transition-transform duration-700 ease-in-out",
+                      // Desktop: flip on hover; Mobile: flip based on state
+                      "md:group-hover:[transform:rotateY(180deg)]",
+                      isFlipped && "[transform:rotateY(180deg)]",
+                    )}
                     style={{
-                      backfaceVisibility: "hidden",
-                      transform: "rotateY(0deg)",
+                      transformStyle: "preserve-3d",
                     }}
                   >
-                    <div className="mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {course.icon}
+                    {/* Front */}
+                    <div
+                      className={cn(
+                        "absolute inset-0 w-40 h-40 sm:w-48 sm:h-48 bg-gradient-to-br rounded-xl flex flex-col items-center justify-center text-white shadow-lg transition-shadow duration-300",
+                        course.color,
+                        !isMobile && "group-hover:shadow-2xl",
+                      )}
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(0deg)",
+                      }}
+                    >
+                      <div className="mb-3 sm:mb-4 transition-transform duration-300 md:group-hover:scale-110">
+                        {course.icon}
+                      </div>
+                      <h3 className="text-base sm:text-xl font-bold text-center px-2">{course.title}</h3>
                     </div>
-                    <h3 className="text-base sm:text-xl font-bold text-center px-2">{course.title}</h3>
-                  </div>
 
-                  <div
-                    className={`absolute inset-0 w-40 h-40 sm:w-48 sm:h-48 bg-gradient-to-br ${course.color} rounded-xl flex flex-col items-center justify-center text-white shadow-lg group-hover:shadow-2xl transition-shadow duration-300 p-3 sm:p-4`}
-                    style={{
-                      backfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
-                    }}
-                  >
-                    <h3 className="text-sm sm:text-lg font-bold text-center mb-2 sm:mb-3">{course.title}</h3>
-                    <p className="text-xs sm:text-sm text-center leading-relaxed opacity-90">{course.description}</p>
+                    {/* Back */}
+                    <div
+                      className={cn(
+                        "absolute inset-0 w-40 h-40 sm:w-48 sm:h-48 bg-gradient-to-br rounded-xl flex flex-col items-center justify-center text-white shadow-lg transition-shadow duration-300 p-3 sm:p-4",
+                        course.color,
+                        !isMobile && "group-hover:shadow-2xl",
+                      )}
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                      }}
+                    >
+                      <h3 className="text-sm sm:text-lg font-bold text-center mb-2 sm:mb-3">{course.title}</h3>
+                      <p className="text-xs sm:text-sm text-center leading-relaxed opacity-90">{course.description}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              )
+            })}
           </motion.div>
         </div>
       </div>
