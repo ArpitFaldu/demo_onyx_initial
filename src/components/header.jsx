@@ -2,8 +2,7 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { Menu, X, Phone, Mail, Twitter, Facebook, Instagram, Linkedin } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Menu, X, Phone, Mail, Instagram, Linkedin } from "lucide-react"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -51,7 +50,7 @@ export default function Header() {
   }
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 transition-all duration-300">
+    <header className="w-full fixed top-0 left-0 z-[60] transition-all duration-300">
       <div
         className={`${isScrolled ? "bg-black" : "bg-slate-800/20"} backdrop-blur-sm text-white py-2 px-4 hidden md:block transition-all duration-300`}
       >
@@ -97,7 +96,7 @@ export default function Header() {
 
       {/* Main Navigation - Transparent */}
       <div
-        className={`${isScrolled ? " bg-black shadow-lg text-white" : "bg-transparent"} backdrop-blur-sm transition-all duration-300 text-white border-t border-white/50`}
+        className={`${isScrolled ? "bg-black shadow-lg text-white" : "bg-black/90 md:bg-transparent"} backdrop-blur-sm transition-all duration-300 text-white border-t border-white/50`}
       >
         <div className="w-full mx-auto px-2 sm:px-4 lg:px-6 text-white">
           <div className="flex justify-between lg:justify-center items-center h-20 lg:gap-x-8">
@@ -147,6 +146,8 @@ export default function Header() {
             <div className="lg:hidden">
               <button
                 onClick={toggleMenu}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-nav"
                 className={`p-2 hover:scale-110 transform transition-all duration-300 ${
                   isScrolled ? "text-blue-900 hover:text-orange-500" : "text-white hover:text-orange-400"
                 }`}
@@ -157,7 +158,10 @@ export default function Header() {
           </div>
 
           {isMenuOpen && (
-            <div className="lg:hidden border-t border-white/20 animate-in slide-in-from-top-2 duration-300 bg-black/80 backdrop-blur-sm rounded-b-lg">
+            <div
+              id="mobile-nav"
+              className="lg:hidden border-t border-white/20 animate-in slide-in-from-top-2 duration-300 bg-black/80 backdrop-blur-sm rounded-b-lg"
+            >
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {navLinks.map((link, index) => (
                   <a
